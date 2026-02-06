@@ -396,11 +396,20 @@ class DefaultValidator:
                 f"Payload contains reserved keys: {reserved_found}"
             )
     
-    def _validate_value_types(self, payload: Dict[str, Any], depth: int = 0) -> None:
+    # JSON-serializable types
+    JSON_TYPES = (str, int, float, bool, type(None), dict, list, tuple)
+    
+    def _validate_value_types(self, payload: Dict[str, Any]) -> None:
         """Validate all values are JSON-serializable types."""
         for key, value in payload.items():
             if not isinstance(key, str):
                 raise ValueError(f"All keys must be strings, got {type(key).__name__}")
+            
+            # Validate value is a JSON-serializable type
+            if not isinstance(value, self.JSON_TYPES):
+                raise ValueError(
+                    f"Value for key '{key}' is not JSON-serializable: {type(value).__name__}"
+                )
             
             if isinstance(value, str) and len(value) > self.MAX_STRING_LENGTH:
                 raise ValueError(
@@ -409,11 +418,16 @@ class DefaultValidator:
                 )
             
             if isinstance(value, dict):
-                self._validate_value_types(value, depth + 1)
+                self._validate_value_types(value)
             elif isinstance(value, (list, tuple)):
-                for item in value:
+                for i, item in enumerate(value):
+                    if not isinstance(item, self.JSON_TYPES):
+                        raise ValueError(
+                            f"Item at index {i} in key '{key}' is not JSON-serializable: "
+                            f"{type(item).__name__}"
+                        )
                     if isinstance(item, dict):
-                        self._validate_value_types(item, depth + 1)
+                        self._validate_value_types(item)
     
     def _validate_nesting_depth(self, payload: Dict[str, Any], depth: int = 0) -> None:
         """Validate payload nesting depth doesn't exceed maximum."""
