@@ -1,0 +1,155 @@
+NY DATA DEEP ANALYSIS - QUICK START GUIDE
+==========================================
+
+WHAT IS IT?
+-----------
+A comprehensive data analysis module for analyzing New York (NY) and other datasets.
+Provides statistical analysis, outlier detection, correlation analysis, and more.
+
+QUICK START
+-----------
+
+1. Run the demo:
+   python ny_analysis.py
+
+2. Run all examples:
+   python ny_analysis_example.py
+
+3. Use in your code:
+   from ny_analysis import NYDataAnalyzer
+   
+   data = [{"field1": 10, "field2": 20}, ...]
+   analyzer = NYDataAnalyzer(data)
+   results = analyzer.deep_analysis()
+
+FEATURES
+--------
+✓ Basic Statistics      - Mean, median, std, min, max, quartiles
+✓ Outlier Detection     - IQR and Z-score methods
+✓ Correlation Analysis  - Pearson correlation between fields
+✓ Trend Analysis        - Time-series trend detection
+✓ Insight Generation    - Human-readable insights
+✓ Export Results        - JSON format export
+
+KEY FUNCTIONS
+-------------
+
+analyzer.get_basic_statistics()
+  → Returns comprehensive stats for all fields
+
+analyzer.detect_outliers(field, method="iqr")
+  → Finds outliers in numeric field
+  → Methods: "iqr" or "zscore"
+
+analyzer.correlation_analysis(field1, field2)
+  → Calculates correlation between two fields
+
+analyzer.trend_analysis(field, time_field="timestamp")
+  → Analyzes trends over time
+
+analyzer.deep_analysis()
+  → Runs all analyses and generates insights
+
+analyzer.export_results(filename)
+  → Exports results to JSON file
+
+SAMPLE DATA
+-----------
+Use the built-in sample data generator:
+
+from ny_analysis import create_sample_ny_data
+data = create_sample_ny_data()  # Returns 100 sample records
+
+DATA FORMAT
+-----------
+Data should be a list of dictionaries:
+
+[
+  {"borough": "Manhattan", "value": 100, "rating": 4.5},
+  {"borough": "Brooklyn", "value": 85, "rating": 4.2},
+  ...
+]
+
+EXAMPLES IN CODE
+----------------
+
+# Example 1: Basic Analysis
+analyzer = NYDataAnalyzer(data)
+stats = analyzer.get_basic_statistics()
+print(f"Total records: {stats['total_records']}")
+
+# Example 2: Find Outliers
+outliers = analyzer.detect_outliers("value")
+print(f"Found {outliers['outlier_count']} outliers")
+
+# Example 3: Check Correlation
+corr = analyzer.correlation_analysis("cost", "rating")
+print(f"Correlation: {corr['correlation']:.3f}")
+
+# Example 4: Full Analysis
+results = analyzer.deep_analysis()
+for insight in results['insights']:
+    print(insight)
+
+# Example 5: Export Results
+analyzer.export_results("my_analysis.json")
+
+OUTPUT FILES
+------------
+When you run analyses, JSON files are created:
+- ny_analysis_results.json
+- Custom named files via export_results()
+
+These files contain:
+- All analysis results
+- Generated insights
+- Data summaries
+- Timestamps
+
+REQUIREMENTS
+------------
+- Python 3.8+
+- NumPy >= 1.26.0 (already in requirements.txt)
+
+Install dependencies:
+  pip install -r requirements.txt
+
+FULL DOCUMENTATION
+------------------
+For complete API reference and detailed examples:
+→ See NY_ANALYSIS_README.md
+
+TROUBLESHOOTING
+---------------
+Q: "No module named 'numpy'"
+A: Run: pip install -r requirements.txt
+
+Q: "No data available for analysis"
+A: Make sure to load data first:
+   analyzer.load_data(your_data)
+
+Q: "Error in correlation analysis"
+A: Ensure both fields are numeric
+
+USE CASES
+---------
+✓ Urban planning data analysis
+✓ Real estate market analysis
+✓ Transportation pattern studies
+✓ Healthcare data analytics
+✓ Education research
+✓ Any structured tabular data
+
+SUPPORT
+-------
+- Check NY_ANALYSIS_README.md for detailed documentation
+- See ny_analysis_example.py for 6 complete examples
+- Run python ny_analysis.py for a quick demo
+
+VERSION
+-------
+v1.0 - Initial Release (2026)
+
+========================================
+Ready to analyze your data!
+========================================
