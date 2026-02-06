@@ -2,6 +2,27 @@
 
 A collection of advanced AI terminal interfaces with cinematic visual effects, powered by Google's Gemini AI and Three.js/Canvas animations.
 
+## 🆕 New Feature: NY Data Deep Analysis Module
+
+**Comprehensive data analysis toolkit for New York datasets and beyond!**
+
+The project now includes a powerful data analysis module (`ny_analysis.py`) with capabilities for:
+- Statistical analysis (mean, median, std, quartiles)
+- Outlier detection (IQR and Z-score methods)
+- Correlation analysis
+- Trend detection
+- Automated insight generation
+
+**Quick Start:**
+```bash
+python ny_analysis.py                # Run demo
+python ny_analysis_example.py        # See all examples
+```
+
+**→ [READ NY ANALYSIS DOCUMENTATION](NY_ANALYSIS_README.md)**
+
+---
+
 ## 🎨 Available Versions
 
 ### 🌟 Version 4.0 - PRIMARY DIRECTIVE (NEW!)
