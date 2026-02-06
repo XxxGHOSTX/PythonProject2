@@ -1,0 +1,5 @@
+numpy>=1.26.0,<2.0
+flask>=3.0.0
+flask-cors>=4.0.0
+requests>=2.31.0
+# Add other optional dependencies here if you later require them (pillow, cryptography, etc.)

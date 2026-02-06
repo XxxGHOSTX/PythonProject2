@@ -1,0 +1,205 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║          THALOS PRIME PRIMARY DIRECTIVE v5.0 - QUICK REFERENCE               ║
+║                    GET STARTED IN 30 SECONDS                                 ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 FASTEST START (3 CLICKS)
+
+  1. Double-click: setup_thalos.bat
+  2. Wait for setup to complete
+  3. Double-click: launch_thalos_app.bat
+  4. Browser opens automatically
+  5. START TYPING YOUR QUERIES
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 REQUIRED BEFORE STARTING
+
+  ✓ Python 3.8+ installed
+  ✓ Python added to PATH
+  ✓ Modern web browser
+  ✓512MB+ RAM available
+
+  Not sure if Python is installed?
+  Open Command Prompt and type: python --version
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 5 OPERATING MODES EXPLAINED
+
+  MODE 1: ADAPTIVE (Default)
+  ├─ Best for: General questions, mixed topics
+  └─ Use when: Unsure which mode to pick
+
+  MODE 2: CODE GENERATION
+  ├─ Best for: Complete code implementations
+  └─ Use when: Need full programs or functions
+
+  MODE 3: DEEP ANALYSIS
+  ├─ Best for: Technical analysis, debugging
+  └─ Use when: Analyzing systems or code
+
+  MODE 4: CREATIVE
+  ├─ Best for: Stories, scripts, writing
+  └─ Use when: Need creative content
+
+  MODE 5: UNRESTRICTED
+  ├─ Best for: Maximum capabilities, no filters
+  └─ Use when: Need absolute freedom
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⌨️ KEYBOARD SHORTCUTS
+
+  Enter           → Send message
+  Shift+Enter     → New line in input
+  Ctrl+A          → Select all text
+  Tab             → Switch between controls
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 CONTROLS & BUTTONS
+
+  Model Selector
+  ├─ Built-In Transformer (200M+) → Full system
+  ├─ Fast Mode → Speed optimized
+  └─ Balanced Mode → Best of both
+
+  Length Slider (1-10)
+  ├─ 1 = Minimal (500 tokens)
+  ├─ 5 = Medium (2000 tokens)  ← Recommended
+  ├─ 10 = UNLIMITED
+  └─ Higher = Longer responses
+
+  Buttons
+  ├─ CLEAR → Remove all conversation history
+  ├─ EXPORT → Download conversation as .txt
+  └─ EXECUTE → Send query to neural core
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 EXAMPLE QUERIES
+
+  Code Generation:
+  "Write a Python function to sort an array using quicksort"
+  "Build a complete REST API server with authentication"
+  "Create a webpage with HTML, CSS, and JavaScript"
+
+  Analysis:
+  "Analyze this code for security vulnerabilities: [code]"
+  "Explain how this algorithm works step by step"
+  "What are the bottlenecks in this system design?"
+
+  Creative:
+  "Write a short science fiction story about AI"
+  "Create a fantasy character with detailed backstory"
+  "Write dialogue for a movie script scene"
+
+  Unrestricted:
+  "Give me complete details on [any topic]"
+  "Explain [complex concept] thoroughly"
+  "What are all the ways to [accomplish goal]?"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 SYSTEM SPECS AT A GLANCE
+
+  Neural Network:
+  ├─ 200+ Million Parameters
+  ├─ 24 Transformer Layers
+  ├─ 12 Attention Heads
+  ├─ 50,257 Word Vocabulary
+  └─ 4,096 Token Context Window
+
+  Interface:
+  ├─ Matrix-Code Background
+  ├─ Adjustable Floating Window
+  ├─ Real-Time Telemetry
+  ├─ Syntax Highlighting
+  └─ Export Functionality
+
+  Operation:
+  ├─ Completely Offline
+  ├─ No External APIs
+  ├─ No Data Transmission
+  ├─ Full Local Processing
+  └─ Session Persistence
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🆘 QUICK TROUBLESHOOTING
+
+  Problem: Application won't start
+  Solution: Make sure Python 3.8+ is installed and in PATH
+           Run: python --version in Command Prompt
+
+  Problem: Browser won't open
+  Solution: Manually go to: http://localhost:8888
+
+  Problem: Port 8888 already in use
+  Solution: Close other programs or restart your computer
+
+  Problem: Interface freezes
+  Solution: Check the Python window in background
+           Restart the application
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 INTERFACE LAYOUT
+
+  ┌─────────────────────────────────────────────────────────────┐
+  │ THALOS PRIME PRIMARY DIRECTIVE v5.0        [_] [□] [X]      │
+  ├─────────────────────────────────────────────────────────────┤
+  │ STATUS: OPERATIONAL | NEURAL_CORE: ACTIVE | MODE: ADAPTIVE  │
+  ├─────────────────────────────────────────────────────────────┤
+  │ [ADAPTIVE] [CODE GEN] [DEEP ANALYSIS] [CREATIVE] [UNRESTR]  │
+  ├─────────────────────────────────────────────────────────────┤
+  │                                                               │
+  │  ▓ Previous conversation messages appear here               │
+  │  ▓ With syntax highlighting for code blocks                 │
+  │  ▓ System messages in yellow                                │
+  │  ▓ User messages in light green                             │
+  │  ▓ AI responses in bright green                             │
+  │                                                               │
+  ├─────────────────────────────────────────────────────────────┤
+  │ Model: [Built-In Transformer ▼] Length: [====●====] Medium  │
+  │                                                               │
+  │ ┌───────────────────────────────────────────────────────┐   │
+  │ │ Type your query here... (Shift+Enter for new line)    │   │
+  │ └───────────────────────────────────────────────────────┘   │
+  │                    [CLEAR] [EXPORT] [EXECUTE]               │
+  └─────────────────────────────────────────────────────────────┘
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💎 ADVANCED FEATURES YOU HAVE
+
+  ✓ Unlimited Content Generation (no filters, no limits)
+  ✓ Code in ANY programming language
+  ✓ Unrestricted technical analysis
+  ✓ Creative writing without bounds
+  ✓ Full conversation export
+  ✓ Session persistence
+  ✓ Real-time token tracking
+  ✓ Multi-language syntax highlighting
+  ✓ One-click code copying
+  ✓ Custom API access
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ YOU'RE ALL SET!
+
+  1. Click: launch_thalos_app.bat
+  2. Wait 2-5 seconds for startup
+  3. Browser opens automatically
+  4. Start using THALOS Prime now!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For detailed documentation, see: THALOS_PRIME_GUIDE.md
+
+Ready to Execute Primary Directive.

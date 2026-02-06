@@ -1,0 +1,300 @@
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║                   ✅ THALOS SBI - INTERFACE UPGRADED                        ║
+║                                                                              ║
+║        Adjustable Window + Matrix Code + Digital Mind Environment            ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+
+✓ COMPLETE REDESIGN IMPLEMENTED
+
+Your floating window interface has been completely upgraded with:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 ADJUSTABLE FLOATING WINDOW
+
+✓ DRAGGABLE: Click and drag the window header to move it anywhere
+✓ RESIZABLE: Drag window edges to resize
+✓ INDEPENDENT: Fully separate from background
+✓ SEMI-TRANSPARENT: Can see background through it
+✓ ALWAYS ON TOP: Z-index 100 (above all backgrounds)
+✓ POSITION CONTROLLED: Position fixed, not transform-based
+✓ NO CONSTRAINTS: Can be moved outside viewport if desired
+
+HOW TO USE:
+  • Click header bar (⬡ THALOS SBI DIRECTORY ⬡) and drag to move
+  • Drag window edges to resize (native browser resize)
+  • Window maintains its position between interactions
+  • Perfect for multitasking or secondary viewing
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🌌 MATRIX CODE BACKGROUND
+
+✓ DIGITAL RAIN EFFECT: Authentic Matrix-style character rain
+✓ JAPANESE CHARACTERS: Mix of Katakana and other symbols
+✓ BINARY DIGITS: 0s and 1s flowing downward
+✓ GEOMETRIC SYMBOLS: Box drawing and geometric characters
+✓ SMOOTH ANIMATION: 60 FPS continuous motion
+✓ SEMI-TRANSPARENT: 30% opacity so it doesn't overwhelm
+✓ REAL-TIME: Characters randomly selected and fade naturally
+
+VISUAL EFFECT:
+  • Characters fall from top to bottom
+  • Random width columns for variety
+  • Fade in and recycle continuously
+  • Creates immersive digital rain effect
+  • Overlays on entire screen
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🧠 COMPUTER'S MIND DIGITAL WORLD (High Detail)
+
+NEURAL NETWORK:
+  ✓ 200 neural nodes (bright green points)
+  ✓ Intelligent connections between nearby neurons
+  ✓ Only connects within 150 units (realistic pathways)
+  ✓ Green interconnected web (like biological neural network)
+  ✓ Variable brightness and color variations
+
+DATA CUBES:
+  ✓ 15 detailed wireframe cubes
+  ✓ 30×30×30 unit dimensions
+  ✓ Semi-transparent green rendering
+  ✓ Randomly positioned throughout space
+  ✓ Represent data storage blocks
+
+CIRCUIT PATHS:
+  ✓ 5 complex curved circuit paths
+  ✓ Catmull-Rom curve rendering (smooth flowing lines)
+  ✓ 100 point curves for detail
+  ✓ Layered at different heights
+  ✓ Represent computational pathways
+
+PULSATING ORBS:
+  ✓ 8 energy spheres (15 unit radius)
+  ✓ Positioned in circular arrangement
+  ✓ Emissive material (glow effect)
+  ✓ Semi-transparent for layering
+  ✓ Represent processing centers/nodes
+
+CAMERA MOVEMENT:
+  ✓ Smooth orbital path around digital mind
+  ✓ Sine wave X motion (±150 units)
+  ✓ Cosine wave Y motion (±50 units + 50 base)
+  ✓ Sine wave Z motion (±100 units + 100 base)
+  ✓ Always looking toward center (0, 30, 0)
+  ✓ Creates immersive flying-through-mind sensation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎬 LAYERED VISUAL COMPOSITION
+
+LAYER STRUCTURE (back to front):
+  1. BLACK BACKGROUND (#000000)
+  2. THREE.JS 3D DIGITAL WORLD (z-index 1)
+     - Neural networks
+     - Data cubes
+     - Circuits
+     - Pulsating orbs
+     - Camera movement through mind
+  3. MATRIX CODE CANVAS (z-index 2, 30% opacity)
+     - Digital rain overlay
+     - Semi-transparent matrix effect
+  4. FLOATING WINDOW (z-index 100)
+     - Draggable and resizable
+     - Sits above everything
+     - Shows output and input
+
+VISUAL RESULT:
+  When you look at the screen, you see:
+  - Deep background: Complex 3D digital mind environment
+  - Mid-layer: Matrix code rain flowing
+  - Foreground: Interactive floating window
+  - Perfect depth and separation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 TECHNICAL SPECIFICATIONS
+
+CANVAS ELEMENTS:
+  • #canvas-container: Three.js WebGL renderer
+  • #matrix-canvas: 2D canvas for digital rain
+  • #digital-world-container: Parent for 3D scene
+
+THREE.JS SCENE:
+  • Scene size: 10,000 unit depth
+  • Camera type: Perspective (75° FOV)
+  • Renderer: WebGL with antialiasing
+  • Clear color: #000000 with 0.3 alpha
+  • 200 neural nodes + connections + 15 cubes + 5 circuits + 8 orbs
+
+MATRIX EFFECT:
+  • 2D Canvas 2D context
+  • Character set: Japanese katakana + binary + symbols
+  • Column count: Dynamic based on window width ÷ 10
+  • Update rate: 60 FPS requestAnimationFrame
+  • Opacity: 0.8 characters on 0.05 opacity background
+
+WINDOW DRAGGING:
+  • Event: mousedown on header
+  • Calculation: offset = clientX - offsetLeft
+  • Tracking: mousemove/mouseup listeners
+  • Real-time position update via style.left/style.top
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 USER INTERACTION
+
+MOVING THE WINDOW:
+  1. Position cursor on header bar
+  2. Click and hold left mouse button
+  3. Drag to desired location
+  4. Release to drop
+  5. Window stays in new position
+
+RESIZING THE WINDOW:
+  1. Position cursor on window edge
+  2. Native browser resize cursor appears
+  3. Click and drag to resize
+  4. Release when done
+  5. Window maintains new size
+
+TYPING QUERIES:
+  1. Click in textarea
+  2. Type your request
+  3. Press Ctrl+Enter or click EXECUTE
+  4. Response appears in output area
+  5. Window can be moved while waiting
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ VISUAL EXPERIENCE
+
+WHAT YOU'LL SEE WHEN YOU LAUNCH:
+
+1. BACKGROUND LOADS
+   - Black background appears
+   - 3D digital world starts rendering
+   - Camera begins moving through digital mind
+
+2. ELEMENTS APPEAR
+   - Green neural nodes light up
+   - Connections form between neurons
+   - Data cubes appear in space
+   - Circuit paths glow
+   - Energy orbs pulse
+
+3. MATRIX EFFECT
+   - Digital rain starts falling
+   - Characters cascade from top
+   - Semi-transparent overlay
+   - Continuous animation
+
+4. FLOATING WINDOW
+   - Green-bordered window appears
+   - Positioned at 10% from edges
+   - Shows system info and ready message
+   - Draggable header visible
+
+5. IMMERSIVE EXPERIENCE
+   - Deep 3D environment behind window
+   - Matrix code flowing
+   - Window floats above all effects
+   - Coordinates updating in real-time
+   - Professional cyberpunk aesthetic
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 TECHNICAL IMPLEMENTATION
+
+WINDOW DRAGGING CODE:
+```javascript
+function startDrag(e) {
+    isDragging = true;
+    const window_el = document.getElementById('floating-window');
+    dragOffsetX = e.clientX - window_el.offsetLeft;
+    dragOffsetY = e.clientY - window_el.offsetTop;
+    document.addEventListener('mousemove', dragWindow);
+    document.addEventListener('mouseup', stopDrag);
+}
+
+function dragWindow(e) {
+    if (!isDragging) return;
+    const window_el = document.getElementById('floating-window');
+    window_el.style.left = (e.clientX - dragOffsetX) + 'px';
+    window_el.style.top = (e.clientY - dragOffsetY) + 'px';
+}
+```
+
+MATRIX EFFECT CODE:
+```javascript
+const chars = '01アイウエオカキクケコサシスセソタチツテト...';
+// Draws random characters from this set
+// Fades and recycles naturally
+// 30% opacity for semi-transparent effect
+```
+
+DIGITAL WORLD CODE:
+```javascript
+// Three.js scene with:
+// - Neural network (200 nodes + connections)
+// - Data cubes (15 wireframe boxes)
+// - Circuits (5 curved paths)
+// - Pulsating orbs (8 energy spheres)
+// - Smooth camera movement through mind
+```
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ FEATURES CHECKLIST
+
+[✓] Adjustable floating window
+[✓] Draggable by header
+[✓] Resizable via native browser controls
+[✓] Separated from background
+[✓] Semi-transparent (shows background through it)
+[✓] Always on top (z-index 100)
+[✓] Matrix code digital rain
+[✓] Authentic falling characters
+[✓] Japanese characters + symbols
+[✓] Continuous animation
+[✓] Computer's mind digital world
+[✓] Neural network representation
+[✓] Data cube storage visualization
+[✓] Circuit paths
+[✓] Pulsating energy orbs
+[✓] High detail 3D rendering
+[✓] Smooth camera movement
+[✓] Real-time coordinate tracking
+[✓] Multiple rendering layers
+[✓] Professional visual composition
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 READY TO USE
+
+Simply launch the system as before:
+
+Location: C:\Users\LT\Desktop\THALOS PRIME\PythonProject2
+Launcher: launch_sbi_directory.bat
+
+The updated interface with:
+  ✓ Adjustable window
+  ✓ Matrix code background
+  ✓ Digital mind environment
+  ✓ High detail visualization
+  ✓ Full dragging capability
+
+is now ready for use!
+
+═══════════════════════════════════════════════════════════════════════════════
+
+                        THALOS SBI v5.0 UPGRADED
+
+              Matrix Code + Digital Mind + Adjustable Window
+                         Ready for Execution
+
+═══════════════════════════════════════════════════════════════════════════════

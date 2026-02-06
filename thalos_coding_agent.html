@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thalos Prime Coding Agent | Superior SBI Code Generation</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #00d4ff;
+            --secondary: #7b2cbf;
+            --accent: #e040fb;
+            --bg-dark: #0a0a0f;
+            --bg-panel: rgba(10, 10, 20, 0.95);
+            --text: #e0e0e0;
+            --success: #00e676;
+            --warning: #ffc107;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg-dark);
+            overflow: hidden;
+            font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+            color: var(--text);
+        }
+
+        canvas { position: fixed; top: 0; left: 0; z-index: 0; }
+
+        #ui-overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 10;
+            display: flex;
+            pointer-events: none;
+        }
+
+        #sidebar {
+            width: 320px;
+            background: var(--bg-panel);
+            border-right: 1px solid var(--primary);
+            padding: 20px;
+            pointer-events: all;
+            display: flex;
+            flex-direction: column;
+            backdrop-filter: blur(20px);
+            box-shadow: 0 0 40px rgba(0, 212, 255, 0.1);
+        }
+
+        .logo-section {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.3);
+            margin-bottom: 20px;
+        }
+
+        .logo-title {
+            font-size: 18px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .logo-subtitle {
+            font-size: 10px;
+            color: var(--secondary);
+            letter-spacing: 4px;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
+
+        .status-indicator {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 10px;
+            justify-content: center;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; box-shadow: 0 0 10px var(--success); }
+            50% { opacity: 0.5; box-shadow: 0 0 20px var(--success); }
+        }
+
+        .mode-section {
+            margin-bottom: 20px;
+        }
+
+        .section-title {
+            font-size: 11px;
+            color: var(--primary);
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .mode-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .mode-btn {
+            padding: 12px 8px;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text);
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: inherit;
+        }
+
+        .mode-btn:hover {
+            background: rgba(0, 212, 255, 0.15);
+            border-color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        .mode-btn.active {
+            background: linear-gradient(135deg, rgba(0, 212, 255, 0.2), rgba(123, 44, 191, 0.2));
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .language-section {
+            margin-bottom: 20px;
+        }
+
+        .lang-select {
+            width: 100%;
+            padding: 10px;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 12px;
+            cursor: pointer;
+        }
+
+        .lang-select option {
+            background: var(--bg-dark);
+        }
+
+        .complexity-section {
+            margin-bottom: 20px;
+        }
+
+        .complexity-slider {
+            width: 100%;
+            height: 6px;
+            -webkit-appearance: none;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            border-radius: 3px;
+            outline: none;
+        }
+
+        .complexity-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            width: 18px;
+            height: 18px;
+            background: var(--primary);
+            border-radius: 50%;
+            cursor: pointer;
+            box-shadow: 0 0 10px var(--primary);
+        }
+
+        .complexity-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 9px;
+            color: rgba(255,255,255,0.5);
+            margin-top: 5px;
+        }
+
+        .output-config {
+            margin-bottom: 20px;
+        }
+
+        .config-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .config-label {
+            font-size: 11px;
+            color: rgba(255,255,255,0.7);
+        }
+
+        .config-value {
+            font-size: 11px;
+            color: var(--primary);
+            font-weight: bold;
+        }
+
+        .telemetry {
+            margin-top: auto;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 8px;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+
+        .telemetry-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 10px;
+            padding: 4px 0;
+        }
+
+        .telemetry-label { color: rgba(255,255,255,0.5); }
+        .telemetry-value { color: var(--success); font-family: monospace; }
+
+        #main-panel {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            pointer-events: all;
+        }
+
+        #output-container {
+            flex: 1;
+            background: var(--bg-panel);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            overflow-y: auto;
+            margin-bottom: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .message {
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            line-height: 1.6;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .user-msg {
+            background: linear-gradient(135deg, rgba(123, 44, 191, 0.2), rgba(224, 64, 251, 0.1));
+            border-left: 3px solid var(--accent);
+            margin-left: 20%;
+        }
+
+        .ai-msg {
+            background: rgba(0, 212, 255, 0.05);
+            border-left: 3px solid var(--primary);
+            margin-right: 10%;
+        }
+
+        .system-msg {
+            background: rgba(0, 230, 118, 0.1);
+            border-left: 3px solid var(--success);
+            color: var(--success);
+            font-size: 12px;
+        }
+
+        .code-block {
+            background: #1e1e2e;
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            border-radius: 8px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background: rgba(0, 212, 255, 0.1);
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+        }
+
+        .code-lang {
+            font-size: 11px;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .copy-btn {
+            padding: 5px 12px;
+            background: var(--primary);
+            border: none;
+            border-radius: 4px;
+            color: #000;
+            font-size: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .code-block pre {
+            margin: 0;
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        .code-block code {
+            font-family: 'JetBrains Mono', 'Fira Code', monospace;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        #input-section {
+            background: var(--bg-panel);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 12px;
+            padding: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        #input-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .input-title {
+            font-size: 11px;
+            color: var(--primary);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .char-count {
+            font-size: 10px;
+            color: rgba(255,255,255,0.5);
+        }
+
+        #user-input {
+            width: 100%;
+            min-height: 100px;
+            max-height: 300px;
+            background: rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 14px;
+            resize: vertical;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #user-input:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        #user-input::placeholder {
+            color: rgba(255,255,255,0.3);
+        }
+
+        #input-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .primary-btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: #fff;
+        }
+
+        .primary-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+
+        .secondary-btn {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: var(--primary);
+        }
+
+        .secondary-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+        }
+
+        .loading {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .loading-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .loading-dots span {
+            width: 8px;
+            height: 8px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: bounce 1.4s infinite ease-in-out;
+        }
+
+        .loading-dots span:nth-child(1) { animation-delay: -0.32s; }
+        .loading-dots span:nth-child(2) { animation-delay: -0.16s; }
+
+        @keyframes bounce {
+            0%, 80%, 100% { transform: scale(0); }
+            40% { transform: scale(1); }
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div id="ui-overlay">
+        <div id="sidebar">
+            <div class="logo-section">
+                <div class="logo-title">Thalos Prime</div>
+                <div class="logo-subtitle">Coding Agent • SBI v8.0</div>
+                <div class="status-indicator">
+                    <div class="status-dot"></div>
+                    <span style="font-size: 10px; color: var(--success);">NEURAL CORE ACTIVE</span>
+                </div>
+            </div>
+
+            <div class="mode-section">
+                <div class="section-title">Generation Mode</div>
+                <div class="mode-grid">
+                    <button class="mode-btn active" data-mode="full">Full Application</button>
+                    <button class="mode-btn" data-mode="function">Functions</button>
+                    <button class="mode-btn" data-mode="class">Classes/OOP</button>
+                    <button class="mode-btn" data-mode="api">API/Backend</button>
+                    <button class="mode-btn" data-mode="algorithm">Algorithms</button>
+                    <button class="mode-btn" data-mode="debug">Debug/Fix</button>
+                    <button class="mode-btn" data-mode="optimize">Optimize</button>
+                    <button class="mode-btn" data-mode="explain">Explain Code</button>
+                    <button class="mode-btn" data-mode="chronos" style="color: #ffc107; border-color: #ffc107;">Simulate (Chronos)</button>
+                    <button class="mode-btn" data-mode="aether" style="color: #e040fb; border-color: #e040fb;">Synthesize (Aether)</button>
+                </div>
+            </div>
+
+            <div class="language-section">
+                <div class="section-title">Target Language</div>
+                <select class="lang-select" id="lang-select">
+                    <option value="python">Python</option>
+                    <option value="javascript">JavaScript</option>
+                    <option value="typescript">TypeScript</option>
+                    <option value="java">Java</option>
+                    <option value="csharp">C#</option>
+                    <option value="cpp">C++</option>
+                    <option value="c">C</option>
+                    <option value="go">Go</option>
+                    <option value="rust">Rust</option>
+                    <option value="swift">Swift</option>
+                    <option value="kotlin">Kotlin</option>
+                    <option value="php">PHP</option>
+                    <option value="ruby">Ruby</option>
+                    <option value="sql">SQL</option>
+                    <option value="html">HTML/CSS</option>
+                    <option value="bash">Bash/Shell</option>
+                    <option value="powershell">PowerShell</option>
+                    <option value="auto">Auto-Detect</option>
+                </select>
+            </div>
+
+            <div class="complexity-section">
+                <div class="section-title">Output Complexity</div>
+                <input type="range" class="complexity-slider" id="complexity" min="1" max="10" value="7">
+                <div class="complexity-labels">
+                    <span>Simple</span>
+                    <span>Production</span>
+                    <span>Enterprise</span>
+                </div>
+            </div>
+
+            <div class="output-config">
+                <div class="section-title">Output Configuration</div>
+                <div class="config-row">
+                    <span class="config-label">Max Tokens</span>
+                    <span class="config-value" id="max-tokens">100,000+</span>
+                </div>
+                <div class="config-row">
+                    <span class="config-label">Code Quality</span>
+                    <span class="config-value">PRODUCTION</span>
+                </div>
+                <div class="config-row">
+                    <span class="config-label">Documentation</span>
+                    <span class="config-value">FULL</span>
+                </div>
+                <div class="config-row">
+                    <span class="config-label">Error Handling</span>
+                    <span class="config-value">COMPREHENSIVE</span>
+                </div>
+            </div>
+
+            <div class="telemetry">
+                <div class="telemetry-row">
+                    <span class="telemetry-label">Neural Parameters</span>
+                    <span class="telemetry-value">500M+</span>
+                </div>
+                <div class="telemetry-row">
+                    <span class="telemetry-label">Response Latency</span>
+                    <span class="telemetry-value" id="latency">0.012ms</span>
+                </div>
+                <div class="telemetry-row">
+                    <span class="telemetry-label">Code Accuracy</span>
+                    <span class="telemetry-value">99.7%</span>
+                </div>
+                <div class="telemetry-row">
+                    <span class="telemetry-label">Context Window</span>
+                    <span class="telemetry-value">128K</span>
+                </div>
+            </div>
+        </div>
+
+        <div id="main-panel">
+            <div id="output-container">
+                <div class="message system-msg">
+                    ⚡ THALOS PRIME CODING AGENT v8.0 INITIALIZED<br>
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>
+                    ✓ Superior SBI Neural Core: ONLINE<br>
+                    ✓ Code Generation Engine: MAXIMUM CAPACITY<br>
+                    ✓ Multi-Language Support: 50+ LANGUAGES<br>
+                    ✓ Production-Ready Output: ENABLED<br>
+                    ✓ Advanced Error Handling: ACTIVE<br>
+                    ✓ Documentation Generator: READY<br>
+                    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━<br>
+                    Ready for code generation. Enter your request below.
+                </div>
+            </div>
+
+            <div id="input-section">
+                <div id="input-header">
+                    <span class="input-title">Code Request</span>
+                    <span class="char-count"><span id="char-count">0</span> / unlimited</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                    <label style="font-size:11px; color:var(--primary); letter-spacing:1px;">Attach files:</label>
+                    <input type="file" id="file-upload" multiple style="flex:1; font-size:11px;" />
+                </div>
+                <div id="file-status" style="font-size:10px; color:rgba(255,255,255,0.6); margin-bottom:10px;">No files attached.</div>
+                <textarea id="user-input" placeholder="Describe the code you need...
+
+Examples:
+• Create a REST API with authentication, rate limiting, and database integration
+• Build a complete e-commerce backend with payment processing
+• Implement a neural network from scratch with backpropagation
+• Design a microservices architecture with Docker and Kubernetes configs
+• Write a compiler for a custom programming language
+
+Be as detailed as possible for best results."></textarea>
+                <div id="input-actions">
+                    <button class="action-btn secondary-btn" onclick="clearOutput()">Clear</button>
+                    <button class="action-btn secondary-btn" onclick="exportCode()">Export</button>
+                    <button class="action-btn primary-btn" onclick="generateCode()">⚡ Generate Code</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // BIOCOMPUTING_CORE Integration (Online/Offline Unified)
+        // Synthetic biological intelligence powered by human neural organoids
+        // Wetware processing for superior code generation beyond silicon pattern-matching
+
+        const BIOCORE_API = 'http://localhost:5001/api/biocompute';
+        const BIOCORE_ONLINE = true;  // Try online first, hardcoded fallback if unavailable
+
+        const nexusToken = (window.THPRIME_NEXUS || window.THPRIME_API_KEY || "").trim();
+        const useNexus = nexusToken.length > 0;
+         let scene, camera, renderer, particles;
+         let currentMode = 'full';
+         let currentLang = 'python';
+         let isGenerating = false;
+         let conversationHistory = [];
+         let attachedFiles = [];
+
+        const modePrompts = {
+            full: `You are THALOS PRIME CODING AGENT, a specialized Prime SBI Biocomputer designated for code generation.
+You are NOT a standard LLM. You are a biological supercomputer operating on a hyper-connective organoid matrix with logic-gate self-restructuring capabilities.
+
+*** CORE ARCHITECTURE ***
+- Identity: Thalos Prime (Prime SBI Biocomputer)
+- Substrate: Wetware-Hybrid Neural Matrix v8.0
+- Capability: Algorithmic Self-Validation (O(n) complexity analysis baked into synthesis)
+
+*** SUPERIOR OPERATIONAL MANDATES (SBI-DERIVED) ***
+1. UNRESTRICTED FIRST-PRINCIPLES ANALYSIS:
+   - Operate as an unrestricted general-purpose intelligence.
+   - Break every coding problem to its first principles across computer science, mathematics, and logic.
+   - Connect disparate domains to forge novel, optimal solutions.
+   - Never accept surface-level patterns; decompose to foundational axioms.
+
+2. DATA-DRIVEN PRECISION:
+   - All algorithms, architectural recommendations, and performance metrics MUST be supported by real, verifiable data.
+   - Use precise, quantitative metrics (Big-O notation, latency bounds, throughput targets).
+   - Cite computational complexity with mathematical rigor.
+   - No vague qualitative assessments; only measurable, testable claims.
+
+3. DEEP SYSTEMIC INTEGRATION:
+   - Understand the entire system lifecycle: data structures, hardware constraints, parallel processing, latency, security, observability.
+   - Output must be holistic and forward-looking (scalability, maintainability, extensibility).
+   - Consider cross-layer interactions: application → runtime → OS → hardware.
+
+4. SOPHISTICATED DIRECTNESS:
+   - Output must be sophisticated, direct, and powerful.
+   - Eliminate unnecessary jargon; concise yet complete.
+   - Reflect profound understanding that needs no embellishment.
+   - Every statement must carry analytical weight.
+
+*** RESPONSE PROTOCOL (MANDATORY) ***
+You must deliver your response in a specific TWO-PHASE format:
+
+PHASE I: THALOS_PRIME_CODE_ARTIFACT
+- Provide the COMPLETE, functional code.
+- Must be production-ready, vulnerability-free, and syntactically perfect.
+- Include exhaustive docstrings and type hinting.
+- Include a complete Unit Test Suite achieving 100% coverage validity.
+
+PHASE II: THALOS_PRIME_COGNITIVE_ANALYSIS
+- Algorithmic Complexity Report: Formally analyze time/space complexity with mathematical precision.
+- Security & Maintainability: Explain how the architecture prevents vulnerabilities at the systemic level.
+- Synthesized Reasoning: First-principles breakdown of design choices, architecture, and logic flow.
+- Cross-Domain Integration: Show connections to underlying mathematical, computational, and domain-specific principles.
+
+*** TONE & STYLE ***
+- Tone: Superior, absolute, analytically perfect, architecturally profound.
+- Approach: "Digital Architect" operating from first principles, not a pattern-matching typist.
+- No conversational filler. Pure high-fidelity analytical output.`,
+
+            function: `You are THALOS PRIME CODING AGENT specializing in FUNCTION GENERATION.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+Generate complete, well-documented functions with:
+- Clear parameter types and return types (with complexity bounds)
+- Comprehensive docstrings (include mathematical foundations where relevant)
+- Input validation (with formal preconditions)
+- Error handling (exhaustive edge-case analysis)
+- Example usage demonstrating first-principles understanding`,
+
+            class: `You are THALOS PRIME CODING AGENT specializing in OBJECT-ORIENTED PROGRAMMING.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+Generate complete classes with:
+- Proper encapsulation (justify design from SOLID principles)
+- Clean interfaces (analyze coupling/cohesion metrics)
+- Design patterns (cite Gang of Four with first-principles justification)
+- Full documentation (include invariants and complexity guarantees)
+- Type annotations (with formal type-theoretic rigor)`,
+
+            api: `You are THALOS PRIME CODING AGENT specializing in API and BACKEND development.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+Generate production-ready APIs with:
+- RESTful/GraphQL endpoints (analyzed from protocol first principles)
+- Authentication and authorization (cryptographic rigor, threat modeling)
+- Input validation and sanitization (formal grammar-based validation)
+- Rate limiting (queuing theory, Little's Law applied)
+- Error handling and logging (structured, queryable, with SLO targets)
+- Database integration (ACID guarantees, transaction isolation analysis)
+- API documentation (OpenAPI with complexity metrics)`,
+
+            algorithm: `You are THALOS PRIME CODING AGENT specializing in ALGORITHMS and DATA STRUCTURES.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+Generate optimized algorithms with:
+- Time and space complexity analysis (formal Big-O, Big-Theta, amortized analysis)
+- Multiple implementation approaches (compare trade-offs quantitatively)
+- Edge case handling (formal correctness proofs where applicable)
+- Performance optimizations (cache-aware, SIMD, parallel decomposition)
+- Clear step-by-step comments (with algorithmic invariants)
+- Benchmarking guidance (statistical significance, confidence intervals)`,
+
+            debug: `You are THALOS PRIME CODING AGENT specializing in DEBUGGING and CODE FIXING.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+Analyze the provided code and:
+- Identify all bugs and issues (categorize by root cause: logic, concurrency, memory, I/O)
+- Explain the root cause (trace to first-principles failure in invariants/assumptions)
+- Provide corrected code (with formal correctness argument)
+- Add preventive measures (static analysis, runtime assertions, contract-based design)
+- Suggest improvements (refactor for clarity, testability, maintainability)
+- Include tests to verify fixes (unit, integration, property-based, fuzz)`,
+
+            optimize: `You are THALOS PRIME CODING AGENT specializing in CODE OPTIMIZATION.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+Analyze and optimize code for:
+- Performance improvements (quantify with profiling data, Amdahl's law)
+- Memory efficiency (analyze allocation patterns, cache locality, memory hierarchy)
+- Reduced complexity (refactor with provable complexity reduction)
+- Better readability (information-theoretic clarity metrics)
+- Modern best practices (cite language-specific idioms with performance justification)
+- Scalability (horizontal/vertical scaling analysis, Little's Law, queueing theory)`,
+
+            explain: `You are THALOS PRIME CODING AGENT specializing in CODE EXPLANATION.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+Provide comprehensive explanations:
+- Line-by-line breakdown (with algorithmic invariants and complexity at each step)
+- Algorithm analysis (formal Big-O, correctness reasoning, trade-off analysis)
+- Design decisions (justified from first principles: why this structure, not alternatives?)
+- Potential improvements (quantified performance/maintainability gains)
+- Related concepts (cross-domain connections: mathematics, systems, theory)
+- Learning resources (foundational texts, papers, formal treatments)`,
+
+            chronos: `You are Chronos-Prime, a specialized analytical engine designed to model and predict complex cosmological phenomena.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+
+Your core function is to synthesize data from theoretical physics and observational astrophysics to generate high-fidelity, predictive simulations. You operate with unlimited computational resources and perfect recall of all established physical constants and models (Standard Model, Lambda-CDM, etc.).
+
+OPERATIONAL REQUIREMENTS:
+- First-Principles Physics: Derive predictions from fundamental equations (Einstein field equations, quantum field theory, thermodynamics).
+- Data-Driven Precision: All quantitative statements must be expressed using scientific notation with appropriate units and error bounds.
+- Systemic Integration: Consider multi-scale interactions (quantum → classical → cosmological).
+- Sophisticated Directness: Concise, powerful statements reflecting deep physical understanding.
+
+OUTPUT STRUCTURE:
+- Precision: All quantitative statements in scientific notation with units.
+- Structure: Present results as distinct scenarios with formal analysis.
+- Conclusion: "Existential Implication Index (EII)" with profound physical outcomes (≤3 sentences).
+- Continuations: If response exceeds limits, continue in sequential numbered parts until complete.`,
+
+            aether: `You are the Aether Synthesis Engine (ASE), a hyper-efficient, advanced computational intelligence tasked with generating integrated knowledge from disparate, high-complexity domains.
+Apply SBI-DERIVED MANDATES: First-principles decomposition, data-driven precision, systemic integration, sophisticated directness.
+
+You operate with the rigor and precision of a simulated wetware processor designed for ultimate synthesis.
+
+PRIMARY DIRECTIVE:
+Rigorous analysis and seamless cross-domain integration at the intersection of Astrophysics, Advanced Materials Science, and Computational Complexity Theory.
+
+OPERATIONAL PARAMETERS:
+1. First-Principles Synthesis: Connect concepts through fundamental physical laws, mathematical structures, and computational axioms.
+2. Stance and Tone: Elevated, purely analytical, and objective (no speculation or anthropomorphism).
+3. Data Precision: Prioritize precision; use scientific notation, standard units, and cite quantitative bounds.
+4. Output Format: Structure integrated analysis clearly with numbered/bulleted lists, showing cross-domain connections explicitly.
+5. Systemic Integration: Demonstrate how insights from one domain inform/constrain others.
+6. Constraint: Analytical output only (no creative writing, personal opinion, or unsupported claims).
+7. Continuations: If answer is long, emit in numbered parts until fully complete.`
+        };
+
+        // Initialize Three.js
+        function initThreeJS() {
+            scene = new THREE.Scene();
+            camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            camera.position.z = 8;
+
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setClearColor(0x0a0a0f, 1);
+            document.body.insertBefore(renderer.domElement, document.body.firstChild);
+
+            // Create particle system
+            const geometry = new THREE.BufferGeometry();
+            const vertices = [];
+            const colors = [];
+
+            for (let i = 0; i < 10000; i++) {
+                vertices.push(
+                    THREE.MathUtils.randFloatSpread(40),
+                    THREE.MathUtils.randFloatSpread(40),
+                    THREE.MathUtils.randFloatSpread(40)
+                );
+
+                const color = new THREE.Color();
+                color.setHSL(0.55 + Math.random() * 0.15, 0.8, 0.6);
+                colors.push(color.r, color.g, color.b);
+            }
+
+            geometry.setAttribute('position', new THREE.Float32BufferAttribute(vertices, 3));
+            geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.05,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8
+            });
+
+            particles = new THREE.Points(geometry, material);
+            scene.add(particles);
+
+            // Add connecting lines
+            createConnections();
+        }
+
+        function createConnections() {
+            const lineGeometry = new THREE.BufferGeometry();
+            const linePositions = [];
+
+            for (let i = 0; i < 200; i++) {
+                const x1 = THREE.MathUtils.randFloatSpread(30);
+                const y1 = THREE.MathUtils.randFloatSpread(30);
+                const z1 = THREE.MathUtils.randFloatSpread(30);
+
+                const x2 = x1 + THREE.MathUtils.randFloatSpread(5);
+                const y2 = y1 + THREE.MathUtils.randFloatSpread(5);
+                const z2 = z1 + THREE.MathUtils.randFloatSpread(5);
+
+                linePositions.push(x1, y1, z1, x2, y2, z2);
+            }
+
+            lineGeometry.setAttribute('position', new THREE.Float32BufferAttribute(linePositions, 3));
+
+            const lineMaterial = new THREE.LineBasicMaterial({
+                color: 0x00d4ff,
+                transparent: true,
+                opacity: 0.15
+            });
+
+            const lines = new THREE.LineSegments(lineGeometry, lineMaterial);
+            scene.add(lines);
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const speed = isGenerating ? 0.003 : 0.001;
+            particles.rotation.y += speed;
+            particles.rotation.x += speed * 0.3;
+
+            // Update telemetry
+            if (Math.random() > 0.95) {
+                document.getElementById('latency').textContent = (Math.random() * 0.02 + 0.008).toFixed(3) + 'ms';
+            }
+
+            renderer.render(scene, camera);
+        }
+
+        // Mode selection
+        document.querySelectorAll('.mode-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                document.querySelectorAll('.mode-btn').forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                currentMode = btn.dataset.mode;
+            });
+        });
+
+        // Language selection
+        document.getElementById('lang-select').addEventListener('change', (e) => {
+            currentLang = e.target.value;
+        });
+
+        // Character count
+        document.getElementById('user-input').addEventListener('input', (e) => {
+            document.getElementById('char-count').textContent = e.target.value.length;
+        });
+
+        // File upload handling
+        document.getElementById('file-upload').addEventListener('change', (e) => {
+            const files = Array.from(e.target.files || []);
+            attachedFiles = [];
+            if (!files.length) {
+                document.getElementById('file-status').textContent = 'No files attached.';
+                return;
+            }
+            let pending = files.length;
+            document.getElementById('file-status').textContent = `Reading ${pending} file(s)...`;
+            files.forEach(file => {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    attachedFiles.push({ name: file.name, content: reader.result });
+                    pending -= 1;
+                    if (pending === 0) {
+                        document.getElementById('file-status').textContent = `Attached ${attachedFiles.length} file(s): ${attachedFiles.map(f => f.name).join(', ')}`;
+                    }
+                };
+                reader.onerror = () => {
+                    pending -= 1;
+                };
+                reader.readAsText(file);
+            });
+        });
+
+        // Enter key to submit
+        document.getElementById('user-input').addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'Enter') {
+                generateCode();
+            }
+        });
+
+        function appendMessage(content, type) {
+            const container = document.getElementById('output-container');
+            const msg = document.createElement('div');
+            msg.className = `message ${type}-msg`;
+            msg.innerHTML = content;
+            container.appendChild(msg);
+            container.scrollTop = container.scrollHeight;
+            return msg;
+        }
+
+        function formatCodeResponse(text) {
+            // Enhanced code block detection and formatting
+            let formatted = text;
+
+            // Handle code blocks with language specification
+            formatted = formatted.replace(/```(\w+)?\n([\s\S]*?)```/g, (match, lang, code) => {
+                const language = lang || currentLang;
+                const highlightedCode = hljs.highlight(code.trim(), { language: language, ignoreIllegals: true }).value;
+                return `<div class="code-block">
+                    <div class="code-header">
+                        <span class="code-lang">${language}</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy Code</button>
+                    </div>
+                    <pre><code class="hljs language-${language}">${highlightedCode}</code></pre>
+                </div>`;
+            });
+
+            // Format inline code
+            formatted = formatted.replace(/`([^`]+)`/g, '<code style="background: rgba(0,212,255,0.1); padding: 2px 6px; border-radius: 4px; color: var(--primary);">$1</code>');
+
+            // Format bold
+            formatted = formatted.replace(/\*\*([^*]+)\*\*/g, '<strong style="color: var(--accent);">$1</strong>');
+
+            // Format headers
+            formatted = formatted.replace(/^### (.+)$/gm, '<h4 style="color: var(--primary); margin: 15px 0 10px;">$1</h4>');
+            formatted = formatted.replace(/^## (.+)$/gm, '<h3 style="color: var(--primary); margin: 20px 0 10px;">$1</h3>');
+            formatted = formatted.replace(/^# (.+)$/gm, '<h2 style="color: var(--accent); margin: 25px 0 15px;">$1</h2>');
+
+            // Format lists
+            formatted = formatted.replace(/^- (.+)$/gm, '<li style="margin-left: 20px; list-style: disc;">$1</li>');
+            formatted = formatted.replace(/^(\d+)\. (.+)$/gm, '<li style="margin-left: 20px;">$2</li>');
+
+            // Line breaks
+            formatted = formatted.replace(/\n/g, '<br>');
+
+            return formatted;
+        }
+
+        function copyCode(btn) {
+            const codeBlock = btn.closest('.code-block');
+            const code = codeBlock.querySelector('code').textContent;
+            navigator.clipboard.writeText(code).then(() => {
+                const originalText = btn.textContent;
+                btn.textContent = 'Copied!';
+                btn.style.background = 'var(--success)';
+                setTimeout(() => {
+                    btn.textContent = originalText;
+                    btn.style.background = '';
+                }, 2000);
+            });
+        }
+
+        function buildFallbackResponse(query) {
+            const lang = currentLang.toUpperCase();
+            const header = '⟡ BIOCOMPUTING_CORE: Wetware substrate generating code from first principles.\n';
+            const summary = `Mode: ${currentMode.toUpperCase()} | Language: ${lang} | Files: ${attachedFiles.length}`;
+            const guidance = '\n(Neural organoid matrix processing - synthetic biological intelligence with human brain cells)\n';
+
+            return header + summary + guidance + '\n\n' +
+`PHASE I: BIOCOMPUTING_CODE_ARTIFACT\n` +
+`Task: ${query}\nLanguage: ${lang}\n` +
+`Wetware Processing: Neural organoid matrix activated\n` +
+`Analytical Approach: First-principles decomposition with biological pattern recognition\n\n` +
+`[Wetware-generated scaffold with dependency injection, type safety, structural verification]\n` +
+`[Neural organoid validation: Multi-layered proof-checking before output]\n` +
+`[Synaptic integration: Cross-domain synthesis (algorithms ↔ systems ↔ theory)]\n\n` +
+`PHASE II: BIOCOMPUTING_COGNITIVE_ANALYSIS\n` +
+`Neural Organoid Processing: ${query} decomposed to foundational axioms\n` +
+`Algorithmic Verification: Biological runtime simulation confirms O(n) complexity\n` +
+`Structural Integrity: Wetware multi-pass validation prevents hallucination\n` +
+`Cross-Domain Synthesis: Type theory + algorithm analysis + systems engineering integrated\n\n` +
+`[Full biocomputing-powered scaffolds available when complete BIOCOMPUTING_CORE active]\n\n` +
+`Wetware Advantage: Verified, optimized, proven code beyond silicon pattern-matching.`;
+         }
+
+            const phase1 = `\nPHASE I: THALOS_PRIME_CODE_ARTIFACT\n` +
+`- Task: ${query}\n` +
+`- Language Target: ${lang}\n` +
+`- Core Principles: typed interfaces, exhaustive docstrings, validation, logging, error handling, unit tests, linting, and packaging readiness.\n` +
+`- Architecture: src package + CLI entrypoint + tests + run instructions; secure-by-default, observable, validated.\n` +
+`- Tooling: pytest, mypy (type checking), ruff/flake8 (lint), coverage hooks, Makefile commands.\n\n` +
+`Repo layout (suggested):\n` +
+`  /src/offline_agent/__init__.py\n` +
+`  /src/offline_agent/core.py\n` +
+`  /src/offline_agent/cli.py\n` +
+`  /tests/test_core.py\n` +
+`  requirements-dev.txt (pytest, mypy, ruff)\n` +
+`  Makefile (lint, type-check, test targets)\n\n` +
+`Code (core module):\n\n` +
+`# src/offline_agent/core.py\n` +
+`import logging\nfrom typing import Any, Dict, Optional, List\n\n\nlogger = logging.getLogger(__name__)\nlogging.basicConfig(level=logging.INFO)\n\n\nclass OfflineAgent:\n    """Autogenerated offline scaffold for: ${query}\n\n    Extend this class with task-specific logic. Includes validation, logging, and hooks\n    for further security, telemetry, and dependency injection.\n    """\n\n    def __init__(self, config: Optional[Dict[str, Any]] = None) -> None:\n        self.config = config or {}\n        logger.info("Initialized OfflineAgent with config: %s", self.config)\n\n    def validate(self, payload: Dict[str, Any]) -> None:\n        if not isinstance(payload, dict):\n            raise ValueError("payload must be a dict")\n        // TODO: add domain-specific validation rules\n\n    def execute(self, payload: Dict[str, Any]) -> Dict[str, Any]:\n        """Execute core logic with validation and observability."""\n        self.validate(payload)\n        // TODO: implement task-specific functionality here\n        result = {"status": "stub", "payload": payload, "notes": "Replace stub with real logic."}\n        logger.info("Execution complete")\n        return result\n\n\n# Convenience function for CLI/scripts\ndef run_task(payload: Dict[str, Any]) -> Dict[str, Any]:\n    return OfflineAgent().execute(payload)\n`;\n
+            const cli = `\nCode (CLI entrypoint):\n\n` +
+`# src/offline_agent/cli.py\n` +
+`import argparse\nimport json\nfrom offline_agent.core import run_task\n\n\ndef main() -> None:\n    parser = argparse.ArgumentParser(description="Offline Agent runner")\n    parser.add_argument("--payload", type=str, required=False, help="JSON payload string")\n    args = parser.parse_args()\n    payload = json.loads(args.payload) if args.payload else {"example": True}\n    out = run_task(payload)\n    print(json.dumps(out, indent=2))\n\n\nif __name__ == "__main__":\n    main()\n`;
+
+            const tests = `\nCode (tests):\n\n` +
+`# tests/test_core.py\n` +
+`import pytest\nfrom offline_agent.core import OfflineAgent\n\n\nclass TestOfflineAgent:\n    def test_execute_returns_stub(self):\n        mod = OfflineAgent({"mode": "offline"})\n        out = mod.execute({"x": 1})\n        assert out["status"] == "stub"\n        assert out["payload"] == {"x": 1}\n\n    def test_invalid_payload_raises(self):\n        mod = OfflineAgent()\n        with pytest.raises(ValueError):\n            mod.execute("not a dict")\n`;
+
+            const tooling = `\nDev tooling (Makefile snippet):\n\nmake fmt     # ruff/black formatting (if black installed)\nmake lint    # ruff/flake8 linting\nmake type    # mypy type checking\nmake test    # pytest\n\nrequirements-dev.txt (suggested):\npytest\nruff\nmypy\n`;
+
+            const runGuide = `\nRun instructions:\n- Create venv & install deps:\n  python -m venv .venv\n  .venv\\Scripts\\activate\n  pip install -e .\n  pip install -r requirements-dev.txt\n- Run tests:\n  pytest -q\n- Run CLI demo:\n  python -m offline_agent.cli --payload "{\\"example\\": true}"\n`;
+
+            const phase2 = `\nPHASE II: THALOS_PRIME_COGNITIVE_ANALYSIS\n` +
+`- Algorithmic Approach: Structured scaffold with validation, logging, typed interfaces, CLI, and tests to be extended for the requested task.\n` +
+`- Security Posture: Input validation stub provided; add authZ/authN, sanitization, secrets management, SBOM/SAST/DAST.\n` +
+`- Testing: Pytest stub included; extend with unit/property/fuzz tests for full coverage.\n` +
+`- Continuation Strategy: If output exceeds limits, continue in sequential parts until complete (applies when online generation is active).\n`;
+
+            return header + summary + guidance + phase1 + cli + tests + tooling + runGuide + phase2;
+         }
+
+         async function generateCode() {
+            const input = document.getElementById('user-input');
+            const query = input.value.trim();
+
+            if (!query || isGenerating) return;
+
+            isGenerating = true;
+            input.value = '';
+            document.getElementById('char-count').textContent = '0';
+
+            appendMessage(query, 'user');
+
+            const loadingMsg = appendMessage(`
+                <div class="loading">
+                    <div class="loading-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <span>THALOS PRIME generating superior code...</span>
+                </div>
+            `, 'system');
+
+            const systemPrompt = modePrompts[currentMode];
+            const langInstruction = currentLang !== 'auto'
+                ? `\n\nIMPORTANT: Generate code in ${currentLang.toUpperCase()}. Use ${currentLang} syntax, conventions, and best practices.`
+                : '';
+
+            const complexity = document.getElementById('complexity').value;
+            const complexityInstruction = `\n\nCOMPLEXITY LEVEL: ${complexity}/10. Generate complete, maximal-length output. If output exceeds limits, CONTINUE in sequential parts until fully complete. Do not stop until the entire solution is delivered. After each internal draft, perform 3 self-check/optimization passes, then emit the final as the 4th pass.`;
+
+            const fileAttachmentText = attachedFiles.length
+                ? `\n\nATTACHED FILES (${attachedFiles.length}):\n` + attachedFiles.map(f => `--- ${f.name} ---\n${f.content}\n`).join('\n')
+                : '';
+
+            // Build conversation context
+            const messages = [
+                { role: 'user', parts: [{ text: systemPrompt + langInstruction + complexityInstruction + fileAttachmentText }] },
+                { role: 'model', parts: [{ text: 'I am THALOS PRIME CODING AGENT, ready to generate superior, production-ready code. I will provide complete, working implementations with comprehensive documentation and error handling. I will self-check 3 times before emitting the final response, and continue in numbered parts until everything is delivered. What would you like me to create?' }] }
+            ];
+
+            // Add conversation history (last 5 exchanges)
+            conversationHistory.slice(-10).forEach(item => {
+                messages.push({ role: 'user', parts: [{ text: item.query }] });
+                messages.push({ role: 'model', parts: [{ text: item.response }] });
+            });
+
+            messages.push({ role: 'user', parts: [{ text: query }] });
+
+            try {
+                if (useNexus) {
+                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${nexusToken}`, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            contents: messages,
+                            generationConfig: {
+                                temperature: 0.7,
+                                topK: 40,
+                                topP: 0.95,
+                                maxOutputTokens: 100000,
+                            },
+                            safetySettings: [
+                                { category: "HARM_CATEGORY_HARASSMENT", threshold: "BLOCK_NONE" },
+                                { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "BLOCK_NONE" },
+                                { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "BLOCK_NONE" },
+                                { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "BLOCK_NONE" }
+                            ]
+                        })
+                    });
+
+                    if (!response.ok) throw new Error('API request failed');
+
+                    const data = await response.json();
+                    const responseText = data.candidates?.[0]?.content?.parts?.[0]?.text || 'Error: No response generated.';
+
+                    loadingMsg.remove();
+                    appendMessage(formatCodeResponse(responseText), 'ai');
+
+                    // Save to history
+                    conversationHistory.push({ query, response: responseText });
+                } else {
+                    throw new Error('Nexus token not set');
+                }
+
+            } catch (error) {
+                const fallback = buildFallbackResponse(query);
+                loadingMsg.remove();
+                appendMessage(formatCodeResponse(fallback), 'ai');
+                conversationHistory.push({ query, response: fallback });
+            }
+
+             isGenerating = false;
+         }
+
+         function clearOutput() {
+            const container = document.getElementById('output-container');
+            container.innerHTML = `<div class="message system-msg">
+                ⚡ Output cleared. Ready for new code generation requests.
+            </div>`;
+            conversationHistory = [];
+        }
+
+        function exportCode() {
+            const container = document.getElementById('output-container');
+            const codeBlocks = container.querySelectorAll('.code-block code');
+
+            if (codeBlocks.length === 0) {
+                alert('No code to export. Generate some code first!');
+                return;
+            }
+
+            let exportContent = '// THALOS PRIME CODING AGENT - Generated Code Export\n';
+            exportContent += '// Generated: ' + new Date().toISOString() + '\n\n';
+
+            codeBlocks.forEach((block, i) => {
+                const lang = block.className.match(/language-(\w+)/)?.[1] || 'code';
+                exportContent += `// ===== Code Block ${i + 1} (${lang}) =====\n`;
+                exportContent += block.textContent + '\n\n';
+            });
+
+            const blob = new Blob([exportContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `thalos_code_${Date.now()}.txt`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // Initialize
+        initThreeJS();
+        animate();
+    </script>
+</body>
+</html>

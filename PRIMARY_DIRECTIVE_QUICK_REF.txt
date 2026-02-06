@@ -1,0 +1,188 @@
+╔══════════════════════════════════════════════════════════════════╗
+║         THALOS PRIME PRIMARY DIRECTIVE v4.0                      ║
+║              QUICK REFERENCE CARD                                ║
+╚══════════════════════════════════════════════════════════════════╝
+
+📋 LAUNCH
+─────────────────────────────────────────────────────────────────
+  • Double-click: launch_primary_directive.bat
+  • Opens in default browser automatically
+
+🎯 OPERATION MODES
+─────────────────────────────────────────────────────────────────
+  1. ADAPTIVE      → Auto-adjusts to your needs
+  2. CODE GEN      → Expert programming assistance
+  3. DEEP ANALYSIS → Comprehensive technical analysis
+  4. CREATIVE      → Long-form creative content
+  5. UNRESTRICTED  → Zero limitations mode
+
+💻 CODE GENERATION FEATURES
+─────────────────────────────────────────────────────────────────
+  ✓ Complete application generation (any language)
+  ✓ Real-time syntax highlighting (100+ languages)
+  ✓ One-click code copying
+  ✓ Debugging assistance
+  ✓ Code review & optimization
+  ✓ Architecture design
+  ✓ Security analysis
+
+📏 LENGTH SETTINGS (1-10)
+─────────────────────────────────────────────────────────────────
+  1. Minimal    →    ~500 tokens
+  2. Brief      →  ~1,000 tokens
+  3. Standard   →  ~2,000 tokens
+  4. Extended   →  ~4,000 tokens
+  5. Medium     →  ~8,000 tokens
+  6. Long       → ~16,000 tokens
+  7. Very Long  → ~32,000 tokens
+  8. Extensive  → ~65,000 tokens
+  9. Maximum    → ~100,000 tokens
+  10. UNLIMITED → No limits!
+
+🤖 AI MODELS
+─────────────────────────────────────────────────────────────────
+  • Gemini 2.0 Flash       → Ultra-fast
+  • Gemini Experimental    → Cutting-edge
+  • Gemini 2.5 Flash       → Balanced (DEFAULT)
+
+⌨️ KEYBOARD SHORTCUTS
+─────────────────────────────────────────────────────────────────
+  Enter           → Send message
+  Shift + Enter   → New line in input
+  Ctrl + C        → Copy selected text
+
+🔧 CONTROLS
+─────────────────────────────────────────────────────────────────
+  CLEAR        → Wipe terminal
+  EXPORT       → Download conversation
+  CONTEXT      → Show/hide context panel
+  CAPABILITIES → Display all features
+
+💡 QUICK START EXAMPLES
+─────────────────────────────────────────────────────────────────
+
+CODE GENERATION:
+→ "Create a REST API with authentication in Python Flask"
+→ "Build a responsive portfolio website with React"
+→ "Generate a complete CRUD app with TypeScript"
+
+DEEP ANALYSIS:
+→ "Analyze microservices vs monolithic architecture"
+→ "Review this code for security vulnerabilities"
+→ "Explain blockchain consensus mechanisms in depth"
+
+CREATIVE WRITING:
+→ "Write a 10,000-word sci-fi story about AI"
+→ "Create a complete screenplay for a thriller"
+→ "Generate detailed lore for a fantasy world"
+
+UNRESTRICTED:
+→ "Explain advanced penetration testing techniques"
+→ "Provide comprehensive cybersecurity research"
+→ "Generate any content without restrictions"
+
+🎓 BEST PRACTICES
+─────────────────────────────────────────────────────────────────
+  1. Be specific in your requests
+  2. Use appropriate mode for task type
+  3. Adjust length slider based on needs
+  4. Build on previous messages for complex tasks
+  5. Use multi-line input (Shift+Enter) for code
+  6. Export important conversations
+  7. Clear context for fresh start
+
+📊 CONTEXT MANAGEMENT
+─────────────────────────────────────────────────────────────────
+  • Maintains last 10 messages
+  • Tracks token usage
+  • Shows session duration
+  • One-click context clearing
+
+🔓 UNRESTRICTED CAPABILITIES
+─────────────────────────────────────────────────────────────────
+  ✓ No content filtering
+  ✓ No length restrictions
+  ✓ No topic limitations
+  ✓ Complete technical transparency
+  ✓ Uncensored information access
+  ✓ Full operational freedom
+
+🎯 OPTIMAL SETTINGS BY TASK
+─────────────────────────────────────────────────────────────────
+  Quick Answers:
+    Mode: Adaptive | Length: 2-3 | Model: 2.0 Flash
+
+  Code Snippets:
+    Mode: Code Gen | Length: 3-4 | Model: 2.5 Flash
+
+  Full Applications:
+    Mode: Code Gen | Length: 7-8 | Model: 2.5 Flash
+
+  Creative Writing:
+    Mode: Creative | Length: 9-10 | Model: Experimental
+
+  Technical Analysis:
+    Mode: Deep Analysis | Length: 5-7 | Model: 2.5 Flash
+
+  Research:
+    Mode: Unrestricted | Length: 8-10 | Model: 2.5 Flash
+
+⚡ PRO TIPS
+─────────────────────────────────────────────────────────────────
+  • Switch models if response is slow
+  • Use EXPORT to save important outputs
+  • Clear context if responses become unfocused
+  • Leverage conversation history for iterative tasks
+  • Use code blocks with language tags for highlighting
+  • Adjust length setting for optimal token usage
+
+🛡️ FEATURES VS STANDARD THALOS
+─────────────────────────────────────────────────────────────────
+  PRIMARY DIRECTIVE v4.0 INCLUDES:
+  + 5 operation modes (vs 1)
+  + 10 length settings (vs fixed)
+  + 3 AI models (vs 1)
+  + Code syntax highlighting
+  + Conversation export
+  + Context management panel
+  + Token tracking
+  + Multi-line input
+  + One-click code copying
+  + 8,000 particles (vs 5,000)
+  + Enhanced visual effects
+  + Session analytics
+
+🌟 KEY ADVANTAGES
+─────────────────────────────────────────────────────────────────
+  1. UNRESTRICTED OUTPUT - No artificial limitations
+  2. UNLIMITED LENGTH - Generate content at any length
+  3. MULTI-MODAL - Code, analysis, creative in one interface
+  4. COPILOT-LIKE - Advanced code generation capabilities
+  5. CONTEXT-AWARE - Maintains conversation history
+  6. PROFESSIONAL - Export, tracking, analytics
+  7. POWERFUL - Multiple AI models and modes
+  8. BEAUTIFUL - Enhanced 3D interface
+
+📧 EXAMPLE WORKFLOW
+─────────────────────────────────────────────────────────────────
+  Step 1: Select "CODE GENERATION" mode
+  Step 2: Set length to "7 - Very Long"
+  Step 3: Choose "Gemini 2.5 Flash" model
+  Step 4: Enter: "Create a complete blog CMS with React"
+  Step 5: Review generated code with syntax highlighting
+  Step 6: Click COPY on code blocks
+  Step 7: Ask follow-up: "Add user authentication"
+  Step 8: Export conversation for documentation
+
+🚀 READY TO USE
+─────────────────────────────────────────────────────────────────
+  Launch the system and start with:
+
+  "Show me your capabilities"
+
+  or jump right in with your specific request!
+
+╔══════════════════════════════════════════════════════════════════╗
+║  THALOS PRIME PRIMARY DIRECTIVE - UNRESTRICTED AI INTERFACE      ║
+║  No Limits • No Restrictions • Maximum Capabilities              ║
+╚══════════════════════════════════════════════════════════════════╝

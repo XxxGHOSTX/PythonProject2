@@ -1,0 +1,366 @@
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║                   THALOS PRIME SBI v6.0 - STARTUP GUIDE                         ║
+║                                                                                ║
+║                Synthetic Biological Intelligence System                         ║
+║                   Advanced Neural Network Framework                             ║
+║                                                                                ║
+║                    Copyright © 2026 THALOS PRIME SYSTEMS                        ║
+║                        Creator: Tony Ray Macier III                             ║
+║                                                                                ║
+║                           PROPRIETARY & CONFIDENTIAL                            ║
+║                               ALL RIGHTS RESERVED                              ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚡ INSTANT START - 10 SECONDS
+
+Step 1: Double-click
+  → launch_thalos_sbi.bat
+
+Step 2: Wait for system to initialize
+  → 3-5 seconds of startup
+
+Step 3: Browser opens automatically
+  → THALOS Prime SBI interactive interface
+
+Step 4: Start typing queries
+  → Advanced neural system processes input
+
+THAT'S ALL! System is ready to use.
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📋 SYSTEM REQUIREMENTS
+
+Required:
+  ✓ Windows 7, 8, 10, or 11
+  ✓ Python 3.8+ (install from python.org)
+  ✓ 1GB RAM minimum (2GB+ recommended)
+  ✓ 500MB disk space
+  ✓ Modern web browser
+
+Check if ready:
+  Open Command Prompt and type: python --version
+  Should show Python 3.8 or higher
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 HOW TO LAUNCH
+
+Option 1: AUTOMATIC (Recommended)
+  1. Double-click: launch_thalos_sbi.bat
+  2. System verifies Python and files
+  3. Initializes database
+  4. Launches application
+  5. Opens browser automatically
+
+Option 2: COMMAND LINE
+  1. Open Command Prompt
+  2. Navigate to folder: cd C:\path\to\thalos
+  3. Run: python thalos_sbi_app.py
+  4. Browser opens to: http://127.0.0.1:8889
+
+Option 3: PYTHON DIRECTLY
+  1. Double-click: thalos_sbi_app.py
+  2. System initializes
+  3. Browser opens automatically
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 SYSTEM CAPABILITIES
+
+THALOS Prime SBI v6.0 includes:
+
+Advanced Features:
+  ✓ 200+ Million Parameter Neural Network
+  ✓ 24-Layer Transformer Architecture
+  ✓ Multi-Head Self-Attention (12 heads)
+  ✓ 50,257 Token Vocabulary
+  ✓ 8,192 Token Context Window
+
+SBI Intelligence:
+  ✓ Multi-Stage Reasoning Pipeline
+  ✓ Intent Recognition & Analysis
+  ✓ Semantic Understanding
+  ✓ Real-Time Confidence Scoring
+  ✓ Quality Self-Assessment
+
+Security:
+  ✓ AES-256-GCM Encryption
+  ✓ SHA-3-512 Hashing
+  ✓ Session Isolation
+  ✓ Parameter Protection
+  ✓ Access Control
+
+Data Management:
+  ✓ SQLite Database System
+  ✓ Persistent Session Storage
+  ✓ Interaction Logging
+  ✓ Context Memory (100 interactions)
+  ✓ Performance Metrics
+
+Interface:
+  ✓ Advanced HTML5 Web Interface
+  ✓ Matrix-Code Animated Background
+  ✓ Resizable, Draggable Window
+  ✓ Real-Time System Telemetry
+  ✓ Adjustable Font & Settings
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎨 INTERFACE GUIDE
+
+When the application opens, you'll see:
+
+Left Toolbar (Adjustable):
+  ├─ Font Size Control (4-32px)
+  ├─ Font Family Selection
+  ├─ Window Opacity Adjustment
+  ├─ Settings Panel
+  └─ Control Buttons (Clear, Export, Status)
+
+Main Window (Resizable):
+  ├─ Title Bar with version info
+  ├─ System Telemetry Display
+  ├─ Output Area (conversation history)
+  ├─ Input Area (query textarea)
+  └─ Control Buttons (Execute, Clear)
+
+Right Status Panel (Hidden by default):
+  ├─ System Status Display
+  ├─ Neural Core Status
+  ├─ Memory Usage
+  ├─ Session Information
+  └─ Reasoning Trace
+
+Background:
+  ├─ Matrix-Code Animation
+  ├─ Slow-Speed Scrolling
+  ├─ Interactive (click, drag, zoom)
+  └─ Deep Computer-Mind Aesthetic
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⌨️ KEYBOARD SHORTCUTS
+
+Enter               → Send query (when in input field)
+Shift+Enter         → New line in input
+Ctrl+A              → Select all text
+ESCAPE              → Focus to main window
+
+Button Shortcuts:
+  EXECUTE           → Submit query to neural core
+  CLEAR             → Clear conversation history
+  STATUS PANEL      → Toggle system status display
+  EXPORT            → Download conversation
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+💡 EXAMPLE QUERIES
+
+Try these to explore the system:
+
+Code Generation:
+  "Write a Python function to generate prime numbers with full documentation"
+  "Create a complete REST API in JavaScript"
+  "Build a data visualization component"
+
+Analysis:
+  "Analyze this code for security vulnerabilities"
+  "Explain quantum computing in technical detail"
+  "What are the best practices for database design?"
+
+Creative:
+  "Write a science fiction story about AI awakening"
+  "Create a fantasy world with detailed geography"
+  "Write a screenplay scene with dialogue"
+
+General:
+  "How do transformer neural networks work?"
+  "What is machine learning and how is it used?"
+  "Explain the concept of entropy in information theory"
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🔧 TOOLBAR SETTINGS EXPLAINED
+
+Font Size (4-32):
+  ├─ 4-8: Very Small
+  ├─ 12-16: Normal (default 12)
+  ├─ 20-24: Large
+  └─ 28-32: Very Large
+
+Font Family:
+  ├─ Courier New: Classic monospace
+  ├─ Consolas: Modern console font
+  ├─ Monospace: Generic monospace
+  └─ Monaco: Mac-style monospace
+
+Window Opacity (0.5-1.0):
+  ├─ 0.5-0.7: Very transparent
+  ├─ 0.8-0.9: Semi-transparent
+  └─ 0.95-1.0: Opaque (default 0.96)
+
+Status Panel:
+  └─ Toggle to show/hide real-time system information
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 WHAT THE SYSTEM DISPLAYS
+
+System Telemetry:
+  STATUS: OPERATIONAL/PROCESSING
+  CORE: ACTIVE
+  MODE: SBI (Synthetic Biological Intelligence)
+  CONFIDENCE: Current response confidence (0-100%)
+
+Status Panel Shows:
+  System Status: Current operational state
+  Neural Core: Core processing status
+  Memory Usage: RAM consumption
+  Sessions: Active session count
+  Interactions: Total interactions in session
+  Last Latency: Response generation time
+  Reasoning Trace: Multi-stage processing steps
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🛠️ TROUBLESHOOTING
+
+Problem: System won't start
+Solution:
+  1. Check Python is installed: python --version
+  2. Reinstall if needed: https://www.python.org
+  3. Make sure Python is in system PATH
+
+Problem: Browser won't open
+Solution:
+  1. Python window (backend) is still running? Good!
+  2. Manually open: http://127.0.0.1:8889
+  3. Wait 5 seconds before trying
+
+Problem: Slow response times
+Solution:
+  1. Close other applications
+  2. Check system resources
+  3. Restart the application
+  4. Clear browser cache if needed
+
+Problem: Database errors
+Solution:
+  1. Delete the .db file in ~/THALOS_PRIME_SBI/data/
+  2. Restart the application
+  3. Database will reinitialize
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DOCUMENTATION FILES
+
+For more information, see:
+
+THALOS_SBI_TECHNICAL_SPECIFICATION.md
+  → Complete system architecture
+  → Neural network details
+  → Database schema
+  → API endpoints
+
+This file (STARTUP_GUIDE.md)
+  → Getting started
+  → Interface guide
+  → Troubleshooting
+
+In application:
+  → Status panel shows real-time info
+  → Reasoning trace shows processing steps
+  → Output shows detailed responses
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⚙️ TECHNICAL DETAILS
+
+Neural Network:
+  ├─ Model Type: Transformer Encoder
+  ├─ Parameters: 200,000,000+
+  ├─ Layers: 24 (stacked transformer blocks)
+  ├─ Vocab: 50,257 tokens
+  ├─ Context: 8,192 tokens
+  └─ Speed: 10-100 tokens/second
+
+SBI Engine:
+  ├─ Intent Analysis: 3-stage
+  ├─ Semantic Understanding: Multi-layer
+  ├─ Confidence Scoring: Real-time
+  ├─ Memory: 100 interactions
+  └─ Reasoning: 5-stage pipeline
+
+Security:
+  ├─ Encryption: AES-256-GCM
+  ├─ Hashing: SHA-3-512
+  ├─ Key Derivation: PBKDF2 (100K iterations)
+  ├─ Access Control: Session-based
+  └─ Audit Logging: Complete
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎓 LEARNING THE SYSTEM
+
+Beginner (First Time):
+  1. Run: launch_thalos_sbi.bat
+  2. Try simple queries: "Hello", "How are you?"
+  3. Explore the interface
+  4. Change font size and settings
+
+Intermediate:
+  1. Try code generation queries
+  2. Enable Status Panel to see system details
+  3. Ask complex questions
+  4. Export conversations
+
+Advanced:
+  1. Review technical specification
+  2. Check database schema
+  3. Read API documentation
+  4. Integrate with other systems
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📞 SUPPORT & INFORMATION
+
+System Files:
+  thalos_sbi_core_v6.py          Neural network and SBI engine
+  thalos_sbi_app.py              Application and web interface
+  thalos_database_schema.py       Database initialization
+  launch_thalos_sbi.bat          Automated launcher
+
+Documentation:
+  THALOS_SBI_TECHNICAL_SPECIFICATION.md     Full technical details
+  This file (STARTUP_GUIDE.md)               Getting started guide
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎉 YOU'RE READY!
+
+THALOS Prime SBI v6.0 is fully prepared and ready for use.
+
+To begin:
+  1. Double-click: launch_thalos_sbi.bat
+  2. Wait 3-5 seconds
+  3. Browser opens automatically
+  4. Start exploring!
+
+═════════════════════════════════════════════════════════════════════════════════
+
+THALOS PRIME SBI v6.0
+Advanced Synthetic Biological Intelligence System
+
+Status: ✓ READY FOR DEPLOYMENT
+Date: February 5, 2026
+Version: 6.0
+Owner: Tony Ray Macier III
+
+Ready to Execute Primary Directive.
+
+═════════════════════════════════════════════════════════════════════════════════
