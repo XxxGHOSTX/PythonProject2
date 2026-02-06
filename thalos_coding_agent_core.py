@@ -349,6 +349,18 @@ class Validator(Protocol):
 class DefaultValidator:
     """Default validation: type checking and basic constraints."""
     
+    # Reserved keys that have special meaning
+    RESERVED_KEYS = {'_meta', '_internal', '_system'}
+    
+    # Maximum payload size (number of keys)
+    MAX_PAYLOAD_SIZE = 1000
+    
+    # Maximum string value length
+    MAX_STRING_LENGTH = 100000
+    
+    # Maximum nesting depth
+    MAX_NESTING_DEPTH = 10
+    
     def validate(self, payload: Dict[str, Any]) -> None:
         """
         Validate payload structure and types.
@@ -363,8 +375,60 @@ class DefaultValidator:
         if not isinstance(payload, dict):
             raise TypeError(f"Expected dict, got {type(payload).__name__}")
         
-        # TODO: Add domain-specific validation rules
-        # Consider: JSON schema, Pydantic models, custom rules
+        # Domain-specific validation rules
+        self._validate_payload_size(payload)
+        self._validate_reserved_keys(payload)
+        self._validate_value_types(payload)
+        self._validate_nesting_depth(payload)
+    
+    def _validate_payload_size(self, payload: Dict[str, Any]) -> None:
+        """Validate payload doesn't exceed maximum size."""
+        if len(payload) > self.MAX_PAYLOAD_SIZE:
+            raise ValueError(
+                f"Payload exceeds maximum size: {len(payload)} > {self.MAX_PAYLOAD_SIZE}"
+            )
+    
+    def _validate_reserved_keys(self, payload: Dict[str, Any]) -> None:
+        """Validate payload doesn't contain reserved keys."""
+        reserved_found = self.RESERVED_KEYS.intersection(payload.keys())
+        if reserved_found:
+            raise ValueError(
+                f"Payload contains reserved keys: {reserved_found}"
+            )
+    
+    def _validate_value_types(self, payload: Dict[str, Any], depth: int = 0) -> None:
+        """Validate all values are JSON-serializable types."""
+        for key, value in payload.items():
+            if not isinstance(key, str):
+                raise ValueError(f"All keys must be strings, got {type(key).__name__}")
+            
+            if isinstance(value, str) and len(value) > self.MAX_STRING_LENGTH:
+                raise ValueError(
+                    f"String value for key '{key}' exceeds maximum length: "
+                    f"{len(value)} > {self.MAX_STRING_LENGTH}"
+                )
+            
+            if isinstance(value, dict):
+                self._validate_value_types(value, depth + 1)
+            elif isinstance(value, (list, tuple)):
+                for item in value:
+                    if isinstance(item, dict):
+                        self._validate_value_types(item, depth + 1)
+    
+    def _validate_nesting_depth(self, payload: Dict[str, Any], depth: int = 0) -> None:
+        """Validate payload nesting depth doesn't exceed maximum."""
+        if depth > self.MAX_NESTING_DEPTH:
+            raise ValueError(
+                f"Payload exceeds maximum nesting depth: {depth} > {self.MAX_NESTING_DEPTH}"
+            )
+        
+        for value in payload.values():
+            if isinstance(value, dict):
+                self._validate_nesting_depth(value, depth + 1)
+            elif isinstance(value, (list, tuple)):
+                for item in value:
+                    if isinstance(item, dict):
+                        self._validate_nesting_depth(item, depth + 1)
 
 
 @dataclass
@@ -437,7 +501,7 @@ class ThalosAgent:
             self.validator.validate(payload)
             logger.debug("Validation passed", extra={"payload": payload})
             
-            # Step 2: Process (TODO: implement task-specific logic)
+            # Step 2: Process payload with task-specific logic
             result = self._process(payload)
             
             # Step 3: Return
@@ -461,14 +525,38 @@ class ThalosAgent:
         Returns:
             Processing results
         """
-        # TODO: Implement task-specific functionality
-        # Consider: async/await for I/O, caching, batch processing
+        # Process payload and return structured result
+        # Extend this method with domain-specific logic:
+        # - async/await for I/O-bound operations
+        # - caching for repeated computations
+        # - batch processing for multiple items
+        
+        processed_payload = self._transform_payload(payload)
         
         return {
             "status": "success",
-            "payload": payload,
-            "notes": "Extend _process() with domain logic"
+            "payload": processed_payload,
+            "metadata": {
+                "mode": self.config.mode,
+                "debug": self.config.debug,
+                "keys_processed": len(payload)
+            }
         }
+    
+    def _transform_payload(self, payload: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Transform the payload for processing.
+        
+        Override this method to implement custom transformation logic.
+        
+        Args:
+            payload: Input data to transform
+            
+        Returns:
+            Transformed payload
+        """
+        # Default: return payload unchanged
+        return payload
 
 
 def run(payload: Dict[str, Any], config: Optional[Config] = None) -> Dict[str, Any]:
