@@ -163,7 +163,7 @@ class TestCodeGeneration:
             if not stripped or stripped.startswith('"""') or stripped.startswith("'''"):
                 continue
             # If line starts with //, it's wrong (but we need to exclude URLs and such)
-            if stripped.startswith('//') and not 'http://' in line and not 'https://' in line:
+            if stripped.startswith('//') and 'http://' not in line and 'https://' not in line:
                 pytest.fail(f"Found C++ style comment in Python code: {line}")
     
     def test_generated_code_has_reserved_keys_check_method(self):
