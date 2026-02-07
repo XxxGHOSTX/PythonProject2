@@ -20,12 +20,13 @@ Usage:
     python biocore_monitor.py --dashboard  # Interactive dashboard
 """
 
-import requests
-import time
-import sys
-from datetime import datetime
-from typing import Optional, Dict, Any, Tuple
 import logging
+import sys
+import time
+from datetime import datetime
+from typing import Any, Dict, Optional
+
+import requests
 
 # CONSTANTS
 DEFAULT_BASE_URL: str = "http://localhost:5001"
@@ -35,13 +36,10 @@ RESET_TIMEOUT: int = 10
 # Configure enhanced logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [BIOCORE_MONITOR] %(levelname)s: %(message)s',
-    handlers=[
-        logging.FileHandler('biocore_monitor.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s [BIOCORE_MONITOR] %(levelname)s: %(message)s",
+    handlers=[logging.FileHandler("biocore_monitor.log"), logging.StreamHandler()],
 )
-logger = logging.getLogger('BiocoreMonitor')
+logger = logging.getLogger("BiocoreMonitor")
 
 
 class BiocoreMonitor:
@@ -83,9 +81,7 @@ class BiocoreMonitor:
         logger.info(f"Initiating biocore reset: {reason}")
         try:
             response = requests.post(
-                f"{self.base_url}/api/reset",
-                json={"reason": reason},
-                timeout=RESET_TIMEOUT
+                f"{self.base_url}/api/reset", json={"reason": reason}, timeout=RESET_TIMEOUT
             )
             success = response.status_code == 200
             if success:
@@ -101,14 +97,12 @@ class BiocoreMonitor:
         """Send test query to biocore."""
         try:
             response = requests.post(
-                f"{self.base_url}/api/biocompute",
-                json={"query": query},
-                timeout=30
+                f"{self.base_url}/api/biocompute", json={"query": query}, timeout=30
             )
             if response.status_code == 200:
                 return response.json()
             return None
-        except:
+        except requests.RequestException:
             return None
 
     def print_status(self, status: Dict[str, Any]):
@@ -119,7 +113,7 @@ class BiocoreMonitor:
 
         # Server health
         health = status.get("server_health", {})
-        print(f"\nServer Health:")
+        print("\nServer Health:")
         print(f"  Request Count: {health.get('request_count', 0)}")
         print(f"  Error Count: {health.get('error_count', 0)}")
         print(f"  Uptime: {health.get('time_since_reset_seconds', 0):.2f}s")
@@ -127,14 +121,14 @@ class BiocoreMonitor:
 
         # Biocore info
         biocore = status.get("biocomputing_core", {})
-        print(f"\nBiocomputing Core:")
+        print("\nBiocomputing Core:")
         print(f"  Version: {biocore.get('version', 'Unknown')}")
         print(f"  Organoid Count: {biocore.get('organoid_count', 0):,}")
         print(f"  Total Queries: {biocore.get('total_queries', 0)}")
         print(f"  Avg Processing Time: {biocore.get('avg_processing_time_ms', 0):.2f}ms")
 
         # Configuration
-        print(f"\nAuto-Reset Configuration:")
+        print("\nAuto-Reset Configuration:")
         print(f"  Interval: {health.get('auto_reset_interval', 0)}s")
         print(f"  Error Threshold: {health.get('error_threshold', 0)}")
         print(f"  Request Limit: {health.get('request_limit_per_hour', 0)}/hour")
@@ -212,19 +206,24 @@ class BiocoreMonitor:
 
                 if result:
                     print(f"\nStatus: {result.get('status')}")
-                    response = result.get('response', {})
+                    response = result.get("response", {})
                     print(f"Domain: {response.get('domain')}")
                     print(f"Confidence: {response.get('confidence', 0):.0%}")
                     print(f"Processing Time: {response.get('processing_time_ms', 0):.2f}ms")
-                    print(f"\nResponse (first 200 chars):")
-                    print(response.get('text', '')[:200] + "...")
+                    print("\nResponse (first 200 chars):")
+                    print(response.get("text", "")[:200] + "...")
                 else:
                     print("ERROR: Query failed")
 
             elif choice == "4":
-                confirm = input("\nAre you sure you want to reset biocore? (yes/no): ").strip().lower()
+                confirm = (
+                    input("\nAre you sure you want to reset biocore? (yes/no): ").strip().lower()
+                )
                 if confirm == "yes":
-                    reason = input("Reason for reset (optional): ").strip() or "Manual reset from dashboard"
+                    reason = (
+                        input("Reason for reset (optional): ").strip()
+                        or "Manual reset from dashboard"
+                    )
                     print("\nResetting biocore...")
                     success = self.reset_biocore(reason)
                     if success:
@@ -249,13 +248,13 @@ def main():
     """Main entry point."""
     import argparse
 
-    parser = argparse.ArgumentParser(description='BIOCOMPUTING_CORE Monitor & Manager')
-    parser.add_argument('--url', type=str, default='http://localhost:5001', help='Biocore API URL')
-    parser.add_argument('--monitor', action='store_true', help='Start monitoring mode')
-    parser.add_argument('--interval', type=int, default=10, help='Monitoring interval (seconds)')
-    parser.add_argument('--reset', action='store_true', help='Reset biocore and exit')
-    parser.add_argument('--test', action='store_true', help='Send test query and exit')
-    parser.add_argument('--dashboard', action='store_true', help='Interactive dashboard')
+    parser = argparse.ArgumentParser(description="BIOCOMPUTING_CORE Monitor & Manager")
+    parser.add_argument("--url", type=str, default="http://localhost:5001", help="Biocore API URL")
+    parser.add_argument("--monitor", action="store_true", help="Start monitoring mode")
+    parser.add_argument("--interval", type=int, default=10, help="Monitoring interval (seconds)")
+    parser.add_argument("--reset", action="store_true", help="Reset biocore and exit")
+    parser.add_argument("--test", action="store_true", help="Send test query and exit")
+    parser.add_argument("--dashboard", action="store_true", help="Interactive dashboard")
 
     args = parser.parse_args()
 
@@ -275,7 +274,7 @@ def main():
         print("Sending test query...")
         result = monitor.send_test_query()
         if result:
-            print(f"✓ Test successful")
+            print("✓ Test successful")
             print(f"  Domain: {result.get('response', {}).get('domain')}")
             print(f"  Confidence: {result.get('response', {}).get('confidence', 0):.0%}")
             sys.exit(0)
@@ -303,5 +302,5 @@ def main():
             sys.exit(1)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

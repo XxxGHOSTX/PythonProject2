@@ -7,15 +7,12 @@ Last Enhanced: 2026-02-06
 """
 
 import http.server
-import socketserver
-import webbrowser
-import os
-from pathlib import Path
-import sys
 import logging
-from typing import Optional
-from datetime import datetime
-import time
+import os
+import socketserver
+import sys
+import webbrowser
+from pathlib import Path
 
 # CONSTANTS
 DEFAULT_PORT: int = 8080
@@ -24,20 +21,17 @@ DIRECTORY: Path = Path(__file__).parent
 # Configure enhanced logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [DEPLOY_SERVER] %(levelname)s: %(message)s',
-    handlers=[
-        logging.FileHandler('deploy_server.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s [DEPLOY_SERVER] %(levelname)s: %(message)s",
+    handlers=[logging.FileHandler("deploy_server.log"), logging.StreamHandler()],
 )
-logger = logging.getLogger('DeployServer')
+logger = logging.getLogger("DeployServer")
 
 # Port configuration
 PORT: int = DEFAULT_PORT
 # Allow override from environment variable or command-line argument
-if 'THALOS_PORT' in os.environ:
+if "THALOS_PORT" in os.environ:
     try:
-        PORT = int(os.environ['THALOS_PORT'])
+        PORT = int(os.environ["THALOS_PORT"])
         logger.info(f"Port set from environment: {PORT}")
     except ValueError as e:
         logger.warning(f"Invalid THALOS_PORT environment variable: {e}")
@@ -48,6 +42,7 @@ elif len(sys.argv) > 1:
     except ValueError as e:
         logger.warning(f"Invalid command-line port argument: {e}")
 
+
 class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     """Custom HTTP handler with CORS support and logging"""
 
@@ -57,14 +52,15 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def end_headers(self):
         """Function: end_headers"""
         # Add CORS headers for API requests
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS')
-        self.send_header('Access-Control-Allow-Headers', 'Content-Type')
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Access-Control-Allow-Methods", "GET, POST, OPTIONS")
+        self.send_header("Access-Control-Allow-Headers", "Content-Type")
         super().end_headers()
 
     def log_message(self, format, *args):
         """Override to use logger instead of stderr"""
         logger.info(f"{self.address_string()} - {format % args}")
+
 
 def main() -> None:
     """Function: main"""
@@ -76,18 +72,18 @@ def main() -> None:
 
     with socketserver.TCPServer(("", PORT), CustomHTTPRequestHandler) as httpd:
         base_url = f"http://localhost:{PORT}"
-        print(f"\n✅ Server running successfully!")
-        print(f"\n🌐 Available Interfaces:")
-        print(f"\n   [1] Terminal Edition (Green Matrix)")
+        print("\n✅ Server running successfully!")
+        print("\n🌐 Available Interfaces:")
+        print("\n   [1] Terminal Edition (Green Matrix)")
         print(f"       {base_url}/thalos_prime.html")
-        print(f"\n   [2] Celestial Navigator (Amber/Gold)")
+        print("\n   [2] Celestial Navigator (Amber/Gold)")
         print(f"       {base_url}/thalos_celestial.html")
-        print(f"\n   [3] Primary Directive (Advanced SBI)")
+        print("\n   [3] Primary Directive (Advanced SBI)")
         print(f"       {base_url}/thalos_prime_primary_directive.html")
-        print(f"\n   [4] ⚡ CODING AGENT (Superior Code Generation)")
+        print("\n   [4] ⚡ CODING AGENT (Superior Code Generation)")
         print(f"       {base_url}/thalos_coding_agent.html")
-        print(f"\n💡 Tip: Open multiple interfaces in different browser tabs!")
-        print(f"\n🛑 Press Ctrl+C to stop the server\n")
+        print("\n💡 Tip: Open multiple interfaces in different browser tabs!")
+        print("\n🛑 Press Ctrl+C to stop the server\n")
         print("=" * 60)
 
         # Ask user which version to open
@@ -122,7 +118,7 @@ def main() -> None:
                 print("✓ Opening all interfaces...\n")
             else:
                 print("✓ Server running without opening browser\n")
-        except:
+        except Exception:
             print("✓ Server running\n")
 
         try:
@@ -130,6 +126,7 @@ def main() -> None:
         except KeyboardInterrupt:
             print("\n\n🛑 Shutting down server...")
             print("Goodbye!\n")
+
 
 if __name__ == "__main__":
     main()

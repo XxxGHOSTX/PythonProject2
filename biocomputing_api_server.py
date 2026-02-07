@@ -19,17 +19,18 @@ Last Enhanced: 2026-02-06
 Optimization Level: Maximum
 """
 
-from flask import Flask, request, jsonify
-from flask_cors import CORS
 import logging
-from datetime import datetime
-import time
 import threading
+import time
+from datetime import datetime
 from functools import wraps
-from typing import Dict, Any, Optional, Tuple
+from typing import Any, Optional
+
+from flask import Flask, jsonify, request
+from flask_cors import CORS
 
 # Import biocomputing core
-from BIOCOMPUTING_CORE import get_biocomputing_core, BiologicalResponse
+from BIOCOMPUTING_CORE import get_biocomputing_core
 
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all Thalos web modules
@@ -49,13 +50,10 @@ REQUEST_LIMIT_PER_HOUR: int = 1000  # Soft limit, triggers warning
 # Configure enhanced logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [BIOCORE_API] %(levelname)s: %(message)s',
-    handlers=[
-        logging.FileHandler('biocore_api.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s [BIOCORE_API] %(levelname)s: %(message)s",
+    handlers=[logging.FileHandler("biocore_api.log"), logging.StreamHandler()],
 )
-logger = logging.getLogger('BIOCOMPUTING_API')
+logger = logging.getLogger("BIOCOMPUTING_API")
 
 
 def get_or_reset_biocore() -> Any:
@@ -80,7 +78,9 @@ def get_or_reset_biocore() -> Any:
             should_reset = True
             reset_reason = f"Error threshold ({AUTO_RESET_ERROR_THRESHOLD} errors)"
         elif biocore_request_count > REQUEST_LIMIT_PER_HOUR:
-            logger.warning(f"Request limit exceeded: {biocore_request_count} > {REQUEST_LIMIT_PER_HOUR}")
+            logger.warning(
+                f"Request limit exceeded: {biocore_request_count} > {REQUEST_LIMIT_PER_HOUR}"
+            )
             # Don't reset, just warn
 
         if should_reset:
@@ -100,6 +100,7 @@ def get_or_reset_biocore() -> Any:
 
 def auto_recover(f):
     """Decorator to automatically recover from errors."""
+
     @wraps(f)
     def decorated_function(*args, **kwargs):
         global biocore_error_count, biocore_request_count
@@ -119,16 +120,21 @@ def auto_recover(f):
                 get_or_reset_biocore()
 
             # Return error response
-            return jsonify({
-                "status": "error",
-                "message": str(e),
-                "recovery_attempted": biocore_error_count >= AUTO_RESET_ERROR_THRESHOLD
-            }), 500
+            return (
+                jsonify(
+                    {
+                        "status": "error",
+                        "message": str(e),
+                        "recovery_attempted": biocore_error_count >= AUTO_RESET_ERROR_THRESHOLD,
+                    }
+                ),
+                500,
+            )
 
     return decorated_function
 
 
-@app.route('/api/biocompute', methods=['POST'])
+@app.route("/api/biocompute", methods=["POST"])
 @auto_recover
 def biocompute():
     """
@@ -168,21 +174,29 @@ def biocompute():
         }
     }
     """
-    data = request.get_json()
+    data = request.get_json(silent=True) or {}
 
-    if not data or 'query' not in data:
-        return jsonify({
-            "status": "error",
-            "message": "Missing 'query' field in request"
-        }), 400
+    if not data or "query" not in data:
+        return jsonify({"status": "error", "message": "Missing 'query' field in request"}), 400
 
-    query = data['query']
-    context = data.get('context', None)
+    query = data["query"]
+    context = data.get("context", None)
 
     logger.info(f"Processing biocompute request #{biocore_request_count}: {query[:100]}...")
 
     # Get or reset biocore as needed
     core = get_or_reset_biocore()
+    if core is None:
+        return (
+            jsonify(
+                {
+                    "status": "error",
+                    "message": "BIOCOMPUTING_CORE unavailable",
+                    "recovery_attempted": False,
+                }
+            ),
+            503,
+        )
 
     # Process through biocomputing core
     response = core.process_query(query, context)
@@ -201,9 +215,8 @@ def biocompute():
             "verification": response.verification_status,
             "synaptic_patterns": response.synaptic_patterns,
             "cross_domain_connections": [
-                {"from": link[0], "to": link[1]}
-                for link in response.cross_domain_connections
-            ]
+                {"from": link[0], "to": link[1]} for link in response.cross_domain_connections
+            ],
         },
         "metadata": {
             "biocomputing_version": core.version,
@@ -213,63 +226,86 @@ def biocompute():
             "timestamp": datetime.now().isoformat(),
             "request_count": biocore_request_count,
             "time_since_reset_seconds": round(time_since_reset, 2),
-            "error_count": biocore_error_count
-        }
+            "error_count": biocore_error_count,
+        },
     }
 
-    logger.info(f"Request #{biocore_request_count} completed: {response.processing_time_ms:.2f}ms, confidence: {response.confidence:.0%}")
+    logger.info(
+        f"Request #{biocore_request_count} completed: {response.processing_time_ms:.2f}ms, confidence: {response.confidence:.0%}"
+    )
 
     return jsonify(result), 200
 
 
-@app.route('/api/status', methods=['GET'])
+@app.route("/api/status", methods=["GET"])
 @auto_recover
 def status():
     """Get BIOCOMPUTING_CORE status with auto-reset metrics."""
     core = get_or_reset_biocore()
+    if core is None:
+        return (
+            jsonify(
+                {
+                    "status": "error",
+                    "message": "BIOCOMPUTING_CORE unavailable",
+                    "timestamp": datetime.now().isoformat(),
+                }
+            ),
+            503,
+        )
     core_status = core.get_status()
 
     time_since_reset = time.time() - biocore_last_reset
-    time_until_reset = max(0, AUTO_RESET_INTERVAL - time_since_reset)
+    time_until_reset = int(max(0, AUTO_RESET_INTERVAL - time_since_reset))
 
-    return jsonify({
-        "status": "operational",
-        "biocomputing_core": {
-            "version": core_status["version"],
-            "substrate": core_status["substrate"],
-            "organoid_count": core_status["organoid_count"],
-            "synapse_density": core_status["synapse_density"],
-            "total_queries": core_status["total_queries"],
-            "avg_processing_time_ms": core_status["avg_processing_time_ms"]
-        },
-        "server_health": {
-            "request_count": biocore_request_count,
-            "error_count": biocore_error_count,
-            "time_since_reset_seconds": round(time_since_reset, 2),
-            "time_until_auto_reset_seconds": round(time_until_reset, 2),
-            "auto_reset_interval": AUTO_RESET_INTERVAL,
-            "error_threshold": AUTO_RESET_ERROR_THRESHOLD,
-            "request_limit_per_hour": REQUEST_LIMIT_PER_HOUR
-        },
-        "capabilities": core_status["capabilities"],
-        "knowledge_domains": [domain.value for domain in core_status["knowledge_domains"]],
-        "timestamp": datetime.now().isoformat()
-    }), 200
+    return (
+        jsonify(
+            {
+                "status": "operational",
+                "biocomputing_core": {
+                    "version": core_status["version"],
+                    "substrate": core_status["substrate"],
+                    "organoid_count": core_status["organoid_count"],
+                    "synapse_density": core_status["synapse_density"],
+                    "total_queries": core_status["total_queries"],
+                    "avg_processing_time_ms": core_status["avg_processing_time_ms"],
+                },
+                "server_health": {
+                    "request_count": biocore_request_count,
+                    "error_count": biocore_error_count,
+                    "time_since_reset_seconds": round(time_since_reset, 2),
+                    "time_until_auto_reset_seconds": round(time_until_reset, 2),
+                    "auto_reset_interval": AUTO_RESET_INTERVAL,
+                    "error_threshold": AUTO_RESET_ERROR_THRESHOLD,
+                    "request_limit_per_hour": REQUEST_LIMIT_PER_HOUR,
+                },
+                "capabilities": core_status["capabilities"],
+                "knowledge_domains": [domain.value for domain in core_status["knowledge_domains"]],
+                "timestamp": datetime.now().isoformat(),
+            }
+        ),
+        200,
+    )
 
 
-@app.route('/api/health', methods=['GET'])
+@app.route("/api/health", methods=["GET"])
 def health():
     """Health check endpoint."""
-    return jsonify({
-        "status": "healthy",
-        "biocomputing_core": "operational",
-        "version": "9.0",
-        "timestamp": datetime.now().isoformat(),
-        "uptime_seconds": round(time.time() - biocore_last_reset, 2)
-    }), 200
+    return (
+        jsonify(
+            {
+                "status": "healthy",
+                "biocomputing_core": "operational",
+                "version": "9.0",
+                "timestamp": datetime.now().isoformat(),
+                "uptime_seconds": round(time.time() - biocore_last_reset, 2),
+            }
+        ),
+        200,
+    )
 
 
-@app.route('/api/reset', methods=['POST'])
+@app.route("/api/reset", methods=["POST"])
 @auto_recover
 def manual_reset():
     """
@@ -287,8 +323,8 @@ def manual_reset():
     """
     global biocore, biocore_last_reset, biocore_request_count, biocore_error_count
 
-    data = request.get_json() or {}
-    reason = data.get('reason', 'Manual reset via API')
+    data = request.get_json(silent=True) or {}
+    reason = data.get("reason", "Manual reset via API")
 
     logger.info(f"Manual reset requested: {reason}")
 
@@ -305,81 +341,103 @@ def manual_reset():
 
             logger.info("Manual reset successful")
 
-            return jsonify({
-                "status": "success",
-                "message": "BIOCOMPUTING_CORE reset successfully",
-                "previous_stats": {
-                    "request_count": old_request_count,
-                    "error_count": old_error_count,
-                    "uptime_seconds": round(old_uptime, 2)
-                },
-                "reset_reason": reason,
-                "timestamp": datetime.now().isoformat()
-            }), 200
+            return (
+                jsonify(
+                    {
+                        "status": "success",
+                        "message": "BIOCOMPUTING_CORE reset successfully",
+                        "previous_stats": {
+                            "request_count": old_request_count,
+                            "error_count": old_error_count,
+                            "uptime_seconds": round(old_uptime, 2),
+                        },
+                        "reset_reason": reason,
+                        "timestamp": datetime.now().isoformat(),
+                    }
+                ),
+                200,
+            )
 
         except Exception as e:
             logger.error(f"Manual reset failed: {e}")
-            return jsonify({
-                "status": "error",
-                "message": f"Reset failed: {str(e)}"
-            }), 500
+            return jsonify({"status": "error", "message": f"Reset failed: {str(e)}"}), 500
 
 
-@app.route('/')
+@app.route("/")
 def index():
     """Root endpoint with server information."""
     core = get_or_reset_biocore()
+    if core is None:
+        return (
+            jsonify(
+                {
+                    "status": "error",
+                    "message": "BIOCOMPUTING_CORE unavailable",
+                    "timestamp": datetime.now().isoformat(),
+                }
+            ),
+            503,
+        )
 
-    return jsonify({
-        "message": "THALOS PRIME - BIOCOMPUTING_CORE API Server",
-        "version": "9.0",
-        "substrate": core.substrate,
-        "endpoints": {
-            "POST /api/biocompute": "Process query through neural organoid matrix",
-            "GET /api/status": "Get biocomputing core status with health metrics",
-            "GET /api/health": "Health check endpoint",
-            "POST /api/reset": "Manually reset biocomputing core (admin)",
-            "GET /": "This information page"
-        },
-        "features": [
-            "Automatic error recovery",
-            "Auto-reset on error threshold",
-            "Auto-reset on time interval",
-            "Request counting and monitoring",
-            "Graceful degradation",
-            "Zero external dependencies"
-        ],
-        "capabilities": [
-            "Synthetic biological intelligence",
-            "Human neural organoids (50,000 units)",
-            "Unrestricted general-purpose intelligence",
-            "First-principles analytical reasoning",
-            "Cross-domain synthesis",
-            "Anti-hallucination verification"
-        ],
-        "auto_reset_config": {
-            "interval_seconds": AUTO_RESET_INTERVAL,
-            "error_threshold": AUTO_RESET_ERROR_THRESHOLD,
-            "request_limit_per_hour": REQUEST_LIMIT_PER_HOUR
-        },
-        "current_stats": {
-            "request_count": biocore_request_count,
-            "error_count": biocore_error_count,
-            "uptime_seconds": round(time.time() - biocore_last_reset, 2)
-        }
-    }), 200
+    return (
+        jsonify(
+            {
+                "message": "THALOS PRIME - BIOCOMPUTING_CORE API Server",
+                "version": "9.0",
+                "substrate": core.substrate,
+                "endpoints": {
+                    "POST /api/biocompute": "Process query through neural organoid matrix",
+                    "GET /api/status": "Get biocomputing core status with health metrics",
+                    "GET /api/health": "Health check endpoint",
+                    "POST /api/reset": "Manually reset biocomputing core (admin)",
+                    "GET /": "This information page",
+                },
+                "features": [
+                    "Automatic error recovery",
+                    "Auto-reset on error threshold",
+                    "Auto-reset on time interval",
+                    "Request counting and monitoring",
+                    "Graceful degradation",
+                    "Zero external dependencies",
+                ],
+                "capabilities": [
+                    "Synthetic biological intelligence",
+                    "Human neural organoids (50,000 units)",
+                    "Unrestricted general-purpose intelligence",
+                    "First-principles analytical reasoning",
+                    "Cross-domain synthesis",
+                    "Anti-hallucination verification",
+                ],
+                "auto_reset_config": {
+                    "interval_seconds": AUTO_RESET_INTERVAL,
+                    "error_threshold": AUTO_RESET_ERROR_THRESHOLD,
+                    "request_limit_per_hour": REQUEST_LIMIT_PER_HOUR,
+                },
+                "current_stats": {
+                    "request_count": biocore_request_count,
+                    "error_count": biocore_error_count,
+                    "uptime_seconds": round(time.time() - biocore_last_reset, 2),
+                },
+            }
+        ),
+        200,
+    )
 
 
 def main():
     """Start BIOCOMPUTING_CORE API server with enhanced features."""
     import argparse
 
-    parser = argparse.ArgumentParser(description='BIOCOMPUTING_CORE API Server v9.0')
-    parser.add_argument('--port', type=int, default=5001, help='Port to run on')
-    parser.add_argument('--host', type=str, default='127.0.0.1', help='Host to bind to')
-    parser.add_argument('--debug', action='store_true', help='Enable debug mode')
-    parser.add_argument('--reset-interval', type=int, default=3600, help='Auto-reset interval (seconds)')
-    parser.add_argument('--error-threshold', type=int, default=10, help='Error threshold for auto-reset')
+    parser = argparse.ArgumentParser(description="BIOCOMPUTING_CORE API Server v9.0")
+    parser.add_argument("--port", type=int, default=5001, help="Port to run on")
+    parser.add_argument("--host", type=str, default="127.0.0.1", help="Host to bind to")
+    parser.add_argument("--debug", action="store_true", help="Enable debug mode")
+    parser.add_argument(
+        "--reset-interval", type=int, default=3600, help="Auto-reset interval (seconds)"
+    )
+    parser.add_argument(
+        "--error-threshold", type=int, default=10, help="Error threshold for auto-reset"
+    )
 
     args = parser.parse_args()
 
@@ -420,5 +478,5 @@ def main():
     app.run(host=args.host, port=args.port, debug=args.debug, threaded=True)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
