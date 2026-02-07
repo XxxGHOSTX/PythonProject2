@@ -1,0 +1,362 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/BIOCOMPUTING_CORE.py</file>
+  <line>17</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/BIOCOMPUTING_CORE.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This noun or verb problem-solving is spelled with a hyphen.</description>
+  <highlighted_element>problem solving</highlighted_element>
+  <language>Python</language>
+  <offset>45</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/BIOCOMPUTING_CORE.py</file>
+  <line>115</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/BIOCOMPUTING_CORE.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>multi-scale</highlighted_element>
+  <language>Python</language>
+  <offset>32</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/INTERFACE_UPGRADE_SUMMARY.txt</file>
+  <line>214</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/INTERFACE_UPGRADE_SUMMARY.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>The standard spelling is 'JavaScript'</description>
+  <highlighted_element>javascript</highlighted_element>
+  <language>TEXT</language>
+  <offset>3</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/INTERFACE_UPGRADE_SUMMARY.txt</file>
+  <line>241</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/INTERFACE_UPGRADE_SUMMARY.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>The standard spelling is 'JavaScript'</description>
+  <highlighted_element>javascript</highlighted_element>
+  <language>TEXT</language>
+  <offset>3</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/INTERFACE_UPGRADE_SUMMARY.txt</file>
+  <line>273</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/INTERFACE_UPGRADE_SUMMARY.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Long sentences (66 words here) are harder to read, according to the research; consider splitting</description>
+  <highlighted_element>composition</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/PRIMARY_DIRECTIVE_GUIDE.md</file>
+  <line>14</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/PRIMARY_DIRECTIVE_GUIDE.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>The word 'operation' doesn't fit in this context.</description>
+  <highlighted_element>Operation System</highlighted_element>
+  <language>Markdown</language>
+  <offset>21</offset>
+  <length>16</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/PRIMARY_DIRECTIVE_GUIDE.md</file>
+  <line>319</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/PRIMARY_DIRECTIVE_GUIDE.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>multi-step</highlighted_element>
+  <language>Markdown</language>
+  <offset>39</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/SBI_DIRECTORY_GUIDE.md</file>
+  <line>47</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/SBI_DIRECTORY_GUIDE.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Did you mean the formatting language?</description>
+  <highlighted_element>markdown</highlighted_element>
+  <language>Markdown</language>
+  <offset>30</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/SBI_IMPLEMENTATION_COMPLETE.txt</file>
+  <line>439</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/SBI_IMPLEMENTATION_COMPLETE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>The personal pronoun I should be uppercase.</description>
+  <highlighted_element>i</highlighted_element>
+  <language>TEXT</language>
+  <offset>32</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.md</file>
+  <line>337</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Use a comma before 'or' if it connects two independent clauses (unless they are closely connected and short).</description>
+  <highlighted_element>or</highlighted_element>
+  <language>Markdown</language>
+  <offset>23</offset>
+  <length>3</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>90</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>multi-mode</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>284</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Possible typo: you repeated a word.</description>
+  <highlighted_element>Tabbed Tabbed</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>285</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider adding a comma between these interjections.</description>
+  <highlighted_element>Yes Yes</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>19</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>286</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider adding a comma between these interjections.</description>
+  <highlighted_element>Yes Yes</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>19</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>287</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider adding a comma between these interjections.</description>
+  <highlighted_element>No No</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>288</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider adding a comma between these interjections.</description>
+  <highlighted_element>Yes Yes</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>19</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>289</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider adding a comma between these interjections.</description>
+  <highlighted_element>Yes Yes</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>19</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>290</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider adding a comma between these interjections.</description>
+  <highlighted_element>Yes Yes</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>19</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>291</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider adding a comma between these interjections.</description>
+  <highlighted_element>No No</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE.txt</file>
+  <line>293</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider adding a comma between these interjections.</description>
+  <highlighted_element>No No</highlighted_element>
+  <language>TEXT</language>
+  <offset>24</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/START_HERE_THALOS.txt</file>
+  <line>163</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/START_HERE_THALOS.txt" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Consider removing 'will'. (Usually, 'will' does not occur in a conditional clause, unless in the sense 'want to' or 'be willing to'.)</description>
+  <highlighted_element>Won't Open</highlighted_element>
+  <language>TEXT</language>
+  <offset>11</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_CODING_AGENT_README.md</file>
+  <line>29</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_CODING_AGENT_README.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>hyper-efficient</highlighted_element>
+  <language>Markdown</language>
+  <offset>2</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_CODING_AGENT_README.md</file>
+  <line>31</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_CODING_AGENT_README.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>multi-disciplinary</highlighted_element>
+  <language>Markdown</language>
+  <offset>24</offset>
+  <length>18</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_CODING_AGENT_README.md</file>
+  <line>65</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_CODING_AGENT_README.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>multi-service</highlighted_element>
+  <language>Markdown</language>
+  <offset>47</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/TPCA_README.md</file>
+  <line>404</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/TPCA_README.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>The usual collocation for &quot;independently&quot; is &quot;of&quot;, not &quot;from&quot;. Did you mean independently of?</description>
+  <highlighted_element>independently</highlighted_element>
+  <language>Markdown</language>
+  <offset>16</offset>
+  <length>13</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/TPCA_README.md</file>
+  <line>404</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/TPCA_README.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>The usual collocation for &quot;independently&quot; is &quot;of&quot;, not &quot;from&quot;. Did you mean independently of?</description>
+  <highlighted_element>from</highlighted_element>
+  <language>Markdown</language>
+  <offset>31</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/TPCA_README.md</file>
+  <line>433</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/TPCA_README.md" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>Multi-phase</highlighted_element>
+  <language>Markdown</language>
+  <offset>2</offset>
+  <length>11</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/biocomputing_api_server.py</file>
+  <line>160</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/biocomputing_api_server.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>Loose punctuation mark.</description>
+  <highlighted_element>}</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>8</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This word is normally spelled as one.</description>
+  <highlighted_element>Auto-configures</highlighted_element>
+  <language>Python</language>
+  <offset>0</offset>
+  <length>15</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_prime_primary_directive.html</file>
+  <line>984</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_prime_primary_directive.html" />
+  <problem_class id="GrazieInspection" severity="GRAMMAR_ERROR" attribute_key="GRAMMAR_ERROR">Grammar</problem_class>
+  <description>This noun or verb problem-solving is spelled with a hyphen.</description>
+  <highlighted_element>problem solving</highlighted_element>
+  <language>HTML</language>
+  <offset>42</offset>
+  <length>15</length>
+</problem>
+</problems>

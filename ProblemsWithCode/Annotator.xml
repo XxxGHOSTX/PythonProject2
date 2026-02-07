@@ -1,0 +1,1328 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/BIOCOMPUTING_ONLINE_OFFLINE.md</file>
+  <line>217</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/BIOCOMPUTING_ONLINE_OFFLINE.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>&lt;value&gt; expected, got ':' #loc</description>
+  <highlighted_element>:</highlighted_element>
+  <language>Markdown</language>
+  <offset>9</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/DEPLOYMENT_README.md</file>
+  <line>295</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/DEPLOYMENT_README.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected, got '}' #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>19</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>10</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>An illegal target for a variable annotation #loc</description>
+  <highlighted_element>- Vocabulary</highlighted_element>
+  <language>Markdown</language>
+  <offset>4</offset>
+  <length>12</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>10</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element>,</highlighted_element>
+  <language>Markdown</language>
+  <offset>20</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>10</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:COMMA #loc</description>
+  <highlighted_element>2</highlighted_element>
+  <language>Markdown</language>
+  <offset>21</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>10</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>24</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>11</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>An illegal target for a variable annotation #loc</description>
+  <highlighted_element>- Encoding</highlighted_element>
+  <language>Markdown</language>
+  <offset>4</offset>
+  <length>10</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>11</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>',' or ')' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>30</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>11</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element>)</highlighted_element>
+  <language>Markdown</language>
+  <offset>39</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>11</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:RPAR #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>40</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>12</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>12</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>23</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>13</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>13</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element>,</highlighted_element>
+  <language>Markdown</language>
+  <offset>27</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>13</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:COMMA #loc</description>
+  <highlighted_element>0</highlighted_element>
+  <language>Markdown</language>
+  <offset>28</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>13</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>39</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>14</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>21</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>78</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>6</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>78</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>12</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>79</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>6</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>79</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>15</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>79</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>19</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>79</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>'in' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>33</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>79</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>43</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>80</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>3</highlighted_element>
+  <language>Markdown</language>
+  <offset>4</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>80</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>6</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>80</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>14</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>81</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>6</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>81</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>16</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>81</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>29</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>82</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>5</highlighted_element>
+  <language>Markdown</language>
+  <offset>4</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>82</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>6</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>82</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>82</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>'import' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>30</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>83</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>6</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>83</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>83</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>22</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>211</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>7</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>212</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>',' or ')' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>27</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>212</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element>)</highlighted_element>
+  <language>Markdown</language>
+  <offset>38</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>212</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:RPAR #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>39</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>213</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>21</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>214</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>27</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>215</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>36</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>216</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>',' or ')' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>30</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>216</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element>)</highlighted_element>
+  <language>Markdown</language>
+  <offset>35</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>216</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:RPAR #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>36</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>217</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>33</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>218</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>',' or ')' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>22</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>218</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element>)</highlighted_element>
+  <language>Markdown</language>
+  <offset>27</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>218</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:RPAR #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>28</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>219</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>',' or ')' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>26</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>219</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element>)</highlighted_element>
+  <language>Markdown</language>
+  <offset>31</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>219</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:RPAR #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>220</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found Py:RBRACE #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>1</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>250</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Expression expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>9</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>250</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found BAD_CHARACTER #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>33</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>250</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>38</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>250</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>43</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>251</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>19</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>251</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found BAD_CHARACTER #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>251</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>39</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>252</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>25</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>252</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found BAD_CHARACTER #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>252</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>40</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>253</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>22</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>253</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found BAD_CHARACTER #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>253</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>37</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>254</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>21</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>254</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found BAD_CHARACTER #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>254</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>40</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>255</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>20</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>255</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Statement expected, found BAD_CHARACTER #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>32</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>255</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>39</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>260</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>&lt;value&gt; expected, got ':' #loc</description>
+  <highlighted_element>:</highlighted_element>
+  <language>Markdown</language>
+  <offset>16</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>354</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>354</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>22</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>355</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>16</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>356</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>356</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>19</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>357</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>16</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>357</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>':' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>30</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>357</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>30</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>359</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>'else' expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>23</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>360</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>360</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>23</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>361</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>17</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>363</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>364</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>17</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>364</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>26</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md</file>
+  <line>365</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/IMPLEMENTATION_DETAILS.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Markdown</language>
+  <offset>13</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_PRIME_GUIDE.md</file>
+  <line>514</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_PRIME_GUIDE.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Indent expected #loc</description>
+  <highlighted_element>#</highlighted_element>
+  <language>Markdown</language>
+  <offset>4</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_SBI_TECHNICAL_SPECIFICATION.md</file>
+  <line>290</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_SBI_TECHNICAL_SPECIFICATION.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>&lt;value&gt; expected, got ':' #loc</description>
+  <highlighted_element>:</highlighted_element>
+  <language>Markdown</language>
+  <offset>7</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_SBI_TECHNICAL_SPECIFICATION.md</file>
+  <line>312</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_SBI_TECHNICAL_SPECIFICATION.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>&lt;value&gt; expected, got ':' #loc</description>
+  <highlighted_element>:</highlighted_element>
+  <language>Markdown</language>
+  <offset>7</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_SBI_TECHNICAL_SPECIFICATION.md</file>
+  <line>329</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_SBI_TECHNICAL_SPECIFICATION.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>&lt;value&gt; expected, got ':' #loc</description>
+  <highlighted_element>:</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_SBI_TECHNICAL_SPECIFICATION.md</file>
+  <line>343</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_SBI_TECHNICAL_SPECIFICATION.md" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>&lt;value&gt; expected, got ':' #loc</description>
+  <highlighted_element>:</highlighted_element>
+  <language>Markdown</language>
+  <offset>8</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/rapid_deploy.py</file>
+  <line>74</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/rapid_deploy.py" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element>e</highlighted_element>
+  <language>Python</language>
+  <offset>7</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/rapid_deploy.py</file>
+  <line>74</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/rapid_deploy.py" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>End of statement expected #loc</description>
+  <highlighted_element />
+  <language>Python</language>
+  <offset>15</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/rapid_deploy.py</file>
+  <line>74</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/rapid_deploy.py" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Name expected #loc</description>
+  <highlighted_element>.</highlighted_element>
+  <language>Python</language>
+  <offset>21</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/rapid_deploy.py</file>
+  <line>74</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/rapid_deploy.py" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Name expected #loc</description>
+  <highlighted_element>.</highlighted_element>
+  <language>Python</language>
+  <offset>22</offset>
+  <length>1</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/rapid_deploy.py</file>
+  <line>74</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/rapid_deploy.py" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>Name expected #loc</description>
+  <highlighted_element />
+  <language>Python</language>
+  <offset>23</offset>
+  <length>0</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/requirements_ultimate.txt</file>
+  <line>1</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/requirements_ultimate.txt" />
+  <problem_class id="Annotator" severity="ERROR" attribute_key="WRONG_REFERENCES_ATTRIBUTES">Annotator</problem_class>
+  <hints />
+  <description>&lt;versionspec&gt;, RequirementsTokenType.COMMENT, RequirementsTokenType.EOL, RequirementsTokenType.LONG_OPTION, RequirementsTokenType.LSBRACE or RequirementsTokenType.SEMICOLON expected, got 't' #loc</description>
+  <highlighted_element>t</highlighted_element>
+  <language>Requirements</language>
+  <offset>4</offset>
+  <length>1</length>
+</problem>
+</problems>

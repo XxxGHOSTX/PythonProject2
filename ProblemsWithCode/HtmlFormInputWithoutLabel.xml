@@ -1,0 +1,86 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_celestial.html</file>
+  <line>500</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_celestial.html" />
+  <problem_class id="HtmlFormInputWithoutLabel" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missing associated label</problem_class>
+  <description>Missing associated label</description>
+  <highlighted_element>input</highlighted_element>
+  <language>XML</language>
+  <offset>33</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_coding_agent.html</file>
+  <line>497</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_coding_agent.html" />
+  <problem_class id="HtmlFormInputWithoutLabel" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missing associated label</problem_class>
+  <description>Missing associated label</description>
+  <highlighted_element>select</highlighted_element>
+  <language>XML</language>
+  <offset>17</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_coding_agent.html</file>
+  <line>521</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_coding_agent.html" />
+  <problem_class id="HtmlFormInputWithoutLabel" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missing associated label</problem_class>
+  <description>Missing associated label</description>
+  <highlighted_element>input</highlighted_element>
+  <language>XML</language>
+  <offset>17</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_coding_agent.html</file>
+  <line>595</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_coding_agent.html" />
+  <problem_class id="HtmlFormInputWithoutLabel" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missing associated label</problem_class>
+  <description>Missing associated label</description>
+  <highlighted_element>textarea</highlighted_element>
+  <language>XML</language>
+  <offset>17</offset>
+  <length>8</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_prime.html</file>
+  <line>90</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_prime.html" />
+  <problem_class id="HtmlFormInputWithoutLabel" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missing associated label</problem_class>
+  <description>Missing associated label</description>
+  <highlighted_element>input</highlighted_element>
+  <language>XML</language>
+  <offset>13</offset>
+  <length>5</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_prime_primary_directive.html</file>
+  <line>512</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_prime_primary_directive.html" />
+  <problem_class id="HtmlFormInputWithoutLabel" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missing associated label</problem_class>
+  <description>Missing associated label</description>
+  <highlighted_element>select</highlighted_element>
+  <language>XML</language>
+  <offset>17</offset>
+  <length>6</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_prime_primary_directive.html</file>
+  <line>526</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_prime_primary_directive.html" />
+  <problem_class id="HtmlFormInputWithoutLabel" severity="WARNING" attribute_key="WARNING_ATTRIBUTES">Missing associated label</problem_class>
+  <description>Missing associated label</description>
+  <highlighted_element>textarea</highlighted_element>
+  <language>XML</language>
+  <offset>17</offset>
+  <length>8</length>
+</problem>
+</problems>

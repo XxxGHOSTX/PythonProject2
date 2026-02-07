@@ -1,0 +1,74 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_PRIME_APP.py</file>
+  <line>894</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_PRIME_APP.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 894-901</description>
+  <highlighted_element>&quot;&quot;&quot;Send JSON response&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>24</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_sbi_app.py</file>
+  <line>152</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_sbi_app.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 152-159</description>
+  <highlighted_element>&quot;&quot;&quot;Send JSON response&quot;&quot;&quot;</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>24</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_sbi_core_v6.py</file>
+  <line>278</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_sbi_core_v6.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 278-280</description>
+  <highlighted_element>mean = sum(row) / len(row)</highlighted_element>
+  <language>Python</language>
+  <offset>16</offset>
+  <length>26</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_sbi_core_v6.py</file>
+  <line>506</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_sbi_core_v6.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 506-508</description>
+  <highlighted_element>mean = sum(x) / len(x)</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>22</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/verify_system.py</file>
+  <line>89</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/verify_system.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 89-95</description>
+  <highlighted_element>missing = [f for f in required_files if not (self.base_dir / f).exists()]</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>73</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/verify_system.py</file>
+  <line>105</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/verify_system.py" />
+  <problem_class id="DuplicatedCode" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Duplicated code fragment</problem_class>
+  <description>Duplicate code: lines 105-111</description>
+  <highlighted_element>missing = [f for f in interfaces if not (self.base_dir / f).exists()]</highlighted_element>
+  <language>Python</language>
+  <offset>8</offset>
+  <length>69</length>
+</problem>
+</problems>

@@ -1,0 +1,14 @@
+<root>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/THALOS_PRIME_APP.py" line="894" start="32838" end="33219" />
+  <fragment file="file://$PROJECT_DIR$/thalos_sbi_app.py" line="152" start="5526" end="5907" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/thalos_sbi_core_v6.py" line="278" start="10785" end="10966" />
+  <fragment file="file://$PROJECT_DIR$/thalos_sbi_core_v6.py" line="506" start="20571" end="20730" />
+</duplicate>
+<duplicate cost="1" hash="0">
+  <fragment file="file://$PROJECT_DIR$/verify_system.py" line="89" start="3163" end="3530" />
+  <fragment file="file://$PROJECT_DIR$/verify_system.py" line="105" start="3836" end="4208" />
+</duplicate>
+</root>

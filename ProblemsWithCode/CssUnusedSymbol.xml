@@ -1,0 +1,15 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/thalos_celestial.html</file>
+  <line>16</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/thalos_celestial.html" />
+  <problem_class id="CssUnusedSymbol" severity="WARNING" attribute_key="NOT_USED_ELEMENT_ATTRIBUTES">Unused selector</problem_class>
+  <hints />
+  <description>Selector duration-60s is never used</description>
+  <highlighted_element>.duration-60s</highlighted_element>
+  <language>CSS</language>
+  <offset>8</offset>
+  <length>13</length>
+</problem>
+</problems>

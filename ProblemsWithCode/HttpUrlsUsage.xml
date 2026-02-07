@@ -1,0 +1,218 @@
+<problems>
+<problem>
+  <file>file://$PROJECT_DIR$/ABSOLUTE_LAUNCH.py</file>
+  <line>48</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/ABSOLUTE_LAUNCH.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>39</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/ABSOLUTE_LAUNCH.py</file>
+  <line>54</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/ABSOLUTE_LAUNCH.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>34</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_PRIME_APP.py</file>
+  <line>1486</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_PRIME_APP.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>32</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_PRIME_APP.py</file>
+  <line>1505</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_PRIME_APP.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>30</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/THALOS_PRIME_APP.py</file>
+  <line>1509</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/THALOS_PRIME_APP.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>40</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/biocomputing_api_server.py</file>
+  <line>415</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/biocomputing_api_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>31</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>434</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>26</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>463</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>37</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>464</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>30</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>465</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>35</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>466</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>34</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>469</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>30</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>470</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>26</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>471</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>35</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>472</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>32</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>473</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>27</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/hyper_nextus_server.py</file>
+  <line>474</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/hyper_nextus_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>28</offset>
+  <length>7</length>
+</problem>
+<problem>
+  <file>file://$PROJECT_DIR$/tpca_api_server.py</file>
+  <line>244</line>
+  <module>PythonProject2</module>
+  <entry_point TYPE="file" FQNAME="file://$PROJECT_DIR$/tpca_api_server.py" />
+  <problem_class id="HttpUrlsUsage" severity="WEAK WARNING" attribute_key="INFO_ATTRIBUTES">Link with unencrypted protocol</problem_class>
+  <description>HTTP links are not secure</description>
+  <highlighted_element>http://</highlighted_element>
+  <language>Python</language>
+  <offset>19</offset>
+  <length>7</length>
+</problem>
+</problems>
