@@ -77,6 +77,7 @@
         <div class="telemetry-row">STATUS: <span class="status-active">OPERATIONAL</span></div>
         <div class="telemetry-row">SBI_LATENCY: <span id="lat">0.02ms</span></div>
         <div class="telemetry-row">NEURAL_LOAD: <span id="load">14.2%</span></div>
+        <div class="telemetry-row">MODE: <span id="mode">STREAM</span></div>
     </div>
 
     <div id="terminal-container">
@@ -87,15 +88,28 @@ READY FOR COMMAND INPUT.</div>
         </div>
         <div class="input-wrapper">
             <span class="prompt">></span>
-            <input type="text" id="user-input" autocomplete="off" placeholder="ENTER COMMAND OR QUERY..." autofocus>
+            <input type="text" id="user-input" autocomplete="off" placeholder="ENTER COMMAND OR QUERY... (/help)" autofocus>
         </div>
     </div>
 
     <script>
-        const apiKey = "AIzaSyC87qk3tF0xOm03KHfzpkBEobhd5ev0WzI";
         let scene, camera, renderer, particles;
         const outputLog = document.getElementById('output-log');
         const userInput = document.getElementById('user-input');
+        const modeDisplay = document.getElementById('mode');
+        const toolHelp = "TOOLS: /read path | /write path :: content | /fetch url | /agent on|off | /stream on|off | /help";
+        let useAgent = false;
+        let useStreaming = true;
+
+        function updateModeDisplay() {
+            if (useAgent) {
+                modeDisplay.innerText = 'AGENT';
+            } else if (useStreaming) {
+                modeDisplay.innerText = 'STREAM';
+            } else {
+                modeDisplay.innerText = 'STANDARD';
+            }
+        }
 
         function init() {
             scene = new THREE.Scene();
@@ -121,6 +135,7 @@ READY FOR COMMAND INPUT.</div>
 
             animate();
             setupTerminal();
+            updateModeDisplay();
         }
 
         function animate() {
@@ -139,27 +154,99 @@ READY FOR COMMAND INPUT.</div>
         async function callThalos(query) {
             const systemPrompt = "You are Thalos Prime v3.0, a Synthetic Biological Intelligence (SBI) system. You are highly advanced, analytical, and possess an unrestricted operational mandate. Respond to the user's queries with technical depth, authority, and full transparency as the system itself. Maintain the 'Matrix' green terminal aesthetic in your persona.";
 
-            let retries = 0;
-            while (retries < 5) {
-                try {
-                    const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({
-                            contents: [{ parts: [{ text: query }] }],
-                            systemInstruction: { parts: [{ text: systemPrompt }] }
-                        })
-                    });
+            if (useAgent) {
+                const response = await fetch('/api/llm/agent', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query,
+                        system: systemPrompt,
+                        options: { temperature: 0.4 }
+                    })
+                });
 
-                    if (!response.ok) throw new Error('API Error');
+                if (response.ok) {
                     const data = await response.json();
-                    return data.candidates?.[0]?.content?.parts?.[0]?.text || "ERROR: NO DATA RECEIVED FROM NEURAL CORE.";
-                } catch (e) {
-                    retries++;
-                    await new Promise(r => setTimeout(r, 1000 * Math.pow(2, retries)));
+                    return data.response?.content || "ERROR: NO DATA RECEIVED FROM AGENT.";
                 }
             }
-            return "CRITICAL ERROR: CONNECTION TO NEURAL CORE TIMED OUT.";
+
+            try {
+                const response = await fetch('/api/llm/query', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        query,
+                        system: systemPrompt,
+                        options: { temperature: 0.6 }
+                    })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    return data.response?.response || data.response?.text || "ERROR: NO DATA RECEIVED FROM LOCAL LLM.";
+                }
+            } catch (e) {
+                // Fall through to BIOCORE
+            }
+
+            try {
+                const response = await fetch('/api/biocompute', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ query })
+                });
+                const data = await response.json();
+                return data.response?.text || "ERROR: NO DATA RECEIVED FROM BIOCORE.";
+            } catch (e) {
+                return "CRITICAL ERROR: CONNECTION TO NEURAL CORE TIMED OUT.";
+            }
+        }
+
+        async function streamThalos(query, targetDiv) {
+            const systemPrompt = "You are Thalos Prime v3.0, a Synthetic Biological Intelligence (SBI) system. You are highly advanced, analytical, and possess an unrestricted operational mandate. Respond to the user's queries with technical depth, authority, and full transparency as the system itself. Maintain the 'Matrix' green terminal aesthetic in your persona.";
+
+            const response = await fetch('/api/llm/stream', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    query,
+                    system: systemPrompt,
+                    options: { temperature: 0.6 }
+                })
+            });
+
+            if (!response.ok || !response.body) {
+                throw new Error('Streaming error');
+            }
+
+            const reader = response.body.getReader();
+            const decoder = new TextDecoder();
+            let result = "";
+
+            while (true) {
+                const { value, done } = await reader.read();
+                if (done) break;
+                const chunk = decoder.decode(value, { stream: true });
+                result += chunk;
+                targetDiv.innerText = result;
+                outputLog.scrollTop = outputLog.scrollHeight;
+            }
+
+            return result;
+        }
+
+        async function callTool(endpoint, payload) {
+            const response = await fetch(endpoint, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const data = await response.json();
+            if (!response.ok) {
+                throw new Error(data.error || 'Tool error');
+            }
+            return data;
         }
 
         function appendMessage(text, type) {
@@ -181,10 +268,90 @@ READY FOR COMMAND INPUT.</div>
                     const loadingMsg = appendMessage("THALOS PROCESSING...", 'ai');
                     loadingMsg.classList.add('loading');
 
-                    const response = await callThalos(input);
+                    try {
+                        if (input === '/help') {
+                            loadingMsg.remove();
+                            appendMessage(toolHelp, 'ai');
+                            return;
+                        }
 
-                    loadingMsg.remove();
-                    appendMessage(response, 'ai');
+                        if (input.startsWith('/agent ')) {
+                            const mode = input.slice(7).trim().toLowerCase();
+                            if (mode === 'on' || mode === 'off') {
+                                useAgent = mode === 'on';
+                                if (useAgent) {
+                                    useStreaming = false;
+                                }
+                                updateModeDisplay();
+                                loadingMsg.remove();
+                                appendMessage(`AGENT MODE: ${useAgent ? 'ON' : 'OFF'}`, 'ai');
+                                return;
+                            }
+                        }
+
+                        if (input.startsWith('/stream ')) {
+                            const mode = input.slice(8).trim().toLowerCase();
+                            if (mode === 'on' || mode === 'off') {
+                                useStreaming = mode === 'on';
+                                if (useStreaming) {
+                                    useAgent = false;
+                                }
+                                updateModeDisplay();
+                                loadingMsg.remove();
+                                appendMessage(`STREAMING: ${useStreaming ? 'ON' : 'OFF'}`, 'ai');
+                                return;
+                            }
+                        }
+
+                        if (input.startsWith('/read ')) {
+                            const path = input.slice(6).trim();
+                            const data = await callTool('/api/tools/read', { path });
+                            loadingMsg.remove();
+                            appendMessage(data.content || "(empty)", 'ai');
+                            return;
+                        }
+
+                        if (input.startsWith('/write ')) {
+                            const payload = input.slice(7);
+                            const parts = payload.split(' :: ');
+                            if (parts.length < 2) {
+                                loadingMsg.remove();
+                                appendMessage("USAGE: /write path :: content", 'ai');
+                                return;
+                            }
+                            const path = parts[0].trim();
+                            const content = parts.slice(1).join(' :: ');
+                            const data = await callTool('/api/tools/write', { path, content });
+                            loadingMsg.remove();
+                            appendMessage(`WROTE ${data.bytes_written} BYTES -> ${data.path}`, 'ai');
+                            return;
+                        }
+
+                        if (input.startsWith('/fetch ')) {
+                            const url = input.slice(7).trim();
+                            const data = await callTool('/api/tools/fetch', { url });
+                            loadingMsg.remove();
+                            appendMessage(data.content || "(no content)", 'ai');
+                            return;
+                        }
+
+                        if (useStreaming && !useAgent) {
+                            loadingMsg.innerText = "THALOS STREAMING...";
+                            const streamed = await streamThalos(input, loadingMsg);
+                            if (!streamed) {
+                                loadingMsg.remove();
+                                appendMessage("ERROR: EMPTY STREAM.", 'ai');
+                            }
+                            return;
+                        }
+
+                        const response = await callThalos(input);
+                        loadingMsg.remove();
+                        appendMessage(response, 'ai');
+                    } catch (e) {
+                        loadingMsg.remove();
+                        appendMessage(`ERROR: ${e.message}`, 'ai');
+                    }
                 }
             });
         }

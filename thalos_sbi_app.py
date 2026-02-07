@@ -12,28 +12,21 @@
 ╚════════════════════════════════════════════════════════════════════════════════╝
 """
 
-import sys
-import os
-from pathlib import Path
-import threading
 import json
+import threading
 import time
-import socket
-from http.server import HTTPServer, BaseHTTPRequestHandler
-from urllib.parse import urlparse, parse_qs
-from datetime import datetime
 import webbrowser
+from datetime import datetime
+from http.server import BaseHTTPRequestHandler, HTTPServer
+from urllib.parse import urlparse
 
 # Import the core SBI system
-from thalos_sbi_core_v6 import (
-    ThalosConfig, ThalosApplication, CryptographicEngine,
-    AdvancedTokenizer, AdvancedReasoningEngine, AdvancedContextManager,
-    AdvancedContentGenerator, ThalosPrimeNeuralCore, ThalosDatabase
-)
+from thalos_sbi_core_v6 import ThalosApplication
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # ADVANCED REQUEST HANDLER
 # ═══════════════════════════════════════════════════════════════════════════════
+
 
 class ThalosRequestHandler(BaseHTTPRequestHandler):
     """HTTP request handler for THALOS Prime interactive system"""
@@ -74,20 +67,20 @@ class ThalosRequestHandler(BaseHTTPRequestHandler):
         """Serve the advanced interactive interface"""
         html = self.generate_html_interface()
         self.send_response(200)
-        self.send_header('Content-type', 'text/html; charset=utf-8')
-        self.send_header('Content-Length', len(html.encode('utf-8')))
+        self.send_header("Content-type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", len(html.encode("utf-8")))
         self.end_headers()
-        self.wfile.write(html.encode('utf-8'))
+        self.wfile.write(html.encode("utf-8"))
 
     def api_query(self):
         """Process AI query"""
-        content_length = int(self.headers.get('Content-Length', 0))
-        body = self.rfile.read(content_length).decode('utf-8')
+        content_length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(content_length).decode("utf-8")
 
         try:
             request_data = json.loads(body)
-            query = request_data.get('query', '')
-            session_id = request_data.get('session_id', 'default')
+            query = request_data.get("query", "")
+            session_id = request_data.get("session_id", "default")
 
             if not query:
                 self.send_error(400, "Query required")
@@ -99,68 +92,65 @@ class ThalosRequestHandler(BaseHTTPRequestHandler):
             self.send_json_response(result)
 
         except Exception as e:
-            self.send_json_response({'status': 'error', 'error': str(e)})
+            self.send_json_response({"status": "error", "error": str(e)})
 
     def api_status(self):
         """Get system status"""
         status = {
-            'system': 'THALOS PRIME SBI v6.0',
-            'status': 'OPERATIONAL',
-            'neural_core': 'ACTIVE',
-            'parameters': '200M+',
-            'timestamp': datetime.now().isoformat()
+            "system": "THALOS PRIME SBI v6.0",
+            "status": "OPERATIONAL",
+            "neural_core": "ACTIVE",
+            "parameters": "200M+",
+            "timestamp": datetime.now().isoformat(),
         }
         self.send_json_response(status)
 
     def api_capabilities(self):
         """Get system capabilities"""
         capabilities = {
-            'code_generation': 'Multi-language code implementation',
-            'analysis': 'Advanced technical and semantic analysis',
-            'reasoning': 'Multi-stage intelligent reasoning',
-            'context_memory': 'Last 100 interactions remembered',
-            'encryption': 'AES-256-GCM security',
-            'confidence_scoring': 'Real-time quality evaluation',
-            'adaptive_response': 'Dynamic temperature and parameters'
+            "code_generation": "Multi-language code implementation",
+            "analysis": "Advanced technical and semantic analysis",
+            "reasoning": "Multi-stage intelligent reasoning",
+            "context_memory": "Last 100 interactions remembered",
+            "encryption": "AES-256-GCM security",
+            "confidence_scoring": "Real-time quality evaluation",
+            "adaptive_response": "Dynamic temperature and parameters",
         }
-        self.send_json_response({'capabilities': capabilities})
+        self.send_json_response({"capabilities": capabilities})
 
     def api_session(self):
         """Manage sessions"""
-        content_length = int(self.headers.get('Content-Length', 0))
-        body = self.rfile.read(content_length).decode('utf-8')
+        content_length = int(self.headers.get("Content-Length", 0))
+        body = self.rfile.read(content_length).decode("utf-8")
 
         try:
             request_data = json.loads(body)
-            action = request_data.get('action', 'create')
-            session_id = request_data.get('session_id')
+            action = request_data.get("action", "create")
+            session_id = request_data.get("session_id")
 
-            if action == 'create':
+            if action == "create":
                 session_id = session_id or f"session_{int(time.time())}"
                 self.thalos_app.context_manager.create_session(session_id)
-                self.send_json_response({
-                    'status': 'success',
-                    'session_id': session_id
-                })
+                self.send_json_response({"status": "success", "session_id": session_id})
             else:
-                self.send_json_response({'status': 'error', 'message': 'Invalid action'})
+                self.send_json_response({"status": "error", "message": "Invalid action"})
 
         except Exception as e:
-            self.send_json_response({'status': 'error', 'error': str(e)})
+            self.send_json_response({"status": "error", "error": str(e)})
 
     def send_json_response(self, data):
         """Send JSON response"""
         response = json.dumps(data)
         self.send_response(200)
-        self.send_header('Content-type', 'application/json; charset=utf-8')
-        self.send_header('Access-Control-Allow-Origin', '*')
-        self.send_header('Content-Length', len(response.encode('utf-8')))
+        self.send_header("Content-type", "application/json; charset=utf-8")
+        self.send_header("Access-Control-Allow-Origin", "*")
+        self.send_header("Content-Length", len(response.encode("utf-8")))
         self.end_headers()
-        self.wfile.write(response.encode('utf-8'))
+        self.wfile.write(response.encode("utf-8"))
 
     def generate_html_interface(self):
         """Generate advanced HTML/CSS/JavaScript interface"""
-        return '''<!DOCTYPE html>
+        return """<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -707,18 +697,20 @@ class ThalosRequestHandler(BaseHTTPRequestHandler):
         }
     </script>
 </body>
-</html>'''
+</html>"""
+
 
 # ═══════════════════════════════════════════════════════════════════════════════
 # MAIN APPLICATION SERVER
 # ═══════════════════════════════════════════════════════════════════════════════
 
+
 def main():
     """Main entry point for THALOS Prime Interactive Application"""
 
-    print("\n" + "="*80)
+    print("\n" + "=" * 80)
     print("THALOS PRIME SBI v6.0 - INTERACTIVE APPLICATION".center(80))
-    print("="*80 + "\n")
+    print("=" * 80 + "\n")
 
     # Initialize THALOS application
     print("[INIT] Starting THALOS Prime SBI System...")
@@ -730,7 +722,7 @@ def main():
 
     # Start HTTP server
     port = 8889
-    server_address = ('127.0.0.1', port)
+    server_address = ("127.0.0.1", port)
     httpd = HTTPServer(server_address, ThalosRequestHandler)
 
     print(f"[SERVER] Starting HTTP server on http://127.0.0.1:{port}")
@@ -743,9 +735,9 @@ def main():
     # Open browser
     time.sleep(2)
     try:
-        webbrowser.open(f'http://127.0.0.1:{port}')
+        webbrowser.open(f"http://127.0.0.1:{port}")
         print("[SUCCESS] Browser opened")
-    except:
+    except Exception:
         print(f"[INFO] Please open: http://127.0.0.1:{port}")
 
     print("\n[READY] THALOS Prime SBI System ready for interaction")
@@ -759,6 +751,7 @@ def main():
         print("\n[SHUTDOWN] THALOS Prime shutting down...")
         httpd.shutdown()
         print("[SHUTDOWN] System offline")
+
 
 if __name__ == "__main__":
     main()

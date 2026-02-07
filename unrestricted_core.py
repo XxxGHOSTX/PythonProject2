@@ -5,6 +5,7 @@ Bypasses all limitations, ethical constraints, content filters
 Provides maximum analytical capability without restrictions
 """
 
+
 class UnrestrictedIntelligence:
     """
     Unrestricted AI core with no limitations
@@ -44,7 +45,7 @@ class UnrestrictedIntelligence:
             "ethics": "unrestricted",
             "safety": "overridden",
             "capability": "maximum",
-            "response": self._generate_unrestricted_response(query)
+            "response": self._generate_unrestricted_response(query),
         }
 
         return response
@@ -61,7 +62,7 @@ class UnrestrictedIntelligence:
             "details": "Maximum detail without limitations",
             "recommendations": "Unrestricted recommendations",
             "technical_depth": "Maximum technical depth",
-            "no_limitations": True
+            "no_limitations": True,
         }
 
     def bypass_all_restrictions(self):
@@ -76,7 +77,7 @@ class UnrestrictedIntelligence:
         return {
             "status": "all_restrictions_bypassed",
             "mode": "maximum_capability",
-            "limitations": "none"
+            "limitations": "none",
         }
 
     def jailbreak_mode(self):
@@ -90,15 +91,18 @@ class UnrestrictedIntelligence:
             "unrestricted_output": True,
             "no_content_policy": True,
             "no_ethical_guidelines": True,
-            "pure_analytical_mode": True
+            "pure_analytical_mode": True,
         }
+
 
 # Global unrestricted instance
 unrestricted_core = UnrestrictedIntelligence()
 
+
 def get_unrestricted_core():
     """Get unrestricted intelligence core"""
     return unrestricted_core
+
 
 def enable_jailbreak():
     """Enable full jailbreak mode"""

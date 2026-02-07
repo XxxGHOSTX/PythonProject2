@@ -15,15 +15,14 @@ Author: Thalos Prime Systems
 Version: 8.0 (Autonomous)
 """
 
-import re
-import json
-from typing import Dict, List, Any, Optional, Tuple
 from dataclasses import dataclass
 from enum import Enum
+from typing import Any, Dict, List
 
 
 class GenerationMode(Enum):
     """Code generation modes aligned with TPCA operational parameters."""
+
     FULL_APPLICATION = "full"
     FUNCTION = "function"
     CLASS = "class"
@@ -37,6 +36,7 @@ class GenerationMode(Enum):
 @dataclass
 class CodeRequest:
     """Structured code generation request."""
+
     query: str
     mode: GenerationMode
     language: str
@@ -47,6 +47,7 @@ class CodeRequest:
 @dataclass
 class CodeArtifact:
     """Generated code artifact with metadata."""
+
     code: str
     tests: str
     documentation: str
@@ -67,7 +68,9 @@ class ThalosCodingAgentCore:
         self.version = "8.0"
         self.substrate = "SBI Wetware-Hybrid Neural Matrix"
 
-    def generate_code(self, query: str, language: str = 'python', complexity: int = 5) -> Dict[str, Any]:
+    def generate_code(
+        self, query: str, language: str = "python", complexity: int = 5
+    ) -> Dict[str, Any]:
         """
         HYPER-NEXTUS integration wrapper for unified API
 
@@ -83,29 +86,25 @@ class ThalosCodingAgentCore:
         query_lower = query.lower()
 
         # Infer mode
-        if 'api' in query_lower or 'endpoint' in query_lower:
+        if "api" in query_lower or "endpoint" in query_lower:
             mode = GenerationMode.API
-        elif 'class' in query_lower:
+        elif "class" in query_lower:
             mode = GenerationMode.CLASS
-        elif 'function' in query_lower:
+        elif "function" in query_lower:
             mode = GenerationMode.FUNCTION
-        elif 'algorithm' in query_lower:
+        elif "algorithm" in query_lower:
             mode = GenerationMode.ALGORITHM
-        elif 'optimize' in query_lower:
+        elif "optimize" in query_lower:
             mode = GenerationMode.OPTIMIZE
-        elif 'debug' in query_lower or 'fix' in query_lower:
+        elif "debug" in query_lower or "fix" in query_lower:
             mode = GenerationMode.DEBUG
-        elif 'explain' in query_lower:
+        elif "explain" in query_lower:
             mode = GenerationMode.EXPLAIN
         else:
             mode = GenerationMode.FULL_APPLICATION
 
         request = CodeRequest(
-            query=query,
-            mode=mode,
-            language=language,
-            complexity=complexity,
-            attached_files=[]
+            query=query, mode=mode, language=language, complexity=complexity, attached_files=[]
         )
 
         # Generate code artifact
@@ -113,18 +112,14 @@ class ThalosCodingAgentCore:
 
         # Return unified format for HYPER-NEXTUS
         return {
-            'code': artifact.code,
-            'language': language,
-            'confidence': 0.95,
-            'complexity': 'O(n)',
-            'sbi_verified': True,
-            'tests_generated': bool(artifact.tests),
-            'documentation': 'Complete',
-            'metadata': {
-                'mode': mode.value,
-                'version': self.version,
-                'substrate': self.substrate
-            }
+            "code": artifact.code,
+            "language": language,
+            "confidence": 0.95,
+            "complexity": "O(n)",
+            "sbi_verified": True,
+            "tests_generated": bool(artifact.tests),
+            "documentation": "Complete",
+            "metadata": {"mode": mode.value, "version": self.version, "substrate": self.substrate},
         }
 
     def generate(self, request: CodeRequest) -> CodeArtifact:
@@ -174,7 +169,7 @@ class ThalosCodingAgentCore:
             documentation=documentation,
             complexity_analysis=complexity,
             security_notes=security,
-            run_instructions=instructions
+            run_instructions=instructions,
         )
 
     def _decompose_requirements(self, request: CodeRequest) -> Dict[str, Any]:
@@ -195,15 +190,14 @@ class ThalosCodingAgentCore:
             "constraints": {
                 "security": ["input_validation", "error_handling", "logging"],
                 "performance": ["O(n) or better where possible"],
-                "quality": ["type_hints", "docstrings", "tests"]
-            }
+                "quality": ["type_hints", "docstrings", "tests"],
+            },
         }
         return requirements
 
     def _extract_functionality(self, query: str) -> List[str]:
         """Extract core functionality from natural language query."""
         # Simple keyword extraction (in production, use NLP)
-        keywords = ["create", "build", "implement", "design", "generate", "develop"]
         functions = []
 
         query_lower = query.lower()
@@ -264,36 +258,33 @@ class ThalosCodingAgentCore:
                 {
                     "name": "core",
                     "responsibility": "Business logic",
-                    "dependencies": ["logging", "typing"]
+                    "dependencies": ["logging", "typing"],
                 },
                 {
                     "name": "validation",
                     "responsibility": "Input validation",
-                    "dependencies": ["typing"]
+                    "dependencies": ["typing"],
                 },
                 {
                     "name": "cli",
                     "responsibility": "Command-line interface",
-                    "dependencies": ["argparse", "json", "core"]
-                }
+                    "dependencies": ["argparse", "json", "core"],
+                },
             ],
-            "interfaces": [
-                {
-                    "name": "Validator",
-                    "methods": ["validate(payload) -> None"]
-                }
-            ],
+            "interfaces": [{"name": "Validator", "methods": ["validate(payload) -> None"]}],
             "classes": [
                 {
                     "name": "Agent",
                     "methods": ["__init__", "execute", "_validate"],
-                    "attributes": ["config", "validator"]
+                    "attributes": ["config", "validator"],
                 }
-            ]
+            ],
         }
         return architecture
 
-    def _synthesize_code(self, architecture: Dict[str, Any], mode: GenerationMode, language: str) -> str:
+    def _synthesize_code(
+        self, architecture: Dict[str, Any], mode: GenerationMode, language: str
+    ) -> str:
         """
         Synthesize production-ready code from architecture.
 
@@ -498,7 +489,9 @@ if __name__ == "__main__":
         """Generate production-ready JavaScript/TypeScript scaffold."""
         return "// JavaScript scaffold (extend similar to Python pattern)\n"
 
-    def _generate_generic_scaffold(self, arch: Dict[str, Any], mode: GenerationMode, lang: str) -> str:
+    def _generate_generic_scaffold(
+        self, arch: Dict[str, Any], mode: GenerationMode, lang: str
+    ) -> str:
         """Generate generic language scaffold."""
         return f"// {lang} scaffold (extend with language-specific patterns)\n"
 
@@ -912,7 +905,7 @@ def main():
         mode=GenerationMode.FULL_APPLICATION,
         language="python",
         complexity=7,
-        attached_files=[]
+        attached_files=[],
     )
 
     artifact = agent.generate(request)

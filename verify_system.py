@@ -9,24 +9,20 @@ Version: 2.0 - Advanced Verification
 Last Enhanced: 2026-02-06
 """
 
-import subprocess
-import sys
 import json
-from pathlib import Path
-from typing import Dict, List, Tuple, Optional
 import logging
-from datetime import datetime
+import sys
+from pathlib import Path
+from typing import Dict, List, Tuple
 
 # Configure enhanced logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [VERIFY_SYSTEM] %(levelname)s: %(message)s',
-    handlers=[
-        logging.FileHandler('verify_system.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s [VERIFY_SYSTEM] %(levelname)s: %(message)s",
+    handlers=[logging.FileHandler("verify_system.log"), logging.StreamHandler()],
 )
-logger = logging.getLogger('VerifySystem')
+logger = logging.getLogger("VerifySystem")
+
 
 class HyperNextusVerification:
     """Complete system verification with enhanced diagnostics"""
@@ -61,7 +57,7 @@ class HyperNextusVerification:
 
     def verify_dependencies(self) -> Tuple[bool, str]:
         """Function: verify_dependencies"""
-        required = ['flask', 'flask_cors', 'numpy', 'requests']
+        required = ["flask", "flask_cors", "numpy", "requests"]
         missing = []
         try:
             for pkg in required:
@@ -79,12 +75,12 @@ class HyperNextusVerification:
     def verify_core_files(self) -> Tuple[bool, str]:
         """Function: verify_core_files"""
         required_files = [
-            'BIOCOMPUTING_CORE.py',
-            'biocomputing_api_server.py',
-            'hyper_nextus_server.py',
-            'thalos_sbi_core_v6.py',
-            'thalos_coding_agent_core.py',
-            'requirements.txt'
+            "BIOCOMPUTING_CORE.py",
+            "biocomputing_api_server.py",
+            "hyper_nextus_server.py",
+            "thalos_sbi_core_v6.py",
+            "thalos_coding_agent_core.py",
+            "requirements.txt",
         ]
         missing = [f for f in required_files if not (self.base_dir / f).exists()]
 
@@ -97,10 +93,10 @@ class HyperNextusVerification:
     def verify_web_interfaces(self) -> Tuple[bool, str]:
         """Function: verify_web_interfaces"""
         interfaces = [
-            'thalos_celestial.html',
-            'thalos_coding_agent.html',
-            'thalos_prime.html',
-            'thalos_prime_primary_directive.html'
+            "thalos_celestial.html",
+            "thalos_coding_agent.html",
+            "thalos_prime.html",
+            "thalos_prime_primary_directive.html",
         ]
         missing = [f for f in interfaces if not (self.base_dir / f).exists()]
 
@@ -114,6 +110,7 @@ class HyperNextusVerification:
         """Function: verify_biocore_import"""
         try:
             from BIOCOMPUTING_CORE import get_biocomputing_core
+
             core = get_biocomputing_core()
             msg = f"BIOCORE v{core.version} - {core.organoid_matrix.organoid_count:,} organoids"
             logger.info(msg)
@@ -125,7 +122,6 @@ class HyperNextusVerification:
     def verify_sbi_import(self) -> Tuple[bool, str]:
         """Function: verify_sbi_import"""
         try:
-            from thalos_sbi_core_v6 import ThalosCore
             msg = "SBI Core v6 import successful"
             logger.info(msg)
             return True, msg
@@ -137,6 +133,7 @@ class HyperNextusVerification:
         """Function: verify_coding_agent_import"""
         try:
             from thalos_coding_agent_core import ThalosCodingAgentCore
+
             core = ThalosCodingAgentCore()
             msg = f"Coding Agent {core.version} - {core.substrate}"
             logger.info(msg)
@@ -154,11 +151,11 @@ class HyperNextusVerification:
 
         content = server_file.read_text()
         checks = [
-            ('Flask', 'Flask import'),
-            ('CORS', 'CORS configuration'),
-            ('/api/biocompute', 'BIOCORE endpoint'),
-            ('/api/sbi/query', 'SBI endpoint'),
-            ('/api/code/generate', 'Code generation endpoint')
+            ("Flask", "Flask import"),
+            ("CORS", "CORS configuration"),
+            ("/api/biocompute", "BIOCORE endpoint"),
+            ("/api/sbi/query", "SBI endpoint"),
+            ("/api/code/generate", "Code generation endpoint"),
         ]
 
         missing = [desc for pattern, desc in checks if pattern not in content]
@@ -186,7 +183,7 @@ class HyperNextusVerification:
             ("BIOCOMPUTING_CORE", self.verify_biocore_import),
             ("SBI Core v6", self.verify_sbi_import),
             ("Coding Agent", self.verify_coding_agent_import),
-            ("Server Configuration", self.verify_server_config)
+            ("Server Configuration", self.verify_server_config),
         ]
 
         passed = 0
@@ -206,19 +203,11 @@ class HyperNextusVerification:
                 else:
                     failed += 1
 
-                self.results.append({
-                    "check": name,
-                    "passed": success,
-                    "message": message
-                })
+                self.results.append({"check": name, "passed": success, "message": message})
             except Exception as e:
                 print(f"✗ {name:<25} Exception: {e}")
                 failed += 1
-                self.results.append({
-                    "check": name,
-                    "passed": False,
-                    "message": str(e)
-                })
+                self.results.append({"check": name, "passed": False, "message": str(e)})
 
         logger.info(f"Verification completed: {passed} passed, {failed} failed")
         print()
@@ -231,7 +220,7 @@ class HyperNextusVerification:
             "passed": passed,
             "failed": failed,
             "success_rate": (passed / len(checks)) * 100,
-            "results": self.results
+            "results": self.results,
         }
 
     def generate_report(self):
@@ -259,9 +248,11 @@ class HyperNextusVerification:
             logger.warning(f"{summary['failed']} check(s) failed, review required")
             return 1
 
+
 def main():
     verifier = HyperNextusVerification()
     return verifier.generate_report()
+
 
 if __name__ == "__main__":
     sys.exit(main())

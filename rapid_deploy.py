@@ -8,22 +8,19 @@ Version: 2.0 - Enhanced Deployment
 Last Enhanced: 2026-02-06
 """
 
+import logging
 import subprocess
 import sys
 from pathlib import Path
-import logging
-from typing import int
 
 # Configure enhanced logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [RAPID_DEPLOY] %(levelname)s: %(message)s',
-    handlers=[
-        logging.FileHandler('rapid_deploy.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s [RAPID_DEPLOY] %(levelname)s: %(message)s",
+    handlers=[logging.FileHandler("rapid_deploy.log"), logging.StreamHandler()],
 )
-logger = logging.getLogger('RapidDeploy')
+logger = logging.getLogger("RapidDeploy")
+
 
 def main() -> int:
     """Function: main"""
@@ -38,12 +35,16 @@ def main() -> int:
     # Check Python
     print("[1/3] Verifying Python...")
     if sys.version_info < (3, 8):
-        msg = f"ERROR: Python 3.8+ required (found {sys.version_info.major}.{sys.version_info.minor})"
+        msg = (
+            f"ERROR: Python 3.8+ required (found {sys.version_info.major}.{sys.version_info.minor})"
+        )
         print(msg)
         logger.error(msg)
         return 1
     print(f"✓ Python {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
-    logger.info(f"Python version verified: {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}")
+    logger.info(
+        f"Python version verified: {sys.version_info.major}.{sys.version_info.minor}.{sys.version_info.micro}"
+    )
 
     # Setup venv
     print("\n[2/3] Setting up environment...")
@@ -64,11 +65,39 @@ def main() -> int:
     print("Installing dependencies...")
     logger.info("Installing dependencies")
     try:
-        subprocess.run([str(python_exe), "-m", "pip", "install", "-q", "--upgrade", "pip"], check=True)
-        subprocess.run([str(python_exe), "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=True)
+        subprocess.run(
+            [str(python_exe), "-m", "pip", "install", "-q", "--upgrade", "pip"], check=True
+        )
+        subprocess.run(
+            [str(python_exe), "-m", "pip", "install", "-q", "-r", "requirements.txt"], check=True
+        )
         print("✓ Environment ready")
         logger.info("Dependencies installed successfully")
     except subprocess.CalledProcessError as e:
         logger.error(f"Failed to install dependencies: {e}")
         return 1
-    ...existing code...
+
+    print("\n[3/3] Launching deployment server...")
+    logger.info("Launching deploy_server.py")
+    try:
+        subprocess.run(
+            [
+                str(python_exe),
+                "deploy_server.py",
+            ],
+            check=True,
+            cwd=str(base_dir),
+        )
+    except KeyboardInterrupt:
+        print("\nDeployment cancelled by user.")
+        logger.info("Deployment cancelled by user")
+        return 0
+    except subprocess.CalledProcessError as e:
+        logger.error(f"Deployment failed: {e}")
+        return 1
+
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

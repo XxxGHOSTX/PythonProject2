@@ -9,27 +9,22 @@ Enhanced with ML-based predictive failure detection
 Version: 2.0 - Advanced Autonomous Operations
 """
 
+import logging
+import os
 import subprocess
 import sys
-import os
-import time
 import threading
+import time
 from pathlib import Path
-import json
-import logging
-from typing import List, Dict, Optional
-from datetime import datetime
 
 # Setup enhanced logging
 logging.basicConfig(
     level=logging.INFO,
-    format='%(asctime)s [AUTONOMOUS] %(levelname)s: %(message)s',
-    handlers=[
-        logging.FileHandler('autonomous_core.log'),
-        logging.StreamHandler()
-    ]
+    format="%(asctime)s [AUTONOMOUS] %(levelname)s: %(message)s",
+    handlers=[logging.FileHandler("autonomous_core.log"), logging.StreamHandler()],
 )
-logger = logging.getLogger('AutonomousCore')
+logger = logging.getLogger("AutonomousCore")
+
 
 class AutonomousCore:
     """Fully autonomous system management with predictive capabilities"""
@@ -51,6 +46,7 @@ class AutonomousCore:
             print("[AUTO-FIX] Rebuilding virtual environment...")
             if venv.exists():
                 import shutil
+
                 shutil.rmtree(venv, ignore_errors=True)
             subprocess.run([sys.executable, "-m", "venv", str(venv)], check=False)
             self.errors_fixed += 1
@@ -60,12 +56,12 @@ class AutonomousCore:
 
     def check_and_install_deps(self) -> bool:
         """Automatically install missing dependencies"""
-        required = ['flask', 'flask-cors', 'numpy', 'requests']
+        required = ["flask", "flask-cors", "numpy", "requests"]
         missing = []
 
         for pkg in required:
             try:
-                __import__(pkg.replace('-', '_'))
+                __import__(pkg.replace("-", "_"))
             except ImportError:
                 missing.append(pkg)
 
@@ -73,9 +69,20 @@ class AutonomousCore:
             logger.warning(f"Missing packages detected: {missing}")
             print(f"[AUTO-FIX] Installing {len(missing)} missing packages...")
             for pkg in missing:
-                subprocess.run([sys.executable, "-m", "pip", "install", pkg,
-                              "--no-cache-dir", "--force-reinstall"],
-                             check=False, capture_output=True, timeout=120)
+                subprocess.run(
+                    [
+                        sys.executable,
+                        "-m",
+                        "pip",
+                        "install",
+                        pkg,
+                        "--no-cache-dir",
+                        "--force-reinstall",
+                    ],
+                    check=False,
+                    capture_output=True,
+                    timeout=120,
+                )
             self.errors_fixed += 1
             logger.info(f"Installed missing packages: {missing}")
             return True
@@ -84,20 +91,20 @@ class AutonomousCore:
     def check_and_fix_imports(self):
         """Fix import issues in Python files"""
         files_to_check = [
-            'hyper_nextus_server.py',
-            'BIOCOMPUTING_CORE.py',
-            'thalos_sbi_core_v6.py',
-            'thalos_coding_agent_core.py'
+            "hyper_nextus_server.py",
+            "BIOCOMPUTING_CORE.py",
+            "thalos_sbi_core_v6.py",
+            "thalos_coding_agent_core.py",
         ]
 
         for filename in files_to_check:
             filepath = self.base_dir / filename
             if filepath.exists():
                 try:
-                    with open(filepath, 'r', encoding='utf-8', errors='ignore') as f:
+                    with open(filepath, "r", encoding="utf-8", errors="ignore") as f:
                         content = f.read()
                     # Try to compile to check for syntax errors
-                    compile(content, filename, 'exec')
+                    compile(content, filename, "exec")
                 except SyntaxError as e:
                     logger.error(f"Syntax error in {filename}: {e}")
                     print(f"[AUTO-FIX] Fixing syntax in {filename}...")
@@ -110,8 +117,9 @@ class AutonomousCore:
         """Check if server is running, restart if needed"""
         try:
             import socket
+
             sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            result = sock.connect_ex(('127.0.0.1', 5000))
+            result = sock.connect_ex(("127.0.0.1", 5000))
             sock.close()
             return result == 0
         except Exception as e:
@@ -125,8 +133,10 @@ class AutonomousCore:
             print("[AUTO-START] Starting HYPER-NEXTUS server...")
             server_file = self.base_dir / "hyper_nextus_server.py"
             if server_file.exists():
-                subprocess.Popen([sys.executable, str(server_file)],
-                               creationflags=subprocess.CREATE_NEW_CONSOLE if os.name == 'nt' else 0)
+                subprocess.Popen(
+                    [sys.executable, str(server_file)],
+                    creationflags=subprocess.CREATE_NEW_CONSOLE if os.name == "nt" else 0,
+                )
                 time.sleep(3)
                 self.auto_restarts += 1
                 logger.info("HYPER-NEXTUS server started")
@@ -158,10 +168,14 @@ class AutonomousCore:
 
                 # Report status
                 if self.errors_fixed > 0 or self.auto_restarts > 0:
-                    print(f"[STATUS] Errors auto-fixed: {self.errors_fixed}, "
-                          f"Auto-restarts: {self.auto_restarts}")
-                    logger.info(f"Errors auto-fixed: {self.errors_fixed}, "
-                                f"Auto-restarts: {self.auto_restarts}")
+                    print(
+                        f"[STATUS] Errors auto-fixed: {self.errors_fixed}, "
+                        f"Auto-restarts: {self.auto_restarts}"
+                    )
+                    logger.info(
+                        f"Errors auto-fixed: {self.errors_fixed}, "
+                        f"Auto-restarts: {self.auto_restarts}"
+                    )
 
                 time.sleep(30)  # Check every 30 seconds
 
@@ -194,6 +208,7 @@ class AutonomousCore:
         logger.info("Monitoring thread started")
         return thread
 
+
 def main():
     """Start autonomous core"""
     core = AutonomousCore()
@@ -213,6 +228,7 @@ def main():
 
     # Start continuous monitoring
     core.monitor_and_fix()
+
 
 if __name__ == "__main__":
     main()

@@ -7,13 +7,12 @@ Enhanced with intelligent pattern recognition and adaptive enhancement
 Version: 2.0 - Smart Enhancement Engine
 """
 
-from pathlib import Path
-import json
 import logging
-from typing import List, Dict, Optional
-from datetime import datetime
+from pathlib import Path
+from typing import List
 
 logger = logging.getLogger(__name__)
+
 
 class AutoEnhancer:
     """Automatically enhances project files with intelligent adaptation"""
@@ -27,22 +26,22 @@ class AutoEnhancer:
     def add_error_handling_to_python(self, filepath) -> bool:
         """Add comprehensive error handling to Python files"""
         try:
-            content = filepath.read_text(encoding='utf-8', errors='ignore')
+            content = filepath.read_text(encoding="utf-8", errors="ignore")
 
             # Add try-except to main blocks
-            if 'if __name__ == "__main__":' in content and 'try:' not in content[-500:]:
+            if 'if __name__ == "__main__":' in content and "try:" not in content[-500:]:
                 content = content.replace(
                     'if __name__ == "__main__":',
-                    '''if __name__ == "__main__":
-    try:'''
+                    """if __name__ == "__main__":
+    try:""",
                 )
-                content += '''
+                content += """
     except KeyboardInterrupt:
         print("\\nStopped by user")
     except Exception as e:
         print(f"Error: {e}")
-'''
-                filepath.write_text(content, encoding='utf-8')
+"""
+                filepath.write_text(content, encoding="utf-8")
                 self.enhancements_applied.append(f"Added error handling to {filepath.name}")
                 logger.info(f"Added error handling to {filepath.name}")
                 return True
@@ -53,21 +52,21 @@ class AutoEnhancer:
     def add_logging_to_python(self, filepath) -> bool:
         """Add logging capabilities to Python files"""
         try:
-            content = filepath.read_text(encoding='utf-8', errors='ignore')
+            content = filepath.read_text(encoding="utf-8", errors="ignore")
 
-            if 'import logging' not in content and 'def ' in content:
+            if "import logging" not in content and "def " in content:
                 # Add logging import
-                lines = content.split('\n')
+                lines = content.split("\n")
                 insert_pos = 0
                 for i, line in enumerate(lines):
-                    if line.startswith('import ') or line.startswith('from '):
+                    if line.startswith("import ") or line.startswith("from "):
                         insert_pos = i + 1
 
-                lines.insert(insert_pos, 'import logging')
+                lines.insert(insert_pos, "import logging")
                 lines.insert(insert_pos + 1, "logger = logging.getLogger(__name__)")
 
-                content = '\n'.join(lines)
-                filepath.write_text(content, encoding='utf-8')
+                content = "\n".join(lines)
+                filepath.write_text(content, encoding="utf-8")
                 self.enhancements_applied.append(f"Added logging to {filepath.name}")
                 logger.info(f"Added logging to {filepath.name}")
                 return True
@@ -78,19 +77,19 @@ class AutoEnhancer:
     def add_type_hints(self, filepath) -> bool:
         """Add type hints to Python functions"""
         try:
-            content = filepath.read_text(encoding='utf-8', errors='ignore')
+            content = filepath.read_text(encoding="utf-8", errors="ignore")
 
-            if 'from typing import' not in content and 'def ' in content:
-                lines = content.split('\n')
+            if "from typing import" not in content and "def " in content:
+                lines = content.split("\n")
                 insert_pos = 0
                 for i, line in enumerate(lines):
-                    if line.startswith('import ') or line.startswith('from '):
+                    if line.startswith("import ") or line.startswith("from "):
                         insert_pos = i + 1
 
-                lines.insert(insert_pos, 'from typing import Any, Dict, List, Optional')
+                lines.insert(insert_pos, "from typing import Any, Dict, List, Optional")
 
-                content = '\n'.join(lines)
-                filepath.write_text(content, encoding='utf-8')
+                content = "\n".join(lines)
+                filepath.write_text(content, encoding="utf-8")
                 self.enhancements_applied.append(f"Added type hints import to {filepath.name}")
                 logger.info(f"Added type hints import to {filepath.name}")
                 return True
@@ -101,15 +100,15 @@ class AutoEnhancer:
     def optimize_html_files(self, filepath) -> bool:
         """Optimize HTML files with meta tags and performance improvements"""
         try:
-            content = filepath.read_text(encoding='utf-8', errors='ignore')
+            content = filepath.read_text(encoding="utf-8", errors="ignore")
 
             # Add viewport if missing
-            if '<meta name="viewport"' not in content and '<head>' in content:
+            if '<meta name="viewport"' not in content and "<head>" in content:
                 content = content.replace(
-                    '<head>',
-                    '<head>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">'
+                    "<head>",
+                    '<head>\n    <meta name="viewport" content="width=device-width, initial-scale=1.0">',
                 )
-                filepath.write_text(content, encoding='utf-8')
+                filepath.write_text(content, encoding="utf-8")
                 self.enhancements_applied.append(f"Added viewport to {filepath.name}")
                 logger.info(f"Added viewport to {filepath.name}")
                 return True
@@ -120,19 +119,19 @@ class AutoEnhancer:
     def add_performance_monitoring(self, filepath) -> bool:
         """Add performance monitoring to Python files"""
         try:
-            content = filepath.read_text(encoding='utf-8', errors='ignore')
+            content = filepath.read_text(encoding="utf-8", errors="ignore")
 
-            if 'import time' not in content and 'def ' in content and 'class' in content:
-                lines = content.split('\n')
+            if "import time" not in content and "def " in content and "class" in content:
+                lines = content.split("\n")
                 insert_pos = 0
                 for i, line in enumerate(lines):
-                    if line.startswith('import ') or line.startswith('from '):
+                    if line.startswith("import ") or line.startswith("from "):
                         insert_pos = i + 1
 
-                lines.insert(insert_pos, 'import time  # For performance monitoring')
+                lines.insert(insert_pos, "import time  # For performance monitoring")
 
-                content = '\n'.join(lines)
-                filepath.write_text(content, encoding='utf-8')
+                content = "\n".join(lines)
+                filepath.write_text(content, encoding="utf-8")
                 self.enhancements_applied.append(f"Added performance monitoring to {filepath.name}")
                 logger.info(f"Added performance monitoring to {filepath.name}")
                 return True
@@ -146,7 +145,7 @@ class AutoEnhancer:
         html_files = list(self.base_dir.glob("*.html"))
 
         for py_file in python_files:
-            if py_file.name != '__init__.py':
+            if py_file.name != "__init__.py":
                 self.add_error_handling_to_python(py_file)
                 self.add_logging_to_python(py_file)
                 self.add_type_hints(py_file)
