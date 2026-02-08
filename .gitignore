@@ -26,3 +26,6 @@ Thumbs.db
 dist/
 build/
 *.egg-info/
+
+# Integration reports (auto-generated)
+integration_report_cycle_*.json
