@@ -32,6 +32,13 @@ class InfiniteIntegrationEngine:
         self.total_fixes = 0
         self.total_additions = 0
         self.running = True
+    
+    def clear_cache(self):
+        """Clear import cache (useful for testing)."""
+        if hasattr(self, '_import_cache'):
+            delattr(self, '_import_cache')
+        if hasattr(self, '_import_cache_time'):
+            delattr(self, '_import_cache_time')
 
     def scan_all_files(self):
         """Scan all Python files in project (optimized with generators)"""
@@ -400,8 +407,10 @@ pause
                 report = self.run_integration_cycle()
                 
                 # Adaptive sleep: If nothing was done, sleep longer
-                if (report['total_fixes_applied'] == self.total_fixes and 
-                    not report['missing_imports'] and not report['missing_files']):
+                # Use .get() with defaults to avoid KeyError
+                if (report.get('total_fixes_applied', 0) == self.total_fixes and 
+                    not report.get('missing_imports', []) and 
+                    not report.get('missing_files', [])):
                     current_sleep = min(current_sleep * 1.2, max_sleep)
                 else:
                     current_sleep = min_sleep

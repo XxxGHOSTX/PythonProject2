@@ -362,7 +362,9 @@ class AdvancedTokenizer:
     def encode(self, text: str, max_length: int = 8192) -> List[int]:
         """Encode text to token IDs with semantic understanding and caching"""
         # Check cache first (Performance optimization)
-        cache_key = (text[:100], max_length)  # Use first 100 chars as cache key
+        # Use hash of full text to avoid collisions
+        import hashlib
+        cache_key = (hashlib.md5(text.encode()).hexdigest(), max_length)
         if cache_key in self.encoding_cache:
             return self.encoding_cache[cache_key]
         
@@ -394,9 +396,9 @@ class AdvancedTokenizer:
 
         result = tokens[:max_length]
         
-        # Add to cache with LRU behavior
+        # Add to cache with size limit (FIFO eviction)
         if len(self.encoding_cache) >= self.cache_max_size:
-            # Remove oldest entry (simple FIFO for now)
+            # Remove oldest entry
             self.encoding_cache.pop(next(iter(self.encoding_cache)))
         self.encoding_cache[cache_key] = result
         

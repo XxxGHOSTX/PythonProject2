@@ -135,8 +135,7 @@ def test_import_cache():
         
         # First check (no cache)
         def check_uncached():
-            if hasattr(engine, '_import_cache'):
-                delattr(engine, '_import_cache')
+            engine.clear_cache()  # Use public method
             _ = engine.check_imports_available()
         
         # Second check (with cache)

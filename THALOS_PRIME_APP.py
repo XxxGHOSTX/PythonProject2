@@ -244,20 +244,6 @@ class AttentionHead:
             output.append(result)
 
         return output
-        scores = []
-        for qi in q:
-            row_scores = []
-            for ki in k:
-                score = sum(a*b for a, b in zip(qi, ki)) * self.scale
-                row_scores.append(score)
-
-            # Softmax approximation
-            max_score = max(row_scores) if row_scores else 0
-            exp_scores = [2.718**(s-max_score) for s in row_scores]
-            sum_exp = sum(exp_scores) if exp_scores else 1
-            softmax = [e/sum_exp for e in exp_scores]
-
-            scores.append(softmax)
 
         return scores
 
