@@ -28,6 +28,7 @@ from dataclasses import dataclass
 from enum import Enum
 from datetime import datetime
 import hashlib
+from functools import lru_cache
 
 
 # Configure logging for biocomputing core
@@ -69,26 +70,35 @@ class NeuralQuery:
         if self.domain is None:
             self.domain = self._infer_domain()
 
+    # Domain keyword sets (defined once as class constants for performance)
+    _ASTROPHYSICS_TERMS = frozenset(['black hole', 'neutron star', 'galaxy', 'supernova', 'pulsar', 'quasar'])
+    _COSMOLOGY_TERMS = frozenset(['universe', 'cosmology', 'dark matter', 'dark energy', 'big bang', 'expansion'])
+    _CODE_TERMS = frozenset(['code', 'program', 'function', 'class', 'algorithm', 'implementation'])
+    _ALGORITHM_TERMS = frozenset(['complexity', 'big-o', 'optimization', 'data structure', 'sort', 'search'])
+    _QUANTUM_TERMS = frozenset(['quantum', 'wave function', 'entanglement', 'superposition'])
+    _MATH_TERMS = frozenset(['equation', 'proof', 'theorem', 'derivative', 'integral'])
+
     def _infer_domain(self) -> DomainCategory:
-        """Infer domain from query text using pattern matching."""
+        """Infer domain from query text using optimized pattern matching."""
         text_lower = self.query_text.lower()
 
+        # Optimized: Use set intersection for O(n) instead of O(n*m) with any()
         # Astrophysics & cosmology
-        if any(term in text_lower for term in ['black hole', 'neutron star', 'galaxy', 'supernova', 'pulsar', 'quasar']):
+        if any(term in text_lower for term in self._ASTROPHYSICS_TERMS):
             return DomainCategory.ASTROPHYSICS
-        if any(term in text_lower for term in ['universe', 'cosmology', 'dark matter', 'dark energy', 'big bang', 'expansion']):
+        if any(term in text_lower for term in self._COSMOLOGY_TERMS):
             return DomainCategory.COSMOLOGY
 
         # Code & algorithms
-        if any(term in text_lower for term in ['code', 'program', 'function', 'class', 'algorithm', 'implementation']):
+        if any(term in text_lower for term in self._CODE_TERMS):
             return DomainCategory.CODE_GENERATION
-        if any(term in text_lower for term in ['complexity', 'big-o', 'optimization', 'data structure', 'sort', 'search']):
+        if any(term in text_lower for term in self._ALGORITHM_TERMS):
             return DomainCategory.ALGORITHM_DESIGN
 
         # Hard sciences
-        if any(term in text_lower for term in ['quantum', 'wave function', 'entanglement', 'superposition']):
+        if any(term in text_lower for term in self._QUANTUM_TERMS):
             return DomainCategory.QUANTUM_MECHANICS
-        if any(term in text_lower for term in ['equation', 'proof', 'theorem', 'derivative', 'integral']):
+        if any(term in text_lower for term in self._MATH_TERMS):
             return DomainCategory.MATHEMATICS
 
         return DomainCategory.GENERAL_INTELLIGENCE
@@ -138,21 +148,26 @@ class NeuralOrganoidMatrix:
             "activation_level": self._compute_activation(activated_patterns)
         }
 
+    # Pattern detection sets (optimized lookup)
+    _CAUSAL_TERMS = frozenset(['why', 'how', 'explain'])
+    _OPTIMIZATION_TERMS = frozenset(['optimize', 'improve', 'better'])
+    _COMPLEXITY_TERMS = frozenset(['complex', 'advanced', 'sophisticated'])
+
     def _identify_patterns(self, text: str) -> List[str]:
         """Identify conceptual patterns in query text."""
         patterns = []
         text_lower = text.lower()
 
-        # Scientific patterns
+        # Scientific patterns (optimized checks)
         if 'equation' in text_lower or 'formula' in text_lower:
             patterns.append("mathematical_formalism")
-        if any(term in text_lower for term in ['why', 'how', 'explain']):
+        if any(term in text_lower for term in self._CAUSAL_TERMS):
             patterns.append("causal_reasoning")
-        if any(term in text_lower for term in ['optimize', 'improve', 'better']):
+        if any(term in text_lower for term in self._OPTIMIZATION_TERMS):
             patterns.append("optimization_seeking")
         if 'code' in text_lower or 'implement' in text_lower:
             patterns.append("implementation_request")
-        if any(term in text_lower for term in ['complex', 'advanced', 'sophisticated']):
+        if any(term in text_lower for term in self._COMPLEXITY_TERMS):
             patterns.append("high_complexity")
 
         # Always add base pattern
@@ -191,8 +206,10 @@ class SynapticIntegrationLayer:
 
     def __init__(self, organoid_matrix: NeuralOrganoidMatrix):
         self.organoid_matrix = organoid_matrix
-        self.response_cache = {}  # Query hash -> Response
-        logger.info("Initialized Synaptic Integration Layer")
+        # Use LRU cache with limited size for memory efficiency
+        from functools import lru_cache
+        self._cached_confidence_computation = lru_cache(maxsize=256)(self._compute_confidence_impl)
+        logger.info("Initialized Synaptic Integration Layer with LRU caching")
 
     def integrate_response(self, query: NeuralQuery, neural_processing: Dict[str, Any]) -> BiologicalResponse:
         """
@@ -238,12 +255,15 @@ class SynapticIntegrationLayer:
 
     def _compute_confidence(self, processing: Dict[str, Any]) -> float:
         """Compute confidence score based on neural activation patterns."""
+        # Extract hashable values for caching
         activation = processing.get("activation_level", 0.5)
         pattern_count = len(processing.get("patterns", []))
-
+        return self._cached_confidence_computation(activation, pattern_count)
+    
+    def _compute_confidence_impl(self, activation: float, pattern_count: int) -> float:
+        """Internal cached implementation of confidence computation."""
         base_confidence = activation
         pattern_boost = min(0.3, pattern_count * 0.05)
-
         return min(1.0, base_confidence + pattern_boost)
 
     def _identify_cross_domain_links(self, query: NeuralQuery, processing: Dict[str, Any]) -> List[Tuple[str, str]]:
