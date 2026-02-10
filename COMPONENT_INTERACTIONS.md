@@ -116,19 +116,16 @@ except ImportError as e:
 ```
 
 ```python
-# tpca_api_server.py
+# tpca_api_server.py (current implementation excerpt)
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
 import logging
 import os
 from datetime import datetime
 
-try:
-    from thalos_coding_agent_core import ThalosCodingAgentCore, CodeRequest, GenerationMode
-    TPCA_AVAILABLE = True
-except ImportError as e:
-    logger.warning(f"TPCA core not available: {e}")
-    TPCA_AVAILABLE = False
+from thalos_coding_agent_core import ThalosCodingAgentCore, CodeRequest, GenerationMode
+# Note: In the current implementation, TPCA core is imported directly.
+# If this import fails, the server will fail to start rather than degrading gracefully.
 ```
 
 ```python
