@@ -182,11 +182,11 @@ Input Text
     Generated Text
 ```
 
-**Parameters**: 200M+ total
-- Embedding: 50.3M parameters (65,536 × 768)
+**Parameters**: 200M+ total (exact count depends on vocabulary size)
+- Embedding: `vocab_size × 768` parameters (≈38.6M for `vocab_size = 50,257` as in `thalos_sbi_core_v6.py`)
 - Each transformer layer: ~17M parameters
 - Total layers: 24
-- Output projection: 50.3M parameters
+- Output projection: `vocab_size × 768` parameters (same shape as embedding; ≈38.6M for `vocab_size = 50,257`)
 
 **Key Classes**:
 - `ThalosConfig`: Configuration dataclass
