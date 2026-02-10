@@ -96,7 +96,7 @@ from enum import Enum
 
 #### Level 2: API Servers (Import Core Engines)
 ```python
-# biocomputing_api_server.py
+# biocomputing_api_server.py (current implementation)
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import logging
@@ -106,13 +106,12 @@ import threading
 from functools import wraps
 from typing import Dict, Any, Optional, Tuple
 
-# Internal import with error handling
-try:
-    from BIOCOMPUTING_CORE import get_biocomputing_core, BiologicalResponse
-    BIOCORE_AVAILABLE = True
-except ImportError as e:
-    logger.warning(f"BIOCOMPUTING_CORE not available: {e}")
-    BIOCORE_AVAILABLE = False
+# Direct import (biocomputing_api_server requires the core to function)
+from BIOCOMPUTING_CORE import get_biocomputing_core, BiologicalResponse
+
+# Note: This server imports the core directly without an availability flag,
+# as it's a dedicated API server that requires BIOCOMPUTING_CORE to operate.
+# For graceful degradation patterns, see hyper_nextus_server.py.
 ```
 
 ```python

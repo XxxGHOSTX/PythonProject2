@@ -35,7 +35,7 @@ The system uses alternative validation approaches:
 **Pattern**: Try-except blocks verify module availability at runtime
 
 ```python
-# Example from biocomputing_api_server.py
+# Recommended pattern (as used in hyper_nextus_server.py)
 try:
     from BIOCOMPUTING_CORE import get_biocomputing_core, BiologicalResponse
     BIOCORE_AVAILABLE = True
@@ -46,6 +46,9 @@ except ImportError as e:
 except Exception as e:
     BIOCORE_AVAILABLE = False
     logger.error(f"✗ Error loading BIOCOMPUTING_CORE: {e}")
+
+# Note: biocomputing_api_server.py currently imports directly without try-except,
+# as it's a dedicated API server that requires the core to function.
 ```
 
 **Coverage**:
@@ -87,7 +90,7 @@ curl http://localhost:5001/api/health
 
 # TPCA health
 curl http://localhost:5002/api/health
-# Expected: {"status": "online", "version": "8.0"}
+# Expected: {"status": "healthy", "agent": "TPCA", "version": "8.0"}
 
 # All servers
 .\VERIFY_SYSTEM.bat
@@ -166,8 +169,12 @@ from dataclasses import dataclass
 
 @dataclass
 class ThalosConfig:
-    """Configuration with built-in validation."""
-    vocab_size: int = 65536
+    """Illustrative configuration with built-in validation.
+    
+    Note: The real ThalosConfig in thalos_sbi_core_v6.py uses vocab_size=50257
+    and may have different field names. This example focuses on the validation pattern.
+    """
+    vocab_size: int = 50257
     embedding_dim: int = 768
     num_heads: int = 12
     
@@ -692,7 +699,7 @@ python verify_system.py
 # 1. Clean start
 Remove-Item .venv -Recurse -Force
 python -m venv .venv
-.\.venv\Scripts\activate
+.\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 
 # 2. Verify setup

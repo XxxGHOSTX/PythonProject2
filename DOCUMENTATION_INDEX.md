@@ -59,7 +59,7 @@ This index provides a comprehensive guide to all THALOS PRIME documentation. Use
 7. **[COMPONENT_INTERACTIONS.md](COMPONENT_INTERACTIONS.md)** ⭐ **NEW**
    - **Component dependency graph** (4 levels)
    - **Import dependencies** between modules
-   - **Database/persistence mechanisms** (14 tables)
+   - **Database/persistence mechanisms** and table overview
    - **Integration report JSON** files explained
    - **Cross-component communication** protocols
    - **Component lifecycle** management
@@ -202,7 +202,7 @@ This index provides a comprehensive guide to all THALOS PRIME documentation. Use
 
 **Q: What is the database schema?**  
 **A:** See [COMPONENT_INTERACTIONS.md - Database Schema](COMPONENT_INTERACTIONS.md#database-schema)
-- 14 tables: config, sessions, interactions, model parameters, reasoning traces, etc.
+- 17 tables: config, sessions, interactions, model parameters, reasoning traces, audit_log, feature_flags, error_log, etc.
 
 **Q: What are integration reports?**  
 **A:** See [COMPONENT_INTERACTIONS.md - Integration Reports](COMPONENT_INTERACTIONS.md#integration-reports)

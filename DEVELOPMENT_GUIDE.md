@@ -1118,7 +1118,7 @@ pip list
 # Start servers manually
 python biocomputing_api_server.py --port 5001
 python tpca_api_server.py --port 5002
-python hyper_nextus_server.py --port 5000
+python hyper_nextus_server.py 5000
 
 # With options
 python biocomputing_api_server.py --port 5001 --debug --reset-interval 1800

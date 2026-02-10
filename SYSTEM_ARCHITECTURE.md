@@ -68,7 +68,7 @@ THALOS PRIME is a multi-tier synthetic biological intelligence system with a dis
 | **TPCA API** | 5002 | Autonomous code generation | `python tpca_api_server.py --port 5002` | `/api/generate`, `/api/health`, `/api/status` |
 | **HYPER-NEXTUS** | 5000 | Unified integration hub | `python hyper_nextus_server.py 5000` | `/api/sbi/query`, `/api/code/generate` |
 | **Deploy Server** | 8080 | HTML interface hosting | `python deploy_server.py` | `/`, `/thalos_prime.html`, `/thalos_celestial.html` |
-| **THALOS PRIME APP** | 8888 | Standalone neural interface | `python THALOS_PRIME_APP.py` | `/`, `/api/query`, `/api/status` |
+| **THALOS PRIME APP** | 8888 | Standalone neural interface | `python THALOS_PRIME_APP.py` | `/`, `/api/generate`, `/api/session`, `/api/export`, `/api/status`, `/api/capabilities` |
 
 ### Port Usage Strategy
 
@@ -153,7 +153,7 @@ Input Text
 ┌─────────────────────────┐
 │  AdvancedTokenizer      │
 │  • WordPiece algorithm  │
-│  • 65,536 vocabulary    │
+│  • 50,257 vocabulary    │
 │  • Special tokens       │
 └──────────┬──────────────┘
            │
@@ -193,7 +193,7 @@ Input Text
 - `TensorOps`: Custom tensor operations
 - `SimpleTransformer`: Transformer implementation
 - `ThalosPrimeNeuralCore`: Main inference engine
-- `ThalosDatabase`: Persistence layer (14 tables)
+- `ThalosDatabase`: Persistence layer (17 tables)
 
 ### 3. Thalos Coding Agent Core (TPCA v8.0)
 
@@ -529,7 +529,7 @@ DEPLOY_THALOS_PRIME.bat
 
 **File**: `thalos_database_schema.py`
 
-**14 Core Tables**:
+**17 Database Tables**:
 1. `system_config` - Global parameters
 2. `sessions` - User sessions with metadata
 3. `interactions` - Query-response pairs
@@ -656,7 +656,7 @@ curl http://localhost:5002/api/health
 
 # HYPER-NEXTUS health
 curl http://localhost:5000/api/health
-# Expected: {"status": "operational"}
+# Expected: {"status": "healthy"}
 ```
 
 ### Monitoring Tools
