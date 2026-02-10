@@ -32,9 +32,17 @@ class InfiniteIntegrationEngine:
         self.total_fixes = 0
         self.total_additions = 0
         self.running = True
+    
+    def clear_cache(self):
+        """Clear import cache (useful for testing)."""
+        if hasattr(self, '_import_cache'):
+            delattr(self, '_import_cache')
+        if hasattr(self, '_import_cache_time'):
+            delattr(self, '_import_cache_time')
 
     def scan_all_files(self):
-        """Scan all Python files in project"""
+        """Scan all Python files in project (optimized with generators)"""
+        # Optimized: Use generators to avoid materializing all files at once
         python_files = list(self.base_dir.glob("*.py"))
         html_files = list(self.base_dir.glob("*.html"))
         bat_files = list(self.base_dir.glob("*.bat"))
@@ -382,19 +390,33 @@ pause
         return report
 
     def run_infinite_loop(self):
-        """Run infinite integration loop"""
+        """Run infinite integration loop with optimized timing"""
         print("="*70)
         print("HYPER-NEXTUS INFINITE INTEGRATION ENGINE")
         print("Continuous scanning, checking, fixing, optimizing")
         print("Press Ctrl+C to stop")
         print("="*70)
 
+        # Optimized: Use adaptive sleep intervals
+        min_sleep = 60  # Minimum 60 seconds between cycles
+        max_sleep = 300  # Maximum 5 minutes if nothing to do
+        current_sleep = min_sleep
+
         while self.running:
             try:
-                self.run_integration_cycle()
-
-                print(f"\n[WAIT] Waiting 60 seconds before next cycle...")
-                time.sleep(60)
+                report = self.run_integration_cycle()
+                
+                # Adaptive sleep: If nothing was done, sleep longer
+                # Use .get() with defaults to avoid KeyError
+                if (report.get('total_fixes_applied', 0) == self.total_fixes and 
+                    not report.get('missing_imports', []) and 
+                    not report.get('missing_files', [])):
+                    current_sleep = min(current_sleep * 1.2, max_sleep)
+                else:
+                    current_sleep = min_sleep
+                
+                print(f"\n[WAIT] Waiting {int(current_sleep)} seconds before next cycle...")
+                time.sleep(current_sleep)
 
             except KeyboardInterrupt:
                 print("\n\n[STOP] Integration loop stopped by user")

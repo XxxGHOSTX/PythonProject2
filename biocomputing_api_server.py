@@ -59,10 +59,25 @@ logger = logging.getLogger('BIOCOMPUTING_API')
 
 
 def get_or_reset_biocore() -> Any:
-    """Get biocomputing core instance, resetting if needed."""
+    """Get biocomputing core instance, resetting if needed (optimized locking)."""
     global biocore, biocore_last_reset, biocore_request_count, biocore_error_count
 
+    # Optimized: Quick check without lock first (double-checked locking pattern)
+    current_time = time.time()
+    time_since_reset = current_time - biocore_last_reset
+    
+    # Only acquire lock if reset might be needed
+    needs_check = (
+        biocore is None or
+        time_since_reset > AUTO_RESET_INTERVAL or
+        biocore_error_count >= AUTO_RESET_ERROR_THRESHOLD
+    )
+    
+    if not needs_check:
+        return biocore
+    
     with biocore_lock:
+        # Re-check conditions after acquiring lock
         current_time = time.time()
         time_since_reset = current_time - biocore_last_reset
 

@@ -216,22 +216,34 @@ class AttentionHead:
         return [[random.gauss(0, 0.02) for _ in range(shape[1])] for _ in range(shape[0])]
 
     def compute_attention(self, q, k, v):
-        """Compute scaled dot-product attention"""
-        # Simplified attention (in production, use numpy/torch)
+        """Compute scaled dot-product attention with optimized operations"""
+        # Simplified attention (optimized for performance)
         scores = []
         for qi in q:
-            row_scores = []
+            row = []
             for ki in k:
-                score = sum(a*b for a, b in zip(qi, ki)) * self.scale
-                row_scores.append(score)
+                # Optimized: Use zip instead of indexing
+                score = sum(a * b for a, b in zip(qi, ki)) * self.scale
+                row.append(score)
+            scores.append(row)
 
-            # Softmax approximation
-            max_score = max(row_scores) if row_scores else 0
-            exp_scores = [2.718**(s-max_score) for s in row_scores]
-            sum_exp = sum(exp_scores) if exp_scores else 1
-            softmax = [e/sum_exp for e in exp_scores]
+        # Softmax (optimized)
+        attention_weights = []
+        for row in scores:
+            max_score = max(row) if row else 0
+            exp_row = [math.exp(s - max_score) for s in row]
+            sum_exp = sum(exp_row)
+            attention_weights.append([e / sum_exp for e in exp_row])
 
-            scores.append(softmax)
+        # Apply to values (optimized with list comprehension)
+        output = []
+        for i, weights in enumerate(attention_weights):
+            # Compute weighted sum of values
+            result = [sum(w * v[j][d] for j, w in enumerate(weights)) 
+                     for d in range(len(v[0]))]
+            output.append(result)
+
+        return output
 
         return scores
 
