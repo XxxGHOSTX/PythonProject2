@@ -135,20 +135,41 @@ import os
 from pathlib import Path
 import json
 import threading
+import http.server
+import socketserver
+import logging
 
-try:
-    from thalos_sbi_core_v6 import (
-        ThalosConfig, ThalosApplication, ThalosPrimeNeuralCore
-    )
-    SBI_AVAILABLE = True
-except ImportError:
-    SBI_AVAILABLE = False
+logger = logging.getLogger(__name__)
+logging.basicConfig(level=logging.INFO)
 
-try:
-    from BIOCOMPUTING_CORE import get_biocomputing_core
-    BIOCORE_AVAILABLE = True
-except ImportError:
-    BIOCORE_AVAILABLE = False
+class ThalosPrimeRequestHandler(http.server.BaseHTTPRequestHandler):
+    """Standalone HTTP server handler for THALOS PRIME."""
+
+    def _send_json(self, payload, status_code=200):
+        data = json.dumps(payload).encode("utf-8")
+        self.send_response(status_code)
+        self.send_header("Content-Type", "application/json")
+        self.send_header("Content-Length", str(len(data)))
+        self.end_headers()
+        self.wfile.write(data)
+
+    def do_GET(self):
+        if self.path == "/health":
+            self._send_json({"status": "ok", "component": "THALOS_PRIME_APP"})
+        elif self.path == "/":
+            self._send_json({"message": "THALOS PRIME http.server endpoint"})
+        else:
+            self._send_json({"error": "not found"}, status_code=404)
+
+
+def run_server(host="0.0.0.0", port=8080):
+    with socketserver.TCPServer((host, port), ThalosPrimeRequestHandler) as httpd:
+        logger.info("THALOS_PRIME_APP http.server listening on %s:%d", host, port)
+        httpd.serve_forever()
+
+
+if __name__ == "__main__":
+    run_server()
 ```
 
 #### Level 3: Integration Layers
