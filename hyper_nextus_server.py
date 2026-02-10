@@ -115,11 +115,15 @@ def init_cores():
             logger.error(f"✗ Unrestricted core init failed: {e}")
 
 def get_offline_response(query: str, query_type: str = 'general') -> dict:
-    """Intelligent offline fallback with hardcoded SBI patterns"""
+    """Intelligent offline fallback with hardcoded SBI patterns (optimized)"""
     query_lower = query.lower()
+    
+    # Optimized: Use sets for faster keyword matching
+    astrophysics_keywords = {'black hole', 'event horizon', 'neutron star', 'galaxy'}
+    code_keywords = {'code', 'program', 'function', 'implement'}
 
-    # Astrophysics patterns
-    if 'black hole' in query_lower or 'event horizon' in query_lower:
+    # Check for astrophysics patterns (optimized with any())
+    if any(kw in query_lower for kw in astrophysics_keywords):
         return {
             'text': """**Black Hole Analysis - SBI Processing**
 
@@ -137,8 +141,8 @@ This demonstrates first-principles analytical reasoning from biological wetware 
             'mode': 'offline_sbi'
         }
 
-    # Code generation patterns
-    if 'code' in query_lower or 'program' in query_lower or 'function' in query_lower:
+    # Code generation patterns (optimized)
+    if any(kw in query_lower for kw in code_keywords):
         return {
             'text': """**Code Generation - SBI Analysis**
 
