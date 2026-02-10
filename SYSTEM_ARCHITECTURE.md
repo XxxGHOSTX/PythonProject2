@@ -652,7 +652,7 @@ curl http://localhost:5001/api/health
 
 # TPCA health
 curl http://localhost:5002/api/health
-# Expected: {"status": "online", "version": "8.0"}
+# Expected: {"status": "healthy", "agent": "TPCA", "version": "8.0"}
 
 # HYPER-NEXTUS health
 curl http://localhost:5000/api/health
