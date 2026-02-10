@@ -66,7 +66,7 @@ THALOS PRIME is a multi-tier synthetic biological intelligence system with a dis
 |-------------|------|---------|-----------------|---------------|
 | **BIOCORE API** | 5001 | Neural organoid processing | `python biocomputing_api_server.py --port 5001` | `/api/biocompute`, `/api/health`, `/api/status`, `/api/reset` |
 | **TPCA API** | 5002 | Autonomous code generation | `python tpca_api_server.py --port 5002` | `/api/generate`, `/api/health`, `/api/status` |
-| **HYPER-NEXTUS** | 5000 | Unified integration hub | `python hyper_nextus_server.py --port 5000` | `/api/query`, `/api/code`, `/api/unrestricted` |
+| **HYPER-NEXTUS** | 5000 | Unified integration hub | `python hyper_nextus_server.py 5000` | `/api/sbi/query`, `/api/code/generate` |
 | **Deploy Server** | 8080 | HTML interface hosting | `python deploy_server.py` | `/`, `/thalos_prime.html`, `/thalos_celestial.html` |
 | **THALOS PRIME APP** | 8888 | Standalone neural interface | `python THALOS_PRIME_APP.py` | `/`, `/api/query`, `/api/status` |
 
