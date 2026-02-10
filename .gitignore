@@ -27,5 +27,15 @@ dist/
 build/
 *.egg-info/
 
-# Integration reports (auto-generated)
+# Auto-generated integration reports (51 cycles)
 integration_report_cycle_*.json
+
+# THALOS cache and data directories
+.thalos_cache/
+.thalos_logs/
+.thalos_data/
+
+# Temporary files
+*.tmp
+*.temp
+/tmp/
